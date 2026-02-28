@@ -24,7 +24,4 @@ title: "Ride Your Own Ride"
 
 <p>Practicing good horsemanship means doing justice to your horse.  You must maintain the trust he has placed in you.  To do that, you have to be fair, consistent, and "ride your own ride."</p>
 
-	
-			
-	</pusually>
 </div>
