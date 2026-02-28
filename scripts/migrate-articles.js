@@ -18,8 +18,8 @@ const ARTICLES = [
     '/Articles/JudgesQandA.htm'
 ];
 
-const OUTPUT_DIR = path.join(__dirname, 'src', 'articles');
-const IMAGES_DIR = path.join(__dirname, 'src', 'assets', 'images');
+const OUTPUT_DIR = path.join(__dirname, '..', 'src', 'articles');
+const IMAGES_DIR = path.join(__dirname, '..', 'src', 'assets', 'images');
 
 // Ensure output directories exist
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
