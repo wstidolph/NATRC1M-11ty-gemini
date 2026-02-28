@@ -20,7 +20,7 @@ title: "Ride Your Own Ride"
 
 <p>Often the judge will tell you to "go up the hill, around the tree, and come back down."  Some judges want to see if you pick the best way for your horse.  Some want to see a specific route.  If you're not sure, ASK.  The obstacle, not the instructions, is the test.</p>
 
-<pusually the="" judges="" will="" mention="" during="" first="" briefing="" that="" if="" any="" obstacle="" seems="" to="" be="" beyond="" ability="" of="" you="" or="" your="" horse,="" can="" decline="" do="" it.="" for="" sake="" competition,="" lose="" points="" (one="" more="" than="" worst="" one="" who="" did="" obstacle),="" but="" in="" long-run,="" it="" would="" better="" horse.="" <="" p="">
+<p>Usually the judges will mention during the first briefing that if any obstacle seems to be beyond the ability of you or your horse, you can decline to do it. For the sake of the competition, you lose points (one more than the worst one who did the obstacle), but in the long-run, it would be better for your horse.</p>
 
 <p>Practicing good horsemanship means doing justice to your horse.  You must maintain the trust he has placed in you.  To do that, you have to be fair, consistent, and "ride your own ride."</p>
 
