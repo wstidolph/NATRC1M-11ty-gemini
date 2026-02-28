@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("NATRC Region 1") }}</title>
+    <meta name="description" content="{{ description | default('North American Trail Ride Conference Region 1: Competitive Trail Riding') }}">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <h1 class="logo"><a href="/">NATRC Region 1</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/news/">News</a></li>
+                    <li><a href="/ride-schedule/">Ride Schedule</a></li>
+                    <li><a href="/stories-articles/">Stories & Articles</a></li>
+                    <li><a href="/judges-corner/">Judge's Corner</a></li>
+                    <li><a href="/gallery/">Gallery</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

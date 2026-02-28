@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: NATRC Region 1 | Welcome
+---
+<div class="hero">
+  <h2>Welcome to NATRC Region 1</h2>
+  <p>North American Trail Ride Conference - Competitive Trail Riding</p>
+</div>
+
+<div class="content-grid" style="margin-bottom: 40px;">
+  <div class="card card-featured">
+    <h3>About NATRC</h3>
+    <p>We invite you to join us! Competitive Trail Riding with the NATRC is designed to test the horse and rider as a team. Come ride with us on beautifully marked trails across Region 1.</p>
+    <a href="/stories-articles/" class="btn btn-primary">Learn more about us</a>
+  </div>
+</div>
+
+<h3 style="margin-bottom: 20px; color: var(--color-primary-dark);">Latest News & Announcements</h3>
+<div class="content-grid">
+  {%- for post in collections.news | reverse -%}
+    {% if loop.index0 < 3 %}
+    <div class="card">
+      <h4 style="margin-bottom: 10px;"><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
+      <p style="color: var(--color-primary); font-weight: 600; font-size: 0.85em; margin-bottom: 10px;">{{ post.date | dateFilter }}</p>
+      <p style="font-size: 0.95em;">{{ post.data.summary }}</p>
+      <a href="{{ post.url }}" class="btn btn-secondary" style="margin-top: 15px; font-size: 0.9em; padding: 6px 12px;">Read Update</a>
+    </div>
+    {% endif %}
+  {%- endfor -%}
+</div>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/news/" class="btn btn-primary">View All News</a>
+</div>
