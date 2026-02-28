@@ -25,9 +25,9 @@ title: Judge's Corner
     <h3>Articles about Judging</h3>
     <p>Jamie Dieterich, a Region 1 Horsemanship Judge, has provided us with high-level articles about what judges are looking for:</p>
     <ul>
-      <li><a href="https://www.natrcregion1.org/Articles/Judging_Explained.htm" target="_blank">Horsemanship Judging Explained</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/Ride_Your_Own_Ride.htm" target="_blank">Ride Your Own Ride</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/JudgesQandA.htm" target="_blank">Judging Q and A</a></li>
+      <li><a href="/articles/Judging_Explained/" target="_blank">Horsemanship Judging Explained</a></li>
+      <li><a href="/articles/Ride_Your_Own_Ride/" target="_blank">Ride Your Own Ride</a></li>
+      <li><a href="/articles/JudgesQandA/" target="_blank">Judging Q and A</a></li>
     </ul>
   </div>
 

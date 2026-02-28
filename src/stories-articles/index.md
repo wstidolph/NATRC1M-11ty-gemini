@@ -12,26 +12,26 @@ title: Stories & Articles
     <h3>New Rider Information</h3>
     <p>This section has information that might be useful to you as you gear up for a ride: answers to frequently asked questions and answers to infrequently-asked-questions-that-should-be-asked-more-often, first-ride stories, "how-tos", etc.</p>
     <ul>
-      <li><a href="https://www.natrcregion1.org/Articles/ADayInTheLife.htm" target="_blank">A Day in the Life of a NATRC Ride</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/Ride_Your_Own_Ride.htm" target="_blank">Ride Your Own Ride</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/Judging_Explained.htm" target="_blank">Horsemanship Judging Explained</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/taking_juniors_to_natrc_rides.htm" target="_blank">Taking Juniors to NATRC Rides</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/NATRC_101.htm" target="_blank">NATRC 101</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/FAQ.htm" target="_blank">Frequently Asked Questions</a></li>
+      <li><a href="/articles/ADayInTheLife/" target="_blank">A Day in the Life of a NATRC Ride</a></li>
+      <li><a href="/articles/Ride_Your_Own_Ride/" target="_blank">Ride Your Own Ride</a></li>
+      <li><a href="/articles/Judging_Explained/" target="_blank">Horsemanship Judging Explained</a></li>
+      <li><a href="/articles/taking_juniors_to_natrc_rides/" target="_blank">Taking Juniors to NATRC Rides</a></li>
+      <li><a href="/articles/NATRC_101/" target="_blank">NATRC 101</a></li>
+      <li><a href="/articles/FAQ/" target="_blank">Frequently Asked Questions</a></li>
       <li><a href="https://www.natrcregion1.org/Articles/RIDE%20CHECKLIST.pdf" target="_blank">Things to bring to a NATRC ride (PDF)</a></li>
     </ul>
   </div>
 
   <div class="card" style="grid-column: 1 / -1;">
     <h3>Ride Stories</h3>
-    <p>Catherine de la Cruz finished her first NATRC ride at Jackson Forest. At age 74. <a href="https://www.natrcregion1.org/Articles/Differently-abledRider.htm" target="_blank">Here's her story.</a></p>
+    <p>Catherine de la Cruz finished her first NATRC ride at Jackson Forest. At age 74. <a href="/articles/Differently-abledRider/" target="_blank">Here's her story.</a></p>
     <ul>
       <li><a href="http://wp.me/p2kYH8-3c" target="_blank">2012 Round Valley blog entry (Ellis)</a></li>
       <li><a href="http://fullheartsfarm.wordpress.com/2012/06/08/cowboy-campers/" target="_blank">Cowboy Camp, 2012 (Ellis)</a></li>
       <li><a href="http://fullheartsfarm.wordpress.com/2012/06/06/slow-horse-in-the-winners-circle/" target="_blank">Mt Diablo Spring Ride (Mary-Ellis Arnold)</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/MtDiablo2012.htm" target="_blank">Mt Diablo Spring Ride 2012</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/CowboyCampInaugural.htm" target="_blank">Inaugural Cowboy Camp 2011</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/CMDTRA_story.htm" target="_blank">The Story of the first Diablo Springs ride in 1941</a></li>
+      <li><a href="/articles/MtDiablo2012/" target="_blank">Mt Diablo Spring Ride 2012</a></li>
+      <li><a href="/articles/CowboyCampInaugural/" target="_blank">Inaugural Cowboy Camp 2011</a></li>
+      <li><a href="/articles/CMDTRA_story/" target="_blank">The Story of the first Diablo Springs ride in 1941</a></li>
     </ul>
   </div>
 
