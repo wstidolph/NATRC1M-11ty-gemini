@@ -11,12 +11,12 @@ title: Information Links
   <div class="card">
     <h3>Websites</h3>
     <ul>
-      <li><a href="http://www.natrc.org/" target="_blank">NATRC National Site</a></li>
-      <li><a href="http://www.natrc2.org/" target="_blank">NATRC Region 2</a></li>
-      <li><a href="http://www.natrc3.org/" target="_blank">NATRC Region 3</a></li>
-      <li><a href="http://www.natrc4.org/" target="_blank">NATRC Region 4</a></li>
-      <li><a href="http://www.natrc5.org/" target="_blank">NATRC Region 5</a></li>
-      <li><a href="http://www.natrcregion6.org/" target="_blank">NATRC Region 6</a></li>
+      <li><a href="https://www.natrc.org/" target="_blank">NATRC National Site</a></li>
+      <li><a href="https://www.natrc2.org/" target="_blank">NATRC Region 2</a></li>
+      <li><a href="https://www.natrc3.org/" target="_blank">NATRC Region 3</a></li>
+      <li><a href="https://www.natrc4.org/" target="_blank">NATRC Region 4</a></li>
+      <li><a href="https://www.natrc5.org/" target="_blank">NATRC Region 5</a></li>
+      <li><a href="https://www.natrcregion6.org/" target="_blank">NATRC Region 6</a></li>
       <li><a href="http://www.whitedogranch.com/" target="_blank">White Dog Ranch</a>, a Region 1 resource</li>
     </ul>
   </div>
