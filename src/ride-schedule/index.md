@@ -17,6 +17,6 @@ title: Ride Schedule
 
   <div class="card">
     <h3>Which Division is Right for You?</h3>
-    <p><strong>Ride Type Translation:</strong> When you see "A" O/CP/N and "B" O/CP/N/L in the ride descriptions, that means there's a two day ride with Open, CP and Novice divisions, and a one day ride on Saturday for Open, CP, Novice and Leisure divisions. There's more info about the divisions in the [Frequently Asked Questions](/stories-articles/) section of the website.</p>
+    <p><strong>Ride Type Translation:</strong> When you see "A" O/CP/N and "B" O/CP/N/L in the ride descriptions, that means there's a two day ride with Open, CP and Novice divisions, and a one day ride on Saturday for Open, CP, Novice and Leisure divisions. There's more info about the divisions in the <a href="/articles/FAQ/" target="_blank">Frequently Asked Questions</a> section of the website.</p>
   </div>
 </div>
