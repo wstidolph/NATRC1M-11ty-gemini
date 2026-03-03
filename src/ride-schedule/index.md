@@ -15,7 +15,7 @@ title: Ride Schedule
     <p>Most of our events will offer Leisure rides. A description of what's involved is  <a href="https://natrc.org/leisure-division" target="_blank" rel="noopener noreferrer">here</a>.</p>
   </div>
 
-  <div class="card">
+  <div class="card card-featured">
     <h3>Which Division is Right for You?</h3>
     <p><strong>Ride Type Translation:</strong> When you see "A" O/CP/N and "B" O/CP/N/L in the ride descriptions, that means there's a two day ride with Open, CP and Novice divisions, and a one day ride on Saturday for Open, CP, Novice and Leisure divisions. There's more info about the divisions in the <a href="/articles/FAQ/" target="_blank" rel="noopener noreferrer">Frequently Asked Questions</a> section of the website.</p>
   </div>
