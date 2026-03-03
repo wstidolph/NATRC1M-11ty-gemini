@@ -113,7 +113,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/9WpbjHQ4kfp8C6KQ7">Cool Canyon 2025</option>
       <option value="https://photos.app.goo.gl/ACVBSgobpxihGRm49">Cool Canyon 2024</option>
       <option value="https://photos.app.goo.gl/6yrY45fSRt9RB4GG7">Cool Canyon 2022</option>
@@ -141,7 +141,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/VjtGCE7rPYijaaQE8">CMDTRA 2025</option>
       <option value="https://photos.google.com/share/AF1QipMyWmEkgOJPUKGB7ZLj54bGwevuaYb4rw1_HLw9za1zw5BqHIlR7JE8e6gvGH3yfQ">CMDTRA 2025 - Linda</option>
       <option value="https://photos.app.goo.gl/z3CxHympUzJqzFkK6">CMDTRA 2024-1</option>
@@ -175,7 +175,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.google.com/album/AF1QipNHoS3aiZYMBYupINAylQKCyuxEpKRMum4BGQT1">Cowboy Camp 2024</option>
       <option value="https://photos.app.goo.gl/moD3crnrkCrmo1EB7">Cowboy Camp 2019</option>
       <option value="https://photos.app.goo.gl/AW5fjCSZeZJx38vI2">Cowboy Camp 2018</option>
@@ -207,7 +207,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/B7wZK1GJd9CvrEDf7">Eel River 2025</option>
       <option value="https://photos.app.goo.gl/wtqTJdGb3hHZvwpB8">Eel River 2024-1</option>
       <option value="https://photos.app.goo.gl/Y8Sy4qi19v4JQr3C8">Eel River 2024-2</option>
@@ -230,7 +230,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/ZUAWQAwTtCZdsf6p8">Fall Fiesta 2018</option>
     </select>
   </div>
@@ -247,7 +247,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://goo.gl/photos/z4yTqpSvFVoPyqa1A">Georgetown 2014</option>
     </select>
   </div>
@@ -277,7 +277,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/RRF76wiGEspviuVa8">Jackson Forest 2025</option>
       <option value="https://photos.app.goo.gl/yqsSB6Xojy2Fh6vX9">Jackson Forest 2024</option>
       <option value="https://photos.app.goo.gl/6zHdXqtJs7fpWWACA">Jackson Forest 2023-1</option>
@@ -308,7 +308,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/DpL3HFUhNYnNoL5n7">Lake Mendocino 2022</option>
       <option value="https://goo.gl/photos/7qwZsaZYX8fYq2V76">Lake Mendocino 2012</option>
     </select>
@@ -336,7 +336,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/16cAfqPLPfzE266k6">Round Valley 2023</option>
       <option value="https://photos.app.goo.gl/1NHnwNZHh61pmGLE6">Round Valley 2021</option>
       <option value="https://photos.app.goo.gl/6aTMrzEoMQkQBDfr7">Round Valley 2019</option>
@@ -380,7 +380,7 @@ title: Gallery
       </ul>
     </div>
     <select class="mobile-select" onchange="if(this.value) window.open(this.value, '_blank');">
-      <option value="">Select a Gallery...</option>
+      <option value="" disabled selected>Select a Gallery...</option>
       <option value="https://photos.app.goo.gl/V5Xrqa9rSLMxMn6DA">2025 Convention Luncheon and Awards</option>
       <option value="https://photos.app.goo.gl/GTxaEAhLDyV7oEr16">2024 Convention Luncheon and Awards</option>
       <option value="https://photos.app.goo.gl/B3ET6tJUMG2NqUrt9">2023 Convention Luncheon and Awards</option>
