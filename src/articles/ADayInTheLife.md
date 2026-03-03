@@ -3,27 +3,27 @@ layout: base.njk
 title: "A Day in the Life of a NATRC Ride"
 ---
 
-<div class="card" style="margin-top: 20px;">
+<div class="card card-article">
 
 
 			
 			<h2>A Day in the Life of a NATRC Ride</h2>
 			<h3>by Laura Harvey</h3>
 
-<img align="left" src="/assets/images/BoPortrait-1.jpg" alt="Photo by Donna Stidolph" style="margin-right: 10px; max-width: 100%; height: auto;" title="Photo by Donna Stidolph">
+<img class="img-float-left" src="/assets/images/BoPortrait-1.jpg" alt="Portrait of a horse named Bo." title="Photo by Donna Stidolph">
 
 	<p>NATRC rides are wonderful opportunities to make new friends, spend time with your horse, improve your horsemanship, and have fun--all while enjoying beautiful scenery.  But what is a ride actually like?  What should you expect?  Welcome to a "Day in the Life of a NATRC Ride!"</p>
  
-<h3 style="text-align:left">Before the Ride:</h3>
+<h3>Before the Ride:</h3>
 <p>Rides are held across the USA and hosted by individual NATRC regions.  Rides are open to NATRC members and non-members alike.  You can find a ride near you by visiting the national NATRC website, and/or the websites of individual regions.  Finding the yearly "Ride Schedule" should be easy.  Links from the calendar/schedule will direct you to contact information to enter a specific ride.  You must register for each ride individually.  It is extremely helpful to ride management if you register as early as possible. </p>
  
 <p>What should you bring?  Besides the obvious (horse, horse trailer, truck, and yourself!), this helpful packing list will get you started.</p>
  
-<h3 style="text-align:left">Tack:</h3>
+<h3>Tack:</h3>
 
 <p>You don't need any special tack to compete in a NATRC ride.  The only requirement is that you use a saddle (any kind), and your tack is within the bounds of good horsemanship.  Competitors ride with all different kinds of saddles, headstalls, bits, etc.  As long as your gear fits you and your equine, it's fine.  Do take the time to double-check the fit and condition of your tack--just like people, horses can change shape over time, so what used to fit might not fit now.  Twenty miles with a shoulder-pinching saddle can really put a damper on your equine's day.  Also make sure your tack is in good condition.  You don't want a girth, latigo, breast collar, cheek strap or any other important piece of equipment to break on the trail, especially at a bad moment.</p>	
 
-<img border="null" align="right" src="/assets/images/BOB_1113-Corrected-2.jpg" alt="Photo by Bob Dorsey" style="margin-left: 5px; max-width: 100%; height: auto;" title="Photo by Bob Dorsey">
+<img class="img-float-right" src="/assets/images/BOB_1113-Corrected-2.jpg" alt="Rider wearing a decorated helmet." title="Photo by Bob Dorsey">
 
 <p>Junior riders (any rider under the age of 18) are required to wear an ASTM/SEI, Snell, or approved equal equestrian riding helmet.  Adult riders are not required to wear helmets, but it is strongly encouraged.  Many kinds of head-gear provide useful sun-shade, but only a proper helmet has a chance of protecting your tender brain.  Give your loved ones a break and protect your noggin. (Decorating your helmet is optional.) </p>
 

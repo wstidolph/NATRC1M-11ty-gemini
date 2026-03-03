@@ -3,12 +3,12 @@ layout: base.njk
 title: "Ride Your Own Ride"
 ---
 
-<div class="card" style="margin-top: 20px;">
+<div class="card card-article">
 
 
 			
-			<h2 align="center">Ride Your Own Ride</h2>
-			<h3 align="center">by Jamie K. Dieterich, 2012</h3>
+			<h2 class="text-center">Ride Your Own Ride</h2>
+			<h3 class="text-center">by Jamie K. Dieterich, 2012</h3>
 			
 <p>One of the most important things you can do for your horse and for yourself is to "ride your own ride."  We hear that many times, but what does it mean?  </p>
 
