@@ -36,6 +36,12 @@ title: Stories & Articles
   </div>
 
   <div class="card">
+    <h3>Region 1 Remembrances</h3>
+    <p>Honoring the riders, friends, and legends of NATRC Region 1.</p>
+    <a href="/articles/Remembrances/" class="btn btn-primary" style="margin-top: 10px;">View Remembrances</a>
+  </div>
+
+  <div class="card">
     <h3>Trail News Archives</h3>
     <ul>
       <li><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_Summer_2020.pdf" target="_blank">Summer 2020</a></li>

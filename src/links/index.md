@@ -22,6 +22,12 @@ title: Information Links
   </div>
 
   <div class="card">
+    <h3>Region 1 Remembrances</h3>
+    <p>Read stories and memories covering our trail legends.</p>
+    <a href="/articles/Remembrances/" class="btn btn-primary" style="margin-top: 10px;">View Remembrances</a>
+  </div>
+
+  <div class="card">
     <h3>NATRC Sponsors</h3>
     <ul>
       <li><a href="http://www.equisure-inc.com/" target="_blank">Equisure</a></li>
