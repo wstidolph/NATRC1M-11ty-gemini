@@ -32,7 +32,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <li>Calero Park, visit #2 - 78 degrees</li>
 <li>Mt Madonna, in the hills above Gilroy, visit #1 - 72 degrees</li>
 <li>Mt Madonna, visit #2 - 78 degrees</li>
-<li>t Madonna, visit #3 - 76 degrees</li>
+<li>Mt Madonna, visit #3 - 76 degrees</li>
 <li>Bonny Doon. I'm whinging to my friend Judy about not being able to find heat to train in. She says, "Come on up to our place - it's 93 degrees today!"  I throw Sunny in the trailer the next morning and drive to Bonny Doon.  It's 65 degrees. We rode for 13 miles and never took our sweaters off.</li>
 </ul>
 
