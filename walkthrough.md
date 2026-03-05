@@ -8,12 +8,14 @@ The old static NATRC Region 1 website has been successfully modernized using Ele
 ### 2.1 Technical Architecture
 - **Static Site Generator:** Implemented `eleventy` to manage the build pipeline.
 - **Templating:** Switched to Nunjucks (`.njk`) for layout wrappers and partials.
-- **Styling:** Generated a beautiful, responsive, and mobile-first CSS architecture inside `src/assets/css/style.css` which leverages CSS hardware variables, a vibrant color theme, card-based layouts, and smooth micro-animations.
+- **Styling:** Generated a beautiful, responsive, and mobile-first CSS architecture inside `src/assets/css/style.css` which leverages CSS variables, a vibrant color theme, card-based layouts, and smooth micro-animations.
+- **Dynamic Navigation:** Implemented a data-driven navigation system using `src/_data/navigation.json`. This allows for easy menu updates and automatic "active page" highlighting using the `aria-current="page"` attribute.
 - **Build Output:** Running `npm run build` cleanly outputs the compiled site to `_site/`.
 
 ### 2.2 Content Migration
-- **Home Page:** Transformed `index.md` to use dynamic calls and removed cluttered legacy hardcoding.
+- **Home Page:** Transformed `index.njk` to use dynamic calls and removed cluttered legacy hardcoding.
 - **Full Section Migration:** Thoroughly migrated all legacy textual and link content into markdown files for the core navigation paths (`/ride-schedule/`, `/gallery/`, `/stories-articles/`, `/judges-corner/`, `/contact/`, `/links/`).
+- **Remembrances Page:** Implemented a dedicated and interactive Remembrances page (`/articles/Remembrances/`) featuring a mobile-responsive "card" design with expandable details for various legendary figures in Region 1 history.
 
 ### 2.3 New Feature: News Section
 - **Collection Setup:** Introduced an Eleventy Collection for News. 
@@ -26,16 +28,20 @@ The old static NATRC Region 1 website has been successfully modernized using Ele
 ├── package.json
 ├── eleventy.config.js
 ├── src/
+│   ├── _data/
+│   │   └── navigation.json   # Global site navigation items
 │   ├── _includes/
-│   │   └── base.njk          # Master HTML wrapper
+│   │   └── base.njk          # Master HTML wrapper with dynamic nav
 │   ├── assets/
 │   │   └── css/style.css     # Premium responsive styles
 │   ├── news/
 │   │   ├── index.njk         # Automated News Feed
 │   │   ├── news.json         # Metadata tagging all enclosed files
 │   │   └── [...].md          # Individual news posts
-│   ├── index.md              # Dynamic Homepage
-│   └── */index.md            # Placeholder directories for all navigation sections
+│   ├── articles/
+│   │   └── Remembrances.md   # Interactive historical memorials
+│   ├── index.njk             # Dynamic Homepage
+│   └── */index.md            # Markdown content for all navigation sections
 └── _site/                    # Compiled Output
 ```
 
@@ -57,5 +63,6 @@ The output will be generated inside the `_site/` directory. These files can be e
 
 ## 5. Verification
 - The Eleventy build was executed via `npm run build` and succeeded with zero errors.
-- 12 individual HTML files were flawlessly rendered from Nunjucks and Markdown processing.
+- 24 individual HTML files were flawlessly rendered from Nunjucks and Markdown processing.
 - The `dateFilter` custom logic was verified, successfully replacing un-renderable javascript expressions in Markdown files.
+- Dynamic navigation was confirmed working, with correct "active" state classes applied to links.

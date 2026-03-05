@@ -24,6 +24,10 @@
         "url": "/gallery/"
     },
     {
+        "label": "Remembrances",
+        "url": "/articles/Remembrances/"
+    },
+    {
         "label": "Links",
         "url": "/links/"
     },
