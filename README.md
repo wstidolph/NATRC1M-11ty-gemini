@@ -1,5 +1,5 @@
 # Purpose
-To use new-to-use agent technologies
+To use new-to-me agent technologies
 ## Example
 Selected migrating the NATRC Region 1 website as the task; see the [PRD](PRD.md)
 ## Status
