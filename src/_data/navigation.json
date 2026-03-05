@@ -1,0 +1,34 @@
+[
+    {
+        "label": "Home",
+        "url": "/"
+    },
+    {
+        "label": "News",
+        "url": "/news/"
+    },
+    {
+        "label": "Ride Schedule",
+        "url": "/ride-schedule/"
+    },
+    {
+        "label": "Stories & Articles",
+        "url": "/stories-articles/"
+    },
+    {
+        "label": "Judge's Corner",
+        "url": "/judges-corner/"
+    },
+    {
+        "label": "Gallery",
+        "url": "/gallery/"
+    },
+    {
+        "label": "Links",
+        "url": "/links/"
+    },
+    {
+        "label": "Contact",
+        "url": "/contact/"
+    }
+]

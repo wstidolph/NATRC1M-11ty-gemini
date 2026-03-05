@@ -14,14 +14,9 @@
             <h1 class="logo"><a href="/">NATRC Region 1</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/news/">News</a></li>
-                    <li><a href="/ride-schedule/">Ride Schedule</a></li>
-                    <li><a href="/stories-articles/">Stories & Articles</a></li>
-                    <li><a href="/judges-corner/">Judge's Corner</a></li>
-                    <li><a href="/gallery/">Gallery</a></li>
-                    <li><a href="/links/">Links</a></li>
-                    <li><a href="/contact/">Contact</a></li>
+                {%- for item in navigation %}
+                    <li><a href="{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a></li>
+                {%- endfor %}
                 </ul>
             </nav>
         </div>
