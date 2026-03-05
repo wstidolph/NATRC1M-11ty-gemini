@@ -24,24 +24,33 @@ The old static NATRC Region 1 website has been successfully modernized using Ele
 
 ## 3. Directory Structure
 ```text
-/home/wstidolph/dev/nr1m
+NATRC1M-11ty-gemini/
 ├── package.json
 ├── eleventy.config.js
+├── scripts/
+│   └── migrate-articles.js   # Script for migrating legacy content
 ├── src/
 │   ├── _data/
 │   │   └── navigation.json   # Global site navigation items
 │   ├── _includes/
 │   │   └── base.njk          # Master HTML wrapper with dynamic nav
+│   ├── articles/
+│   │   ├── Remembrances.md   # Detailed memorials
+│   │   └── [...].md          # Other migrated articles and stories
 │   ├── assets/
-│   │   └── css/style.css     # Premium responsive styles
+│   │   ├── css/style.css     # Premium responsive styles
+│   │   └── images/           # Site images
 │   ├── news/
 │   │   ├── index.njk         # Automated News Feed
-│   │   ├── news.json         # Metadata tagging all enclosed files
+│   │   ├── news.json         # News section metadata
 │   │   └── [...].md          # Individual news posts
-│   ├── articles/
-│   │   └── Remembrances.md   # Interactive historical memorials
-│   ├── index.njk             # Dynamic Homepage
-│   └── */index.md            # Markdown content for all navigation sections
+│   ├── contact/index.md      # Contact information
+│   ├── gallery/index.md      # Photo galleries
+│   ├── judges-corner/index.md # Judges resources
+│   ├── links/index.md        # External resources
+│   ├── ride-schedule/index.md # Annual ride schedule
+│   ├── stories-articles/index.md # Migrated stories index
+│   └── index.njk             # Dynamic Homepage
 └── _site/                    # Compiled Output
 ```
 
