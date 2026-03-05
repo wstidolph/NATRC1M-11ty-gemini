@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title | default("NATRC Region 1") }}</title>
-    <meta name="description" content="{{ description | default('North American Trail Ride Conference Region 1: Competitive Trail Riding') }}">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <meta
+      name="description"
+      content="{{ description | default('North American Trail Ride Conference Region 1: Competitive Trail Riding') }}"
+    >
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    >
+  </head>
+  <body>
     <header class="site-header">
-        <div class="container header-container">
-            <h1 class="logo"><a href="/">NATRC Region 1</a></h1>
-            <nav class="main-nav">
-                <ul>
-                {%- for item in navigation %}
-                    <li><a href="{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a></li>
-                {%- endfor %}
-                </ul>
-            </nav>
-        </div>
+      <div class="container header-container">
+        <h1 class="logo"><a href="{{ '/' | url }}">NATRC Region 1</a></h1>
+        <nav class="main-nav">
+          <ul>
+            {%- for item in navigation %}
+              <li>
+                <a
+                  href="{{ item.url | url }}"
+                  {% if page.url == item.url %}
+                    aria-current="page"
+                  {% endif %}
+                >{{ item.label }}</a>
+              </li>
+            {%- endfor %}
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="site-main container">
-        {{ content | safe }}
+      {{ content | safe }}
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
