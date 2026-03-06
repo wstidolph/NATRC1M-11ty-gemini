@@ -11,7 +11,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_a.jpg" width="350" height="263" alt="Sunny and Me" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_a.jpg' | url }}" width="350" height="263" alt="Sunny and Me" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Sunny and Me</figcaption>
 </figure>
 
@@ -22,7 +22,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>Our first setback was that Tango and Laura, our usual riding partners, were doing Competitive Pleasure.  Tango hadn't gotten out as much as he needed to this Spring, so we were on our own, or as much as you can be on a NATRC ride.  Dang!  But we pulled up our socks and went anyway.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_b.jpg" width="300" height="225" alt="Lara and Tango" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_b.jpg' | url }}" width="300" height="225" alt="Lara and Tango" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Laura and Tango</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_c.jpg" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_c.jpg' | url }}" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Vicki Boicelli and Her Guy. Handsome, eh?</figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_d.jpg" width="300" height="225" alt="Karlie and Caeli" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_d.jpg' | url }}" width="300" height="225" alt="Karlie and Caeli" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Karlie and Caeli - We Followed Them Slavishly</figcaption>
 </figure>
 
@@ -71,7 +71,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_e.jpg" width="300" height="225" alt="Angie and Beau" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_e.jpg' | url }}" width="300" height="225" alt="Angie and Beau" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Angie and Beau, Our Models and Nemeses for the Rest of our CTR Career</figcaption>
 </figure>
 
@@ -81,21 +81,21 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_f.jpg" width="300" height="225" alt="The Juniors" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_f.jpg' | url }}" width="300" height="225" alt="The Juniors" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">The Juniors</figcaption>
 </figure>
 
 <p>Our first real break was at lunch, which is in a pasture at a beautiful ranch.  Ride management had brought hay out, but there was plenty of grass for grazing, too. We had a 45 minute break, so we could pull tack and sit down for a few minutes.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_g.jpg" width="300" height="225" alt="Lunch" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_g.jpg' | url }}" width="300" height="225" alt="Lunch" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Lunch</figcaption>
 </figure>
 
 <p>And after that, it's a blank again, until the last about four miles.  At that point, the trail sort of flattened out and we went for it.  We were either cantering or doing an extended trot for the entire thing, except where we had to cross two streams, and for the last quarter mile into camp.  I have to say it was exhilarating and Sunny seemed to like it, too.  She got a little excited when we were cantering and somehow got into the lead, but she responded to my shut-down and we let the rest of the group pass and took up our Regular Station at the back, where she settled down.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_h.jpg" width="300" height="225" alt="The Mule" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_h.jpg' | url }}" width="300" height="225" alt="The Mule" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">The Mule</figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_i.jpg" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_i.jpg' | url }}" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">How to Trot Out Your Horse: the Faster the Better!</figcaption>
 </figure>
 
