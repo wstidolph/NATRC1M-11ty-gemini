@@ -27,6 +27,9 @@ The old static NATRC Region 1 website has been successfully modernized using Ele
 NATRC1M-11ty-gemini/
 ├── package.json
 ├── eleventy.config.js
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # GitHub Actions CI/CD for Pages
 ├── scripts/
 │   └── migrate-articles.js   # Script for migrating legacy content
 ├── src/
@@ -68,7 +71,13 @@ To build the site for production deployment:
 npm run build
 ```
 
-The output will be generated inside the `_site/` directory. These files can be easily dragged-and-dropped via FTP or linked to a continuous deployment provider like GitHub Pages, Vercel, or Netlify.
+The output will be generated inside the `_site/` directory.
+
+### Continuous Deployment (GitHub Pages)
+The project is configured with a GitHub Actions workflow that automatically builds and deploys the site to GitHub Pages whenever changes are pushed to the `main` branch.
+- **Workflow file:** `.github/workflows/deploy.yml`
+- **Permissions:** Requires `pages: write` and `id-token: write` permissions.
+- **Environment:** Deploys to the `github-pages` environment.
 
 ## 5. Verification
 - The Eleventy build was executed via `npm run build` and succeeded with zero errors.

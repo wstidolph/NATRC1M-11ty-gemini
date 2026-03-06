@@ -24,7 +24,7 @@ title: Information Links
   <div class="card">
     <h3>Region 1 Remembrances</h3>
     <p>Read stories and memories covering our trail legends.</p>
-    <a href="/articles/Remembrances/" class="btn btn-primary" style="margin-top: 10px;">View Remembrances</a>
+    <a href="{{ '/articles/Remembrances/' | url }}" class="btn btn-primary" style="margin-top: 10px;">View Remembrances</a>
   </div>
 
   <div class="card">

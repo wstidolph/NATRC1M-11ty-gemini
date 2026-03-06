@@ -26,6 +26,7 @@ module.exports = function (eleventyConfig) {
         markdownTemplateEngine: "njk",
         htmlTemplateEngine: "njk",
         dataTemplateEngine: "njk",
+        pathPrefix: "/NATRC1M-11ty-gemini/",
         dir: {
             input: "src",
             output: "_site",
