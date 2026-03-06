@@ -10,7 +10,7 @@ title: "NATRC 101 at Point Reyes, April 16-17, 2011"
 			<h2>NATRC 101 at Point Reyes, April 16-17, 2011</h2>
 			<h3>by Laura Harvey, Region 1, proprietor of Horsefeathers.biz - Jewelry for your horse!</h3>
 
-<p class="centeredImage"><img src="/assets/images/Lee@Reyes_sm.jpg" alt="NATRC 101 at Point Reyes" title="NATRC 101 at Point Reyes" style="max-width: 100%; height: auto;"></p>
+<p class="centeredImage"><img src="{{ '/assets/images/Lee@Reyes_sm.jpg' | url }}" alt="NATRC 101 at Point Reyes" title="NATRC 101 at Point Reyes" style="max-width: 100%; height: auto;"></p>
 <p class="centeredImage">To see more of Laura's Pt. Reyes photos, go to the <a href="http://www.stidolph.biz/NATRC/region_1_gallery/main.php?g2_itemId=621">NATRC 101 photo album</a>.</p>			
 	<p>I'm an addict.  I admit it.  If there's an opportunity to camp with my horse and ride in the great outdoors, I take it.  Of the many places I love to ride, Point Reyes National Seashore is my favorite.  So when Kay Lieberknecht decided to organize an informal, "introduction to NATRC" camp at Point Reyes, how could I refuse?  </p>
       <p>More importantly, why would I want to?</p>

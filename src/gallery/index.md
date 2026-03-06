@@ -83,7 +83,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Arnold Rim</h3>
     <div class="photo-container">
-      <img src="/assets/images/ArnoldRim_head.gif" alt="Arnold Rim">
+      <img src="{{ '/assets/images/ArnoldRim_head.gif' | url }}" alt="Arnold Rim">
     </div>
     <p class="event-desc">A scenic ride along the breathtaking Arnold Rim Trail.</p>
     <p class="single-link"><a href="https://goo.gl/photos/VWzgEpkgAsR7zSNTA" target="_blank">Arnold Rim 2010</a></p>
@@ -92,7 +92,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Calero</h3>
     <div class="photo-container">
-      <img src="/assets/images/Calero_head.gif" alt="Calero">
+      <img src="{{ '/assets/images/Calero_head.gif' | url }}" alt="Calero">
     </div>
     <p class="event-desc">Beautiful views and open trails at Calero County Park.</p>
     <p class="single-link"><a href="https://goo.gl/photos/9wXeMG4Ma73gCE2K7" target="_blank">Calero 2010</a></p>
@@ -101,7 +101,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Cool Canyon Ride</h3>
     <div class="photo-container">
-      <img src="/assets/images/CoolCanyon_head.jpg" alt="Cool Canyon">
+      <img src="{{ '/assets/images/CoolCanyon_head.jpg' | url }}" alt="Cool Canyon">
     </div>
     <p class="event-desc">Explore the historic and challenging trails of Cool Canyon.</p>
     <div class="desktop-links">
@@ -124,7 +124,7 @@ title: Gallery
   <div class="card event-card">
     <h3>CMDTRA (Mt Diablo)</h3>
     <div class="photo-container">
-      <img src="/assets/images/MtDiablo_head.gif" alt="CMDTRA (Mt Diablo)">
+      <img src="{{ '/assets/images/MtDiablo_head.gif' | url }}" alt="CMDTRA (Mt Diablo)">
     </div>
     <p class="event-desc">A classic Region 1 challenge on the rugged slopes of Mt. Diablo.</p>
     <div class="desktop-links">
@@ -157,7 +157,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Cowboy Camp</h3>
     <div class="photo-container">
-      <img src="/assets/images/CowboyCamp_head.gif" alt="Cowboy Camp">
+      <img src="{{ '/assets/images/CowboyCamp_head.gif' | url }}" alt="Cowboy Camp">
     </div>
     <p class="event-desc">A relaxed and fun gathering at Cowboy Camp with unbeatable trails.</p>
     <div class="desktop-links">
@@ -192,7 +192,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Eel River</h3>
     <div class="photo-container">
-      <img src="/assets/images/EelRiver_head.gif" alt="Eel River">
+      <img src="{{ '/assets/images/EelRiver_head.gif' | url }}" alt="Eel River">
     </div>
     <p class="event-desc">Winding trails and river crossings at the spectacular Eel River.</p>
     <div class="desktop-links">
@@ -221,7 +221,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Fall Fiesta</h3>
     <div class="photo-container">
-      <img src="/assets/images/FallFiesta_head.gif" alt="Fall Fiesta">
+      <img src="{{ '/assets/images/FallFiesta_head.gif' | url }}" alt="Fall Fiesta">
     </div>
     <p class="event-desc">A festive end-of-season ride through the beautiful Georgetown pines.</p>
     <div class="desktop-links">
@@ -238,7 +238,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Georgetown</h3>
     <div class="photo-container">
-      <img src="/assets/images/Georgetown_head.gif" alt="Georgetown">
+      <img src="{{ '/assets/images/Georgetown_head.gif' | url }}" alt="Georgetown">
     </div>
     <p class="event-desc">A beautiful ride through the Georgetown pines.</p>
     <div class="desktop-links">
@@ -255,7 +255,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Jackson Forest</h3>
     <div class="photo-container">
-      <img src="/assets/images/JacksonForest_head.gif" alt="Jackson Forest">
+      <img src="{{ '/assets/images/JacksonForest_head.gif' | url }}" alt="Jackson Forest">
     </div>
     <p class="event-desc">Deep redwood forests and coastal breezes await at Jackson Forest.</p>
     <div class="desktop-links">
@@ -298,7 +298,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Lake Mendocino</h3>
     <div class="photo-container">
-      <img src="/assets/images/LakeMendo_head.gif" alt="Lake Mendocino">
+      <img src="{{ '/assets/images/LakeMendo_head.gif' | url }}" alt="Lake Mendocino">
     </div>
     <p class="event-desc">A lovely ride featuring beautiful lake views and varying terrain.</p>
     <div class="desktop-links">
@@ -317,7 +317,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Round Valley</h3>
     <div class="photo-container">
-      <img src="/assets/images/RoundValley_head.gif" alt="Round Valley">
+      <img src="{{ '/assets/images/RoundValley_head.gif' | url }}" alt="Round Valley">
     </div>
     <p class="event-desc">Expansive trails and challenging elevation changes in Round Valley.</p>
     <div class="desktop-links">
@@ -354,7 +354,7 @@ title: Gallery
   <div class="card event-card">
     <h3>Spring in the Redwoods</h3>
     <div class="photo-container">
-      <img src="/assets/images/SpringInTheRedwoods_head.jpg" alt="Spring in the Redwoods">
+      <img src="{{ '/assets/images/SpringInTheRedwoods_head.jpg' | url }}" alt="Spring in the Redwoods">
     </div>
     <p class="event-desc">A magical spring ride beneath towering, ancient redwoods.</p>
     <p class="single-link"><a href="https://goo.gl/photos/eeZ3LigfXwovBTDm9" target="_blank">Spring in the Redwoods 2017</a></p>
@@ -363,7 +363,7 @@ title: Gallery
   <div class="card event-card card-featured">
     <h3>The Mini-Conventions & More</h3>
     <div class="photo-container">
-      <img src="/assets/images/2017_conv_head.gif" alt="Mini-Conventions & More">
+      <img src="{{ '/assets/images/2017_conv_head.gif' | url }}" alt="Mini-Conventions & More">
     </div>
     <p class="event-desc">Celebrating our riders, awards, and the NATRC community.</p>
     <div class="desktop-links">
