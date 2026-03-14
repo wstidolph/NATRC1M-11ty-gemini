@@ -9,7 +9,8 @@
         "build": "eleventy",
         "migrate": "node scripts/migrate-articles.js",
         "lint": "eslint .",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "test:smoke": "node scripts/smoke-test.js"
     },
     "keywords": [],
     "author": "",
