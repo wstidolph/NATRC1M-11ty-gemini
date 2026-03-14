@@ -5,11 +5,10 @@ title: "Taking Juniors to NATRC Rides"
 
 <div class="card" style="margin-top: 20px;">
 
+    		<h2>Taking Juniors to NATRC Rides</h2>
+    		<h3>by Kay Lieberknecht and Angie Meroshnekoff, both from Region 1</h3>
 
-			
-			<h2>Taking Juniors to NATRC Rides</h2>
-			<h3>by Kay Lieberknecht and Angie Meroshnekoff, both from Region 1</h3>
-			
+
 <p>So you're interested in introducing juniors to NATRC rides!  Here are some suggestions.</p>
 <ol>
 <li>Have them (and their parents if possible) come to a ride and volunteer, before entering. Show them your scorecards and talk about what is important in a ride - mostly safety and having fun! A ride can be seen as a day-long riding lesson with "free" vet attention and beautiful surroundings.</li>
@@ -24,9 +23,6 @@ title: "Taking Juniors to NATRC Rides"
 <li>If a Junior is upset by the "judged" aspect, or feels scared or mad at the horse, make sure they and their horse are safe, try encouraging them to say their feelings (and never argue with feelings), try to problem-solve and provide a positive perspective, and when all else fails, just let it go. Insist that they eat well and stay hydrated.  Food is great therapy (as are horses) by the end of the day.</li>
 <li>It can be a bit of work to take a Junior to a ride, but it has many rewards. You have a trail companion who is seeing everything fresh, and it gives you a new and usually positive outlook. You get a chance to teach your own horse new things while you are helping your Junior learn.  You have companionship on the ride (other than your horse) and you have built in labor around the camp :) If they do their homework along the way, you might be reminded about how much you've forgotten! Another benefit is that a horse who might otherwise not have a job to do has an opportunity to teach a new rider some things, and  you have a chance to teach the Junior the preferred way to ride and handle a horse, something that isn't so easy if the horse is leased out. And best of all, you are doing what can be called paying it forward:  helping out someone who will benefit from your experience, having it effect their life in a positive way, and with luck they will do the same as they get older.</li>
 </ol>
-	
 
-	
-			
-	
+
 </div>

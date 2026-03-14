@@ -2,6 +2,7 @@
 layout: base.njk
 title: Information Links
 ---
+
 <div class="hero">
   <h2>Information Links</h2>
   <p>Resources for competitive trail riding and NATRC.</p>

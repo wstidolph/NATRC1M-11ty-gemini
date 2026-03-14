@@ -2,6 +2,7 @@
 layout: base.njk
 title: Gallery
 ---
+
 <style>
   .event-card {
     display: flex;

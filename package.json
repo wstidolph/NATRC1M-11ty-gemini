@@ -1,19 +1,27 @@
 {
-  "name": "nr1m",
-  "version": "1.0.0",
-  "description": "NATRC Region 1 Website Migration",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "eleventy --serve",
-    "build": "eleventy",
-    "migrate": "node scripts/migrate-articles.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "cheerio": "^1.2.0"
-  }
+    "name": "nr1m",
+    "version": "1.0.0",
+    "description": "NATRC Region 1 Website Migration",
+    "main": "index.js",
+    "scripts": {
+        "test": "npm run lint",
+        "start": "eleventy --serve",
+        "build": "eleventy",
+        "migrate": "node scripts/migrate-articles.js",
+        "lint": "eslint .",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.2",
+        "@eslint/js": "^10.0.1",
+        "cheerio": "^1.2.0",
+        "eslint": "^10.0.3",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.5",
+        "globals": "^17.4.0",
+        "prettier": "^3.8.1"
+    }
 }

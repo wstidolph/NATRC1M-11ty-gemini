@@ -2,6 +2,7 @@
 layout: base.njk
 title: Stories & Articles
 ---
+
 <div class="hero">
   <h2>Stories, Articles, Blogs, etc.</h2>
   <p>Learn more about Competitive Trail Riding from our members' experiences.</p>

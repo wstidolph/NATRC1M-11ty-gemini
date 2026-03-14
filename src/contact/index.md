@@ -2,6 +2,7 @@
 layout: base.njk
 title: Contact Us
 ---
+
 <div class="hero">
   <h2>Contact Region 1</h2>
   <p>If you think you might be interested in finding out more, contact any of the R1 Board of Directors listed below. They'd love to share their knowledge and love of NATRC with you.</p>

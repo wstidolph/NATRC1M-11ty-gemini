@@ -5,14 +5,12 @@ title: "Frequently Asked Questions"
 
 <div class="card" style="margin-top: 20px;">
 
+    		<h2>Frequently Asked Questions</h2>
 
-			
-			<h2>Frequently Asked Questions</h2>
+    		<h3>What is NATRC?</h3>
+    		<p>NATRC is NOT a race. It's a timed, judged trail ride - a Competitive Trail Ride or CTR. There are four divisions: Novice, Competitive Pleasure (CP), Open, and Leisure. You can enter a ride at any level you choose, but Novice is where many teams start: Novice is for younger horses, or less experienced riders or horses, or for experienced teams new to the sport. Novice rides are usually in the 15-24 miles per day at 3.5-5 mph.  You can stay in Novice as long as you want to, until you accumulate a certain number of miles or points or awards. CP is designed for the more experienced rider who doesn't want to do the additional distance or speed of Open. In general, CP is timed the same and follows the same trail as Novice, but the judges (see below!) have heightened expectations. Open division is for the more experienced and fit teams - an Open ride will be 50-60 miles in two days at average speeds of 4 - 6 mph.  In addition to completing the distances in good shape, you'll be judged on how you and your horse handle various trail obstacles - downed trees, creek crossing, etc.</p>
 
-			<h3>What is NATRC?</h3>
-			<p>NATRC is NOT a race. It's a timed, judged trail ride - a Competitive Trail Ride or CTR. There are four divisions: Novice, Competitive Pleasure (CP), Open, and Leisure. You can enter a ride at any level you choose, but Novice is where many teams start: Novice is for younger horses, or less experienced riders or horses, or for experienced teams new to the sport. Novice rides are usually in the 15-24 miles per day at 3.5-5 mph.  You can stay in Novice as long as you want to, until you accumulate a certain number of miles or points or awards. CP is designed for the more experienced rider who doesn't want to do the additional distance or speed of Open. In general, CP is timed the same and follows the same trail as Novice, but the judges (see below!) have heightened expectations. Open division is for the more experienced and fit teams - an Open ride will be 50-60 miles in two days at average speeds of 4 - 6 mph.  In addition to completing the distances in good shape, you'll be judged on how you and your horse handle various trail obstacles - downed trees, creek crossing, etc.</p>
-
-<p>Leisure division rides are one day rides of 8 - 12 miles at an average speed of 3-4.5 mph, and stabling is not judged - so you don't have to spend the night.  There is only one judge, who combines evaluations of the horse and the rider.  For people who might be interested in NATRC, the Leisure Division provides a venue to try it out, without committing to big miles or overnight camping.  It's also used by experienced riders with elderly horses or horses in rehab. </p> 
+<p>Leisure division rides are one day rides of 8 - 12 miles at an average speed of 3-4.5 mph, and stabling is not judged - so you don't have to spend the night.  There is only one judge, who combines evaluations of the horse and the rider.  For people who might be interested in NATRC, the Leisure Division provides a venue to try it out, without committing to big miles or overnight camping.  It's also used by experienced riders with elderly horses or horses in rehab. </p>
 
 <p>In Novice, CP and Open divisions, your ability to work as a team with your horse and be a SAFE rider and handler are evaluated by a horsemanship judge, while your horse's condition, soundness and trail ability/ manners are judged by a vet judge.  The Leisure division has one judge who evaluates the team.  Novice, Competitive Pleasure and Open divisions are divided into "lightweight" (under 190 lbs with tack). "heavyweight" (190 and above) classes and Junior (10-17 years old, no weighing). Yes, sorry to say, unless you're a Junior, you will have to get weighed to enter Open, CP, or Novice! Your horse will be evaluated by the vet judge at (1) check-in, both to verify fitness to start and to establish baseline metabolics and soundness, (2) several times in the course of the ride, and (3) as the ride is completed.  YOU will be evaluated by the horsemanship judge pretty much all the time - stabling at your trailer is checked for safety, your handling of your horse on the ground during vet checks is evaluated, and your riding on the trail will be checked and graded.  
 </p>
@@ -27,9 +25,8 @@ title: "Frequently Asked Questions"
 			<p>You bet. There is a junior class in all divisions. The article <a href="../Articles/taking_juniors_to_natrc_rides.htm">"Taking Juniors to NATRC Rides"</a> was written by two very experienced NATRC riders who have introduced many juniors to the sport. 
 			</p><h3>How Long is a CTR?</h3>
 			<p>Do you mean "long" as in days or distance?  Because for Novice, CP, and Open rides, you're typically required to spend the night before the ride at the venue, so your stabling can be judged - which means you have to get to ride camp the day before the actual ride.  In terms of "long," as in how far you ride, for a one day ride, Novice and CP go 15 - 24 miles at about 3.5 mph. Open division typically goes 25 -35 miles at about 5 mph.  Multiday rides essentially keep the same average speed and average distance per day - but the distances can be divided differently; that is, a 40 mile, two day ride can be set up as 25 miles on Saturday and 15 miles on Sunday, so riders can pack up and head for home (a) before it's dark and (b) while they still might stay awake for the entire drive!</p><p>
-	
 
-	
-			
-	</p>
+
+    </p>
+
 </div>
