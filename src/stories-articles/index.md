@@ -53,3 +53,9 @@ title: Stories & Articles
     <p style="margin-top: 15px;"><a href="https://www.natrcregion1.org/Articles/R1_Bylaws_080316.pdf" target="_blank">Region 1 Bylaws</a></p>
   </div>
 </div>
+
+<div style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--color-secondary); border-radius: var(--border-radius);">
+  <h3>Have a story to share?</h3>
+  <p>We'd love to hear about your NATRC experiences! You can now write and submit your own articles directly.</p>
+  <a href="{{ '/admin/add-article/' | url }}" class="btn btn-primary" style="margin-top: 15px;">Write a Story</a>
+</div>
