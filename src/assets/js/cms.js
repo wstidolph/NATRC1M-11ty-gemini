@@ -1,5 +1,3 @@
-import { Octokit } from "octokit";
-
 window.cmsEditor = function () {
     return {
         articleTitle: "",
@@ -10,109 +8,66 @@ window.cmsEditor = function () {
         token: localStorage.getItem("gh_token") || "",
         showAuth: !localStorage.getItem("gh_token"),
         loading: false,
-        repo: "wstidloff/NATRC1M-11ty-gemini",
+        repo: "wstidolph/NATRC1M-11ty-gemini",
         quill: null,
 
         async init() {
-            this.quill = new Quill("#editor", {
-                theme: "snow",
-                modules: {
-                    toolbar: {
-                        container: [
-                            [{ header: [1, 2, 3, false] }],
-                            ["bold", "italic", "underline", "link"],
-                            ["image", "blockquote", "code-block"],
-                            [{ list: "ordered" }, { list: "bullet" }]
-                        ],
-                        handlers: {
-                            image: () => this.imageHandler()
+            console.log("CMS Editor: init starting");
+
+            // Explicitly reset variables to empty strings to avoid browser [object] conflicts
+            this.articleTitle = "";
+            this.articleSummary = "";
+
+            try {
+                if (typeof Quill !== "undefined") {
+                    this.quill = new Quill("#editor", {
+                        theme: "snow",
+                        modules: {
+                            toolbar: {
+                                container: [
+                                    [{ header: [1, 2, 3, false] }],
+                                    ["bold", "italic", "underline", "link"],
+                                    ["image", "blockquote", "code-block"],
+                                    [{ list: "ordered" }, { list: "bullet" }]
+                                ],
+                                handlers: {
+                                    image: () => this.imageHandler()
+                                }
+                            }
                         }
-                    }
+                    });
+                    console.log("CMS Editor: Quill initialized");
+                } else {
+                    console.error("CMS Editor: Quill is missing from window");
                 }
-            });
+            } catch (err) {
+                console.error("CMS Editor: Initialization failed", err);
+            }
 
             if (this.token) {
                 await this.fetchDrafts();
             }
 
-            // Watch for metadata changes and save to local storage
             this.$watch("authorName", (val) => localStorage.setItem("author_name", val));
             this.$watch("authorEmail", (val) => localStorage.setItem("author_email", val));
-        },
-
-        async imageHandler() {
-            const input = document.createElement("input");
-            input.setAttribute("type", "file");
-            input.setAttribute("accept", "image/*");
-            input.click();
-
-            input.onchange = async () => {
-                const file = input.files[0];
-                if (!file) return;
-
-                this.loading = true;
-                try {
-                    const octokit = await this.getOctokit();
-                    const [owner, repo] = this.repo.split("/");
-                    const slug = this.slugify(this.articleTitle || "untitled");
-                    const branchName = `draft/${slug}`;
-                    const fileName = `${Date.now()}-${file.name}`;
-                    const path = `src/assets/images/drafts/${fileName}`;
-
-                    const reader = new FileReader();
-                    reader.onload = async (e) => {
-                        const content = e.target.result.split(",")[1];
-                        
-                        await octokit.rest.repos.createOrUpdateFileContents({
-                            owner,
-                            repo,
-                            path,
-                            message: `Upload image: ${fileName}`,
-                            content,
-                            branch: branchName
-                        });
-
-                        const range = this.quill.getSelection();
-                        const url = `https://raw.githubusercontent.com/${this.repo}/${branchName}/${path}`;
-                        this.quill.insertEmbed(range.index, "image", url);
-                    };
-                    reader.readAsDataURL(file);
-                } catch (err) {
-                    console.error(err);
-                    alert("Image upload failed: " + err.message);
-                } finally {
-                    this.loading = false;
-                }
-            };
-        },
-
-        saveToken() {
-            if (this.token) {
-                localStorage.setItem("gh_token", this.token);
-                this.showAuth = false;
-                this.fetchDrafts();
-            }
         },
 
         async getOctokit() {
             if (!this.token) {
                 this.showAuth = true;
-                throw new Error("No token");
+                throw new Error("GitHub Token Missing. Please click 'GitHub Settings' to enter a token.");
             }
-            return new Octokit({ auth: this.token });
-        },
-
-        slugify(text) {
-            return text
-                .toString()
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, "-")
-                .replace(/[^\w-]+/g, "")
-                .replace(/--+/g, "-");
+            try {
+                const { Octokit } = await import("https://cdn.skypack.dev/octokit");
+                return new Octokit({ auth: this.token });
+            } catch (err) {
+                console.error("CMS Editor: Failed to load Octokit from CDN", err);
+                throw new Error("Initialization Failed: Could not load GitHub connection library.");
+            }
         },
 
         async fetchDrafts() {
+            this.loading = true;
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
@@ -121,8 +76,11 @@ window.cmsEditor = function () {
                     repo
                 });
                 this.availableDrafts = branches.filter(b => b.name.startsWith("draft/"));
+                console.log("CMS Editor: Drafts synced", this.availableDrafts);
             } catch (err) {
-                console.error("Failed to fetch drafts", err);
+                console.error("CMS Editor: Sync error", err);
+            } finally {
+                this.loading = false;
             }
         },
 
@@ -132,8 +90,6 @@ window.cmsEditor = function () {
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
-                
-                // We assume there's one .md file in src/articles matching the slug
                 const slug = branchName.replace("draft/", "");
                 const path = `src/articles/${slug}.md`;
 
@@ -146,10 +102,10 @@ window.cmsEditor = function () {
 
                 const content = decodeURIComponent(escape(atob(file.content)));
                 this.parseMarkdown(content);
-                alert(`Loaded draft: ${slug}`);
+                alert(`Successfully loaded draft: ${slug}`);
             } catch (err) {
                 console.error(err);
-                alert("Failed to load draft: " + err.message);
+                alert("Load Failed: " + err.message);
             } finally {
                 this.loading = false;
             }
@@ -173,12 +129,15 @@ window.cmsEditor = function () {
                 }
 
                 if (inFrontmatter) {
-                    const [key, ...rest] = lines[i].split(":");
-                    const val = rest.join(":").trim().replace(/^"(.*)"$/, "$1");
-                    if (key.trim() === "title") this.articleTitle = val;
-                    if (key.trim() === "summary") this.articleSummary = val;
-                    if (key.trim() === "author") this.authorName = val;
-                    if (key.trim() === "email") this.authorEmail = val;
+                    const parts = lines[i].split(":");
+                    if (parts.length < 2) continue;
+                    const key = parts[0].trim().toLowerCase();
+                    const val = parts.slice(1).join(":").trim().replace(/^"(.*)"$/, "$1");
+
+                    if (key === "title") this.articleTitle = val;
+                    if (key === "summary") this.articleSummary = val;
+                    if (key === "author") this.authorName = val;
+                    if (key === "email") this.authorEmail = val;
                 }
             }
 
@@ -190,11 +149,15 @@ window.cmsEditor = function () {
         },
 
         async saveDraft() {
+            if (!this.articleTitle) {
+                alert("Required: Please enter an Article Title.");
+                return;
+            }
             this.loading = true;
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
-                const slug = this.slugify(this.articleTitle || "untitled");
+                const slug = this.slugify(this.articleTitle);
                 const branchName = `draft/${slug}`;
                 const path = `src/articles/${slug}.md`;
 
@@ -211,7 +174,7 @@ window.cmsEditor = function () {
                         ref: `refs/heads/${branchName}`,
                         sha: mainBranch.commit.sha
                     });
-                } catch (e) {}
+                } catch (e) { }
 
                 const markdown = this.prepareContent();
 
@@ -224,29 +187,33 @@ window.cmsEditor = function () {
                         ref: branchName
                     });
                     sha = existing.sha;
-                } catch (e) {}
+                } catch (e) { }
 
                 await octokit.rest.repos.createOrUpdateFileContents({
                     owner,
                     repo,
                     path,
-                    message: `Draft update: ${this.articleTitle}`,
+                    message: `Update Article: ${this.articleTitle}`,
                     content: btoa(unescape(encodeURIComponent(markdown))),
                     branch: branchName,
                     sha
                 });
 
                 await this.fetchDrafts();
-                alert(`Draft saved to branch: ${branchName}`);
+                alert(`Success! Draft saved to branch: ${branchName}`);
             } catch (err) {
                 console.error(err);
-                alert("Failed to save draft: " + err.message);
+                alert("Save Failed: " + err.message);
             } finally {
                 this.loading = false;
             }
         },
 
         async requestPublish() {
+            if (!this.articleTitle) {
+                alert("Required: Article Title");
+                return;
+            }
             this.loading = true;
             try {
                 const octokit = await this.getOctokit();
@@ -260,20 +227,20 @@ window.cmsEditor = function () {
                     title: `Article Submission: ${this.articleTitle}`,
                     head: branchName,
                     base: "main",
-                    body: `Please review this article from ${this.authorName} (${this.authorEmail})\n\nSummary: ${this.articleSummary}`
+                    body: `Submission from: ${this.authorName} (${this.authorEmail})\n\nSummary: ${this.articleSummary}`
                 });
 
-                alert("Publication requested! A Pull Request has been created.");
+                alert("Submitted! A review request has been sent to the site owner.");
             } catch (err) {
                 console.error(err);
-                alert("Failed to create PR: " + err.message);
+                alert("Submission Failed: " + err.message);
             } finally {
                 this.loading = false;
             }
         },
 
         async deleteDraft() {
-            if (!confirm("Are you sure you want to delete this draft branch?")) return;
+            if (!confirm("Are you sure you want to delete this draft branch from GitHub?")) return;
             this.loading = true;
             try {
                 const octokit = await this.getOctokit();
@@ -288,10 +255,10 @@ window.cmsEditor = function () {
                 });
 
                 await this.fetchDrafts();
-                alert("Draft branch deleted.");
+                alert("Branch deleted successfully.");
             } catch (err) {
                 console.error(err);
-                alert("Failed to delete draft: " + err.message);
+                alert("Delete Failed: " + err.message);
             } finally {
                 this.loading = false;
             }
@@ -319,6 +286,24 @@ date: ${new Date().toISOString().split("T")[0]}
 ---
 
 ${body}`;
+        },
+
+        saveToken() {
+            if (this.token) {
+                localStorage.setItem("gh_token", this.token);
+                this.showAuth = false;
+                this.fetchDrafts();
+            }
+        },
+
+        slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, "-")
+                .replace(/[^\w-]+/g, "")
+                .replace(/--+/g, "-");
         }
     };
 };

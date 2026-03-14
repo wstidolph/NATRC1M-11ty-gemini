@@ -6,79 +6,85 @@ title: Write a New Story
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<script type="importmap">
-  {
-    "imports": {
-      "octokit": "https://cdn.skypack.dev/octokit"
-    }
-  }
-</script>
 
-<div class="admin-editor" x-data="cmsEditor()">
+<div class="admin-editor" x-data="cmsEditor()" x-init="init()">
   <div class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); margin-bottom: 20px;">
     <h2>Create Your Story</h2>
     <p>Compose your article and submit it for review.</p>
   </div>
 
+  <!-- Main Action Bar -->
   <div class="editor-controls card" style="margin-bottom: 30px; display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
     <div style="display: flex; gap: 10px; align-items: center;">
-      <button @click="saveDraft" class="btn btn-secondary" :disabled="loading">
-        <span x-show="!loading">Save Draft</span>
-        <span x-show="loading">Working...</span>
+      <!-- Save Draft Button -->
+      <button @click="saveDraft" class="btn btn-secondary" :disabled="loading" style="min-width: 120px;">
+        <span x-text="loading ? 'Working...' : 'Save Draft'">Save Draft</span>
       </button>
+
+      <!-- Publish Request Button -->
       <button @click="requestPublish" class="btn btn-primary" :disabled="loading">
         Request Publish
       </button>
       
       <!-- Resume Draft Selector -->
-      <div x-show="availableDrafts.length > 0" style="margin-left: 15px; display: flex; align-items: center; gap: 10px;">
-        <label for="draft-select" style="font-weight: 600; font-size: 0.9em;">Resume Draft:</label>
-        <select id="draft-select" @change="loadDraft($event.target.value)" style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
+      <div style="margin-left: 15px; display: flex; align-items: center; gap: 10px;">
+        <label for="draft-selector" style="font-weight: 600; font-size: 0.9em;">Resume Draft:</label>
+        <select id="draft-selector" @change="loadDraft($event.target.value)" style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
           <option value="">-- Select a draft --</option>
           <template x-for="draft in availableDrafts" :key="draft.name">
             <option :value="draft.name" x-text="draft.name.replace('draft/', '')"></option>
           </template>
         </select>
+        <button @click="fetchDrafts" class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.8em;" :disabled="loading">↻ Refresh</button>
       </div>
     </div>
+    
     <div style="display: flex; gap: 10px;">
-        <button @click="saveDraft" class="btn btn-secondary" :disabled="loading">
-            Edit Draft
+        <!-- Auth Token Trigger -->
+        <button @click="showAuth = true" class="btn btn-secondary" style="font-size: 0.9em;">
+            GitHub Settings
         </button>
-        <button @click="deleteDraft" class="btn btn-secondary" style="background-color: #fee2e2; color: #991b1b;" :disabled="loading">
-            Delete Draft
+        <!-- Danger Zone -->
+        <button @click="deleteDraft" class="btn btn-secondary" style="background-color: #fee2e2; color: #991b1b; font-size: 0.9em;" :disabled="loading">
+            Delete Branch
         </button>
     </div>
   </div>
 
   <div class="card" style="margin-bottom: 30px;">
+    <!-- Author Info -->
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
       <div class="form-group">
-        <label for="author-name" style="display: block; font-weight: 700; margin-bottom: 8px;">Your Name</label>
-        <input type="text" id="author-name" x-model="authorName" placeholder="Enter your full name" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+        <label for="auth-name-input" style="display: block; font-weight: 700; margin-bottom: 8px;">Your Name</label>
+        <input type="text" id="auth-name-input" x-model="authorName" placeholder="e.g. Jane Doe" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
       </div>
       <div class="form-group">
-        <label for="author-email" style="display: block; font-weight: 700; margin-bottom: 8px;">Email Address</label>
-        <input type="email" id="author-email" x-model="authorEmail" placeholder="you@example.com" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+        <label for="auth-email-input" style="display: block; font-weight: 700; margin-bottom: 8px;">Email Address</label>
+        <input type="email" id="auth-email-input" x-model="authorEmail" placeholder="e.g. jane@example.com" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
       </div>
     </div>
 
+    <!-- Article Metadata -->
     <div class="form-group" style="margin-bottom: 20px;">
-      <label for="article-title" style="display: block; font-weight: 700; margin-bottom: 8px;">Article Title</label>
-      <input type="text" id="article-title" x-model="articleTitle" placeholder="Enter a catchy title..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1rem;">
+      <label for="art-title-input" style="display: block; font-weight: 700; margin-bottom: 8px;">Article Title</label>
+      <input type="text" id="art-title-input" x-model="articleTitle" placeholder="Enter a descriptive title for your story" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1.1rem;">
     </div>
 
     <div class="form-group" style="margin-bottom: 20px;">
-      <label for="article-summary" style="display: block; font-weight: 700; margin-bottom: 8px;">Summary (Short preview)</label>
-      <textarea id="article-summary" x-model="articleSummary" rows="2" placeholder="What is this story about?" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit;"></textarea>
+      <label for="art-summary-input" style="display: block; font-weight: 700; margin-bottom: 8px;">Summary (Short preview)</label>
+      <textarea id="art-summary-input" x-model="articleSummary" rows="2" placeholder="Briefly describe what your story is about (appears in lists)" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit;"></textarea>
     </div>
 
-    <div id="editor" style="height: 400px; background: white; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"></div>
+    <!-- Quill Editor -->
+    <div id="story-editor-container" style="margin-top: 10px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 8px;">Story Content</label>
+        <div id="editor" style="height: 400px; background: white; border: 1px solid #ddd; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"></div>
+    </div>
   </div>
 
-  <!-- Github Token Modal (Simple version) -->
-  <div x-show="showAuth" class="modal-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
-    <div class="card" style="max-width: 400px; width: 90%;">
+  <!-- Github Token Modal -->
+  <div x-show="showAuth" x-cloak class="modal-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
+    <div class="card" style="max-width: 400px; width: 90%; background: white;">
       <h3>GitHub Authentication</h3>
       <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 15px;">To save drafts and submit PRs, please enter a GitHub Personal Access Token (classic) with 'repo' scope.</p>
       <input type="password" x-model="token" placeholder="ghp_..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
@@ -91,6 +97,7 @@ title: Write a New Story
 </div>
 
 <style>
+  [x-cloak] { display: none !important; }
   .ql-toolbar.ql-snow {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -110,4 +117,4 @@ title: Write a New Story
   }
 </style>
 
-<script src="{{ '/assets/js/cms.js' | url }}" type="module"></script>
+<script src="{{ '/assets/js/cms.js' | url }}"></script>
