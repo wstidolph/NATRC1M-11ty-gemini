@@ -2,15 +2,18 @@ import { Octokit } from "octokit";
 
 window.cmsEditor = function () {
     return {
-        title: "",
-        summary: "",
+        articleTitle: "",
+        articleSummary: "",
+        authorName: localStorage.getItem("author_name") || "",
+        authorEmail: localStorage.getItem("author_email") || "",
+        availableDrafts: [],
         token: localStorage.getItem("gh_token") || "",
         showAuth: !localStorage.getItem("gh_token"),
         loading: false,
         repo: "wstidloff/NATRC1M-11ty-gemini",
         quill: null,
 
-        init() {
+        async init() {
             this.quill = new Quill("#editor", {
                 theme: "snow",
                 modules: {
@@ -27,9 +30,17 @@ window.cmsEditor = function () {
                     }
                 }
             });
+
+            if (this.token) {
+                await this.fetchDrafts();
+            }
+
+            // Watch for metadata changes and save to local storage
+            this.$watch("authorName", (val) => localStorage.setItem("author_name", val));
+            this.$watch("authorEmail", (val) => localStorage.setItem("author_email", val));
         },
 
-        imageHandler() {
+        async imageHandler() {
             const input = document.createElement("input");
             input.setAttribute("type", "file");
             input.setAttribute("accept", "image/*");
@@ -43,12 +54,11 @@ window.cmsEditor = function () {
                 try {
                     const octokit = await this.getOctokit();
                     const [owner, repo] = this.repo.split("/");
-                    const slug = this.slugify(this.title || "untitled");
+                    const slug = this.slugify(this.articleTitle || "untitled");
                     const branchName = `draft/${slug}`;
                     const fileName = `${Date.now()}-${file.name}`;
                     const path = `src/assets/images/drafts/${fileName}`;
 
-                    // Convert file to base64
                     const reader = new FileReader();
                     reader.onload = async (e) => {
                         const content = e.target.result.split(",")[1];
@@ -80,6 +90,7 @@ window.cmsEditor = function () {
             if (this.token) {
                 localStorage.setItem("gh_token", this.token);
                 this.showAuth = false;
+                this.fetchDrafts();
             }
         },
 
@@ -101,23 +112,98 @@ window.cmsEditor = function () {
                 .replace(/--+/g, "-");
         },
 
+        async fetchDrafts() {
+            try {
+                const octokit = await this.getOctokit();
+                const [owner, repo] = this.repo.split("/");
+                const { data: branches } = await octokit.rest.repos.listBranches({
+                    owner,
+                    repo
+                });
+                this.availableDrafts = branches.filter(b => b.name.startsWith("draft/"));
+            } catch (err) {
+                console.error("Failed to fetch drafts", err);
+            }
+        },
+
+        async loadDraft(branchName) {
+            if (!branchName) return;
+            this.loading = true;
+            try {
+                const octokit = await this.getOctokit();
+                const [owner, repo] = this.repo.split("/");
+                
+                // We assume there's one .md file in src/articles matching the slug
+                const slug = branchName.replace("draft/", "");
+                const path = `src/articles/${slug}.md`;
+
+                const { data: file } = await octokit.rest.repos.getContent({
+                    owner,
+                    repo,
+                    path,
+                    ref: branchName
+                });
+
+                const content = decodeURIComponent(escape(atob(file.content)));
+                this.parseMarkdown(content);
+                alert(`Loaded draft: ${slug}`);
+            } catch (err) {
+                console.error(err);
+                alert("Failed to load draft: " + err.message);
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        parseMarkdown(markdown) {
+            const lines = markdown.split("\n");
+            let inFrontmatter = false;
+            let bodyStartIndex = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].trim() === "---") {
+                    if (!inFrontmatter) {
+                        inFrontmatter = true;
+                    } else {
+                        inFrontmatter = false;
+                        bodyStartIndex = i + 1;
+                        break;
+                    }
+                    continue;
+                }
+
+                if (inFrontmatter) {
+                    const [key, ...rest] = lines[i].split(":");
+                    const val = rest.join(":").trim().replace(/^"(.*)"$/, "$1");
+                    if (key.trim() === "title") this.articleTitle = val;
+                    if (key.trim() === "summary") this.articleSummary = val;
+                    if (key.trim() === "author") this.authorName = val;
+                    if (key.trim() === "email") this.authorEmail = val;
+                }
+            }
+
+            const body = lines.slice(bodyStartIndex).join("\n").trim();
+            this.quill.root.innerHTML = body.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
+            if (!this.quill.root.innerHTML.startsWith("<p>")) {
+                this.quill.root.innerHTML = `<p>${this.quill.root.innerHTML}</p>`;
+            }
+        },
+
         async saveDraft() {
             this.loading = true;
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
-                const slug = this.slugify(this.title || "untitled");
+                const slug = this.slugify(this.articleTitle || "untitled");
                 const branchName = `draft/${slug}`;
                 const path = `src/articles/${slug}.md`;
 
-                // 1. Get main branch SHA
                 const { data: mainBranch } = await octokit.rest.repos.getBranch({
                     owner,
                     repo,
                     branch: "main"
                 });
 
-                // 2. Try to create branch (ignore if exists)
                 try {
                     await octokit.rest.git.createRef({
                         owner,
@@ -125,14 +211,10 @@ window.cmsEditor = function () {
                         ref: `refs/heads/${branchName}`,
                         sha: mainBranch.commit.sha
                     });
-                } catch (e) {
-                    console.log("Branch might already exist", e);
-                }
+                } catch (e) {}
 
-                // 3. Prepare content (Minimal Markdown conversion for now)
                 const markdown = this.prepareContent();
 
-                // 4. Get file if exists to get SHA
                 let sha;
                 try {
                     const { data: existing } = await octokit.rest.repos.getContent({
@@ -144,17 +226,17 @@ window.cmsEditor = function () {
                     sha = existing.sha;
                 } catch (e) {}
 
-                // 5. Commit file
                 await octokit.rest.repos.createOrUpdateFileContents({
                     owner,
                     repo,
                     path,
-                    message: `Draft: ${this.title}`,
+                    message: `Draft update: ${this.articleTitle}`,
                     content: btoa(unescape(encodeURIComponent(markdown))),
                     branch: branchName,
                     sha
                 });
 
+                await this.fetchDrafts();
                 alert(`Draft saved to branch: ${branchName}`);
             } catch (err) {
                 console.error(err);
@@ -169,16 +251,16 @@ window.cmsEditor = function () {
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
-                const slug = this.slugify(this.title);
+                const slug = this.slugify(this.articleTitle);
                 const branchName = `draft/${slug}`;
 
                 await octokit.rest.pulls.create({
                     owner,
                     repo,
-                    title: `Article Submission: ${this.title}`,
+                    title: `Article Submission: ${this.articleTitle}`,
                     head: branchName,
                     base: "main",
-                    body: `Please review my article: ${this.title}\n\nSummary: ${this.summary}`
+                    body: `Please review this article from ${this.authorName} (${this.authorEmail})\n\nSummary: ${this.articleSummary}`
                 });
 
                 alert("Publication requested! A Pull Request has been created.");
@@ -196,7 +278,7 @@ window.cmsEditor = function () {
             try {
                 const octokit = await this.getOctokit();
                 const [owner, repo] = this.repo.split("/");
-                const slug = this.slugify(this.title);
+                const slug = this.slugify(this.articleTitle);
                 const branchName = `draft/${slug}`;
 
                 await octokit.rest.git.deleteRef({
@@ -205,6 +287,7 @@ window.cmsEditor = function () {
                     ref: `heads/${branchName}`
                 });
 
+                await this.fetchDrafts();
                 alert("Draft branch deleted.");
             } catch (err) {
                 console.error(err);
@@ -216,7 +299,6 @@ window.cmsEditor = function () {
 
         prepareContent() {
             const html = this.quill.root.innerHTML;
-            // Native-ish basic HTML to MD conversion
             let body = html
                 .replace(/<h1>(.*?)<\/h1>/g, "# $1\n")
                 .replace(/<h2>(.*?)<\/h2>/g, "## $1\n")
@@ -226,12 +308,13 @@ window.cmsEditor = function () {
                 .replace(/<em>(.*?)<\/em>/g, "_$1_")
                 .replace(/<br>/g, "\n");
 
-            // Strip any remaining HTML
             body = body.replace(/<[^>]*>?/gm, "");
 
             return `---
-title: "${this.title}"
-summary: "${this.summary}"
+title: "${this.articleTitle}"
+summary: "${this.articleSummary}"
+author: "${this.authorName}"
+email: "${this.authorEmail}"
 date: ${new Date().toISOString().split("T")[0]}
 ---
 
