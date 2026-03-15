@@ -20,7 +20,7 @@ title: Contact Us
       <li>Rachel Vitorelo, R1 Treasurer</li>
       <li>Joe Pimentel, R1 BOD</li>
       <li><a href="mailto:dannanlee14@icloud.com">Dannan Stamper</a>, R1 BOD</li>
-      <li><a href="mailto:donna@stidoloph.com">Donna Stidolph</a>, R1 BOD</li>
+      <li><a href="mailto:donna@stidolph.com">Donna Stidolph</a>, R1 BOD</li>
     </ul>
   </div>
 
