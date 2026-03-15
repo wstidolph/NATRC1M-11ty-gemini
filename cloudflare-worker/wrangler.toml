@@ -1,0 +1,7 @@
+name = "natrc-cms-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-14"
+
+[vars]
+GITHUB_REPO = "wstidolph/NATRC1M-11ty-gemini"
+# GITHUB_TOKEN should be set via `npx wrangler secret put GITHUB_TOKEN`
