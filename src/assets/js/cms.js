@@ -216,6 +216,14 @@ window.cmsEditor = function () {
                 return `<img src="${fullSrc}" alt="${alt}" style="width: ${width}%;">`;
             });
             
+            // Also convert basic markdown formatting back to HTML
+            htmlBody = htmlBody
+                .replace(/^### (.*)$/gim, "<h3>$1</h3>")
+                .replace(/^## (.*)$/gim, "<h2>$1</h2>")
+                .replace(/^# (.*)$/gim, "<h1>$1</h1>")
+                .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                .replace(/_(.*?)_/g, "<em>$1</em>");
+            
             // Generate clean HTML. Wrap standalone elements in paragraphs for Quill's expected block format
             let htmlContent = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
             if (!htmlContent.startsWith("<p>")) {
