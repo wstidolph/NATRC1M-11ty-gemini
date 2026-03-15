@@ -290,6 +290,7 @@ summary: "${this.articleSummary}"
 author: "${this.authorName}"
 email: "${this.authorEmail}"
 date: ${new Date().toISOString().split("T")[0]}
+tags: ["articles", "contributions"]
 ---
 
 ${body}`;

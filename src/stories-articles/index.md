@@ -52,6 +52,47 @@ title: Stories & Articles
     </ul>
     <p style="margin-top: 15px;"><a href="https://www.natrcregion1.org/Articles/R1_Bylaws_080316.pdf" target="_blank">Region 1 Bylaws</a></p>
   </div>
+
+  <div class="card" style="grid-column: 1 / -1; border: 2px solid var(--color-primary-dark);">
+    <h3>Member Contributions</h3>
+    <p>Recently submitted stories and articles from our members.</p>
+    
+    {% set articles = collections.contributions | reverse %}
+    
+    {% if articles.length > 0 %}
+      <!-- Desktop/Tablet View: Top 5 List -->
+      <div class="desktop-only">
+        <ul class="contributions-list">
+          {% for article in articles.slice(0, 5) %}
+            <li class="contribution-item">
+              <a href="{{ article.url | url }}">{{ article.data.title }}</a>
+              <div class="contribution-meta">
+                By {{ article.data.author }} | {{ article.date | dateFilter }}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        {% if articles.length > 5 %}
+          <p style="margin-top: 20px;"><a href="{{ '/stories-articles/contributions/' | url }}" class="btn btn-secondary" style="margin-top: 20px;">More Contributions...</a></p>
+        {% endif %}
+      </div>
+
+      <!-- Mobile View: Select Dropdown -->
+      <div class="mobile-only">
+        <select class="draft-select-control" onchange="window.location.href = this.value">
+          <option value="">-- Read a Member Story --</option>
+          {% for article in articles %}
+            <option value="{{ article.url | url }}">{{ article.data.title }} (by {{ article.data.author }})</option>
+          {% endfor %}
+        </select>
+        {% if articles.length > 5 %}
+           <p style="margin-top: 15px; text-align: center;"><a href="{{ '/stories-articles/contributions/' | url }}">View All Contributions</a></p>
+        {% endif %}
+      </div>
+    {% else %}
+      <p><em>No contributions yet. Be the first to share your story!</em></p>
+    {% endif %}
+  </div>
 </div>
 
 <div style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--color-secondary); border-radius: var(--border-radius);">
