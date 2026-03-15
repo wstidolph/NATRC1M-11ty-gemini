@@ -157,9 +157,14 @@ window.cmsEditor = function () {
 
             const body = lines.slice(bodyStartIndex).join("\n").trim();
             // Convert markdown images back to HTML for Quill
-            // We add the pathPrefix back so the editor can see them on Github Pages
+            // We handle the 11ty 'url' filter syntax and add the pathPrefix back for editor preview
             let htmlBody = body.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
-                const fullSrc = src.startsWith("/") ? `/NATRC1M-11ty-gemini${src}` : src;
+                let cleanSrc = src;
+                // De-nunjucks: {{ '/path' | url }} -> /path
+                if (src.includes("{{") && src.includes("| url")) {
+                    cleanSrc = src.replace(/\{\{\s*['"](.*?)['"]\s*\|\s*url\s*\}\}/, "$1");
+                }
+                const fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 return `<img src="${fullSrc}" alt="${alt}">`;
             });
             
@@ -297,11 +302,11 @@ window.cmsEditor = function () {
                 const src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
                 
-                // Strip the pathPrefix if it was added for the editor preview
-                const cleanSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
+                // Strip any existing prefix if present to normalize to a root-relative path
+                const rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
                 
-                // Create a text node to replace the image
-                const markdown = document.createTextNode(`![${alt}](${cleanSrc})`);
+                // Use the 11ty 'url' filter so 11ty adds the correct prefix during build
+                const markdown = document.createTextNode(`![${alt}]({{ '${rootRelativeSrc}' | url }})`);
                 img.parentNode.replaceChild(markdown, img);
             });
 
