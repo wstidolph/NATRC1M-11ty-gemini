@@ -172,13 +172,17 @@ window.cmsEditor = function () {
                     fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 }
                 
-                return `<img src="${fullSrc}" data-original-src="${cleanSrc}" alt="${alt}">`;
+                return `<img src="${fullSrc}" alt="${alt}">`;
             });
             
-            this.quill.root.innerHTML = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
-            if (!this.quill.root.innerHTML.startsWith("<p>")) {
-                this.quill.root.innerHTML = `<p>${this.quill.root.innerHTML}</p>`;
+            // Generate clean HTML. Wrap standalone elements in paragraphs for Quill's expected block format
+            let htmlContent = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
+            if (!htmlContent.startsWith("<p>")) {
+                htmlContent = `<p>${htmlContent}</p>`;
             }
+
+            // Let Quill safely parse and insert the HTML
+            this.quill.clipboard.dangerouslyPasteHTML(htmlContent);
         },
 
         async saveDraft() {
@@ -309,16 +313,20 @@ window.cmsEditor = function () {
                 let src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
                 const dataFilename = img.getAttribute("data-filename");
-                const dataOriginalSrc = img.getAttribute("data-original-src");
                 
                 let rootRelativeSrc;
                 
                 // If this was a newly inserted image with a base64 source, construct the true path
                 if (dataFilename) {
                     rootRelativeSrc = `/assets/images/user-uploads/${dataFilename}`;
-                } else if (dataOriginalSrc) {
-                    // If we loaded this from a draft branch, use the original normalized path
-                    rootRelativeSrc = dataOriginalSrc;
+                } else if (src.startsWith("https://raw.githubusercontent.com/")) {
+                    // Reverse the Github raw url back to the local relative src
+                    const ghMatch = src.match(/\/src(\/assets\/.*)$/);
+                    if (ghMatch) {
+                        rootRelativeSrc = ghMatch[1];
+                    } else {
+                        rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
+                    }
                 } else {
                     // Fallback to stripping any existing prefix if present to normalize to a root-relative path
                     rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
