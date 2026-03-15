@@ -6,6 +6,11 @@ title: Write a New Story
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script type="module">
+  import { Octokit } from "https://esm.sh/octokit";
+  window.Octokit = Octokit;
+  console.log("Octokit loaded on window");
+</script>
 
 <div class="admin-editor" x-data="cmsEditor()" x-init="init()">
   <div class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); margin-bottom: 20px;">

@@ -58,11 +58,16 @@ window.cmsEditor = function () {
                 throw new Error("GitHub Token Missing. Please click 'GitHub Settings' to enter a token.");
             }
             try {
-                const { Octokit } = await import("https://cdn.skypack.dev/octokit");
+                // Check if already loaded on window (via the module script in the HTML)
+                if (window.Octokit) {
+                    return new window.Octokit({ auth: this.token });
+                }
+                // Fallback to dynamic import
+                const { Octokit } = await import("https://esm.sh/octokit");
                 return new Octokit({ auth: this.token });
             } catch (err) {
-                console.error("CMS Editor: Failed to load Octokit from CDN", err);
-                throw new Error("Initialization Failed: Could not load GitHub connection library.");
+                console.error("CMS Editor: Failed to load Octokit library", err);
+                throw new Error("Initialization Failed: Could not load GitHub connection library. details: " + err.message);
             }
         },
 
