@@ -171,8 +171,25 @@ window.cmsEditor = function () {
                 } else {
                     fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 }
-                
                 return `<img src="${fullSrc}" alt="${alt}">`;
+            });
+            
+            // Also convert any preserved HTML tags (which have custom widths) back for Quill
+            htmlBody = htmlBody.replace(/<img[^>]*src=(["'])(.*?)\1[^>]*alt=(["'])(.*?)\3[^>]*style=(["'])[^"']*width:\s*(\d+)%[^"']*\5[^>]*>/g, (match, q1, src, q2, alt, q3, width) => {
+                let cleanSrc = src;
+                // De-nunjucks: {{ '/path' | url }} -> /path
+                if (src.includes("{{") && src.includes("| url")) {
+                    cleanSrc = src.replace(/\{\{\s*['"](.*?)['"]\s*\|\s*url\s*\}\}/, "$1");
+                }
+                
+                let fullSrc;
+                if (branchName && cleanSrc.startsWith("/")) {
+                    fullSrc = `https://raw.githubusercontent.com/${this.repo}/${branchName}/src${cleanSrc}`;
+                } else {
+                    fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
+                }
+                
+                return `<img src="${fullSrc}" alt="${alt}" style="width: ${width}%;">`;
             });
             
             // Generate clean HTML. Wrap standalone elements in paragraphs for Quill's expected block format
@@ -332,9 +349,18 @@ window.cmsEditor = function () {
                     rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
                 }
                 
-                // Use the 11ty 'url' filter so 11ty adds the correct prefix during build
-                const markdown = document.createTextNode(`![${alt}]({{ '${rootRelativeSrc}' | url }})`);
-                img.parentNode.replaceChild(markdown, img);
+                const styleWidth = img.style.width;
+                
+                // If it has a custom width, preserve it as an HTML tag in the Markdown
+                let markdownNode;
+                if (styleWidth) {
+                    markdownNode = document.createTextNode(`<img src="{{ '${rootRelativeSrc}' | url }}" alt="${alt}" style="width: ${styleWidth};">`);
+                } else {
+                    // Otherwise use standard Markdown
+                    markdownNode = document.createTextNode(`![${alt}]({{ '${rootRelativeSrc}' | url }})`);
+                }
+                
+                img.parentNode.replaceChild(markdownNode, img);
             });
 
             // 2. Now handle basic block formatting with regex on the partially cleaned HTML
@@ -436,6 +462,16 @@ ${body}`;
                             for (let img of images) {
                                 if (img.src === base64) {
                                     img.setAttribute("data-filename", fileName);
+                                    
+                                    // Prompt user for image width
+                                    const widthInput = prompt("Enter image width percentage (e.g., 50 for 50%, 100 for full width):", "100");
+                                    const width = parseInt(widthInput, 10);
+                                    if (!isNaN(width) && width > 0 && width <= 100) {
+                                        img.style.width = `${width}%`;
+                                    } else {
+                                        img.style.width = "100%"; // default
+                                    }
+                                    
                                     break;
                                 }
                             }
