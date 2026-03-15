@@ -25,6 +25,30 @@ window.cmsEditor = function () {
 
             try {
                 if (typeof Quill !== "undefined") {
+                    // Extend the default Image blot to natively support 'width' and 'dataFilename'
+                    // This prevents Quill's internal model from locking up when we add custom styles
+                    const BaseImageFormat = Quill.import('formats/image');
+                    class CustomImage extends BaseImageFormat {
+                        static formats(domNode) {
+                            return {
+                                width: domNode.style.width || null,
+                                dataFilename: domNode.getAttribute('data-filename') || null
+                            };
+                        }
+                        format(name, value) {
+                            if (name === 'width') {
+                                if (value) this.domNode.style.width = value;
+                                else this.domNode.style.width = '';
+                            } else if (name === 'dataFilename') {
+                                if (value) this.domNode.setAttribute('data-filename', value);
+                                else this.domNode.removeAttribute('data-filename');
+                            } else {
+                                super.format(name, value);
+                            }
+                        }
+                    }
+                    Quill.register(CustomImage, true);
+
                     // Initialize once
                     this.quill = new Quill("#editor", {
                         theme: "snow",
@@ -456,6 +480,18 @@ ${body}`;
                         // Insert local preview immediately
                         this.quill.insertEmbed(index, "image", base64);
                         
+                        // We use Quill's formatting API so it tracks the custom attributes internally
+                        this.quill.formatText(index, 1, 'dataFilename', fileName);
+                        
+                        // Prompt user for image width
+                        const widthInput = prompt("Enter image width percentage (e.g., 50 for 50%, 100 for full width):", "100");
+                        const width = parseInt(widthInput, 10);
+                        if (!isNaN(width) && width > 0 && width <= 100) {
+                            this.quill.formatText(index, 1, 'width', `${width}%`);
+                        } else {
+                            this.quill.formatText(index, 1, 'width', '100%');
+                        }
+                        
                         try {
                             await octokit.rest.repos.createOrUpdateFileContents({
                                 owner,
@@ -465,26 +501,6 @@ ${body}`;
                                 content,
                                 branch: branchName
                             });
-
-                            // Set the filename as a data attribute instead of swapping the src
-                            // This keeps the base64 image visible as a preview in the editor
-                            const images = this.quill.root.querySelectorAll("img");
-                            for (let img of images) {
-                                if (img.src === base64) {
-                                    img.setAttribute("data-filename", fileName);
-                                    
-                                    // Prompt user for image width
-                                    const widthInput = prompt("Enter image width percentage (e.g., 50 for 50%, 100 for full width):", "100");
-                                    const width = parseInt(widthInput, 10);
-                                    if (!isNaN(width) && width > 0 && width <= 100) {
-                                        img.style.width = `${width}%`;
-                                    } else {
-                                        img.style.width = "100%"; // default
-                                    }
-                                    
-                                    break;
-                                }
-                            }
                             console.log("Image synced to GitHub and meta attribute updated in editor");
                         } catch (uploadErr) {
                             console.error("Upload failed", uploadErr);
