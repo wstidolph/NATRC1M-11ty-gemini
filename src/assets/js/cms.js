@@ -6,10 +6,10 @@ window.cmsEditor = function () {
         authorEmail: localStorage.getItem("author_email") || "",
         availableDrafts: [],
         hasSavedDraft: false,
-        token: localStorage.getItem("gh_token") || "",
-        showAuth: !localStorage.getItem("gh_token"),
         loading: false,
         repo: "wstidolph/NATRC1M-11ty-gemini",
+        // UPDATE THIS URL ONCE YOUR CLOUDFLARE WORKER IS DEPLOYED
+        workerUrl: "https://natrc-cms-worker.natrc1.workers.dev",
         quill: null,
 
         async init() {
@@ -82,37 +82,13 @@ window.cmsEditor = function () {
             this.$watch("authorEmail", (val) => localStorage.setItem("author_email", val));
         },
 
-        async getOctokit() {
-            if (!this.token) {
-                this.showAuth = true;
-                throw new Error("GitHub Token Missing. Please click 'GitHub Settings' to enter a token.");
-            }
-            try {
-                // Check if already loaded on window (via the module script in the HTML)
-                if (window.Octokit) {
-                    console.log("CMS Editor: Using Octokit from window");
-                    return new window.Octokit({ auth: this.token });
-                }
-                
-                console.log("CMS Editor: Fallback to dynamic import via esm.run");
-                const { Octokit } = await import("https://esm.run/octokit");
-                return new Octokit({ auth: this.token });
-            } catch (err) {
-                console.error("CMS Editor: Failed to load Octokit library", err);
-                throw new Error(`Initialization Failed: Could not load GitHub library. Error: ${err.message}. Please check your internet connection or browser security settings.`);
-            }
-        },
-
         async fetchDrafts() {
             this.loading = true;
             try {
-                const octokit = await this.getOctokit();
-                const [owner, repo] = this.repo.split("/");
-                const { data: branches } = await octokit.rest.repos.listBranches({
-                    owner,
-                    repo
-                });
-                this.availableDrafts = branches.filter(b => b.name.startsWith("draft/"));
+                const res = await fetch(`${this.workerUrl}/api/drafts`);
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                const drafts = await res.json();
+                this.availableDrafts = drafts.map(d => ({ name: d.branch, content: d.content }));
                 console.log("CMS Editor: Drafts synced", this.availableDrafts);
             } catch (err) {
                 console.error("CMS Editor: Sync error", err);
@@ -123,22 +99,15 @@ window.cmsEditor = function () {
 
         async loadDraft(branchName) {
             if (!branchName) return;
+            const draft = this.availableDrafts.find(d => d.name === branchName);
+            if (!draft || !draft.content) {
+                alert("Could not load draft content. Try refreshing drafts.");
+                return;
+            }
             this.loading = true;
             try {
-                const octokit = await this.getOctokit();
-                const [owner, repo] = this.repo.split("/");
                 const slug = branchName.replace("draft/", "");
-                const path = `src/articles/${slug}.md`;
-
-                const { data: file } = await octokit.rest.repos.getContent({
-                    owner,
-                    repo,
-                    path,
-                    ref: branchName
-                });
-
-                const content = decodeURIComponent(escape(atob(file.content)));
-                this.parseMarkdown(content, branchName);
+                this.parseMarkdown(draft.content, branchName);
                 this.hasSavedDraft = true;
                 alert(`Successfully loaded draft: ${slug}`);
             } catch (err) {
@@ -181,7 +150,7 @@ window.cmsEditor = function () {
 
             const body = lines.slice(bodyStartIndex).join("\n").trim();
             const imageStash = [];
-            
+
             // Convert markdown images back to HTML for Quill and stash them
             // We handle the 11ty 'url' filter syntax and add the pathPrefix back for editor preview
             let htmlBody = body.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
@@ -190,7 +159,7 @@ window.cmsEditor = function () {
                 if (src.includes("{{") && src.includes("| url")) {
                     cleanSrc = src.replace(/\{\{\s*['"](.*?)['"]\s*\|\s*url\s*\}\}/, "$1");
                 }
-                
+
                 let fullSrc;
                 if (branchName && cleanSrc.startsWith("/")) {
                     fullSrc = `https://raw.githubusercontent.com/${this.repo}/${branchName}/src${cleanSrc}`;
@@ -201,7 +170,7 @@ window.cmsEditor = function () {
                 imageStash.push(imgHtml);
                 return `[[[IMGSTASH${imageStash.length - 1}]]]`;
             });
-            
+
             // Also convert any preserved HTML tags (which have custom widths) back for Quill and stash them
             htmlBody = htmlBody.replace(/<img[^>]*src=(["'])(.*?)\1[^>]*alt=(["'])(.*?)\3[^>]*style=(["'])[^"']*width:\s*(\d+)%[^"']*\5[^>]*>/g, (match, q1, src, q2, alt, q3, width) => {
                 let cleanSrc = src;
@@ -209,19 +178,19 @@ window.cmsEditor = function () {
                 if (src.includes("{{") && src.includes("| url")) {
                     cleanSrc = src.replace(/\{\{\s*['"](.*?)['"]\s*\|\s*url\s*\}\}/, "$1");
                 }
-                
+
                 let fullSrc;
                 if (branchName && cleanSrc.startsWith("/")) {
                     fullSrc = `https://raw.githubusercontent.com/${this.repo}/${branchName}/src${cleanSrc}`;
                 } else {
                     fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 }
-                
+
                 const imgHtml = `<img src="${fullSrc}" alt="${alt}" style="width: ${width}%;">`;
                 imageStash.push(imgHtml);
                 return `[[[IMGSTASH${imageStash.length - 1}]]]`;
             });
-            
+
             // Also convert basic markdown formatting back to HTML
             htmlBody = htmlBody
                 .replace(/^### (.*)$/gim, "<h3>$1</h3>")
@@ -229,12 +198,12 @@ window.cmsEditor = function () {
                 .replace(/^# (.*)$/gim, "<h1>$1</h1>")
                 .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
                 .replace(/_(.*?)_/g, "<em>$1</em>");
-            
+
             // Restore images from stash
             imageStash.forEach((markdown, index) => {
                 htmlBody = htmlBody.replace(`[[[IMGSTASH${index}]]]`, markdown);
             });
-            
+
             // Generate clean HTML. Wrap standalone elements in paragraphs for Quill's expected block format
             let htmlContent = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
             if (!htmlContent.startsWith("<p>")) {
@@ -252,49 +221,20 @@ window.cmsEditor = function () {
             }
             this.loading = true;
             try {
-                const octokit = await this.getOctokit();
-                const [owner, repo] = this.repo.split("/");
                 const slug = this.slugify(this.articleTitle);
                 const branchName = `draft/${slug}`;
-                const path = `src/articles/${slug}.md`;
-
-                const { data: mainBranch } = await octokit.rest.repos.getBranch({
-                    owner,
-                    repo,
-                    branch: "main"
-                });
-
-                try {
-                    await octokit.rest.git.createRef({
-                        owner,
-                        repo,
-                        ref: `refs/heads/${branchName}`,
-                        sha: mainBranch.commit.sha
-                    });
-                } catch (e) { }
-
                 const markdown = this.prepareContent();
 
-                let sha;
-                try {
-                    const { data: existing } = await octokit.rest.repos.getContent({
-                        owner,
-                        repo,
-                        path,
-                        ref: branchName
-                    });
-                    sha = existing.sha;
-                } catch (e) { }
-
-                await octokit.rest.repos.createOrUpdateFileContents({
-                    owner,
-                    repo,
-                    path,
-                    message: `Update Article: ${this.articleTitle}`,
-                    content: btoa(unescape(encodeURIComponent(markdown))),
-                    branch: branchName,
-                    sha
+                const res = await fetch(`${this.workerUrl}/api/draft`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ slug, title: this.articleTitle, markdown })
                 });
+
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(data.error || "Network response was not ok");
+                }
 
                 this.hasSavedDraft = true;
                 await this.fetchDrafts();
@@ -314,19 +254,18 @@ window.cmsEditor = function () {
             }
             this.loading = true;
             try {
-                const octokit = await this.getOctokit();
-                const [owner, repo] = this.repo.split("/");
                 const slug = this.slugify(this.articleTitle);
-                const branchName = `draft/${slug}`;
-
-                await octokit.rest.pulls.create({
-                    owner,
-                    repo,
-                    title: `Article Submission: ${this.articleTitle}`,
-                    head: branchName,
-                    base: "main",
-                    body: `Submission from: ${this.authorName} (${this.authorEmail})\n\nSummary: ${this.articleSummary}`
+                
+                const res = await fetch(`${this.workerUrl}/api/publish`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ slug, title: this.articleTitle })
                 });
+
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(data.error || "Network error requesting publish");
+                }
 
                 alert("Submitted! A review request has been sent to the site owner.");
             } catch (err) {
@@ -338,19 +277,21 @@ window.cmsEditor = function () {
         },
 
         async deleteDraft() {
-            if (!confirm("Are you sure you want to delete this draft branch from GitHub?")) return;
+            if (!confirm("Are you sure you want to delete this draft branch?")) return;
             this.loading = true;
             try {
-                const octokit = await this.getOctokit();
-                const [owner, repo] = this.repo.split("/");
                 const slug = this.slugify(this.articleTitle);
-                const branchName = `draft/${slug}`;
 
-                await octokit.rest.git.deleteRef({
-                    owner,
-                    repo,
-                    ref: `heads/${branchName}`
+                const res = await fetch(`${this.workerUrl}/api/draft`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ slug })
                 });
+
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(data.error || "Failed to delete branch");
+                }
 
                 await this.fetchDrafts();
                 alert("Branch deleted successfully.");
@@ -376,9 +317,9 @@ window.cmsEditor = function () {
                 let src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
                 const dataFilename = img.getAttribute("data-filename");
-                
+
                 let rootRelativeSrc;
-                
+
                 // If this was a newly inserted image with a base64 source, construct the true path
                 if (dataFilename) {
                     rootRelativeSrc = `/assets/images/user-uploads/${dataFilename}`;
@@ -394,9 +335,9 @@ window.cmsEditor = function () {
                     // Fallback to stripping any existing prefix if present to normalize to a root-relative path
                     rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
                 }
-                
+
                 const styleWidth = img.style.width;
-                
+
                 // If it has a custom width, preserve it as an HTML tag in the Markdown
                 let finalMarkdown;
                 if (styleWidth) {
@@ -405,7 +346,7 @@ window.cmsEditor = function () {
                     // Otherwise use standard Markdown
                     finalMarkdown = `![${alt}]({{ '${rootRelativeSrc}' | url }})`;
                 }
-                
+
                 imageStash.push(finalMarkdown);
                 const placeholder = document.createTextNode(`[[[IMG_STASH_${index}]]]`);
                 img.parentNode.replaceChild(placeholder, img);
@@ -442,14 +383,6 @@ tags: ["articles", "contributions"]
 ${body}`;
         },
 
-        saveToken() {
-            if (this.token) {
-                localStorage.setItem("gh_token", this.token);
-                this.showAuth = false;
-                this.fetchDrafts();
-            }
-        },
-
         imageHandler() {
             console.log("CMS Editor: Image handler triggered");
             if (!this.articleTitle) {
@@ -474,35 +407,19 @@ ${body}`;
                 const index = range ? range.index : 0;
 
                 try {
-                    const octokit = await this.getOctokit();
-                    const [owner, repo] = this.repo.split("/");
                     const slug = this.slugify(this.articleTitle);
-                    const branchName = `draft/${slug}`;
-
-                    // Ensure branch exists
-                    try {
-                        const { data: mainBranch } = await octokit.rest.repos.getBranch({ owner, repo, branch: "main" });
-                        await octokit.rest.git.createRef({
-                            owner,
-                            repo,
-                            ref: `refs/heads/${branchName}`,
-                            sha: mainBranch.commit.sha
-                        });
-                    } catch (e) {}
 
                     const reader = new FileReader();
                     reader.onload = async (e) => {
                         const base64 = e.target.result;
-                        const content = base64.split(",")[1];
                         const fileName = `${Date.now()}-${this.slugify(file.name.split(".")[0])}.${file.name.split(".").pop()}`;
-                        const path = `src/assets/images/user-uploads/${fileName}`;
 
                         // Insert local preview immediately
                         this.quill.insertEmbed(index, "image", base64);
-                        
+
                         // We use Quill's formatting API so it tracks the custom attributes internally
                         this.quill.formatText(index, 1, 'dataFilename', fileName);
-                        
+
                         // Prompt user for image width
                         const widthInput = prompt("Enter image width percentage (e.g., 50 for 50%, 100 for full width):", "100");
                         const width = parseInt(widthInput, 10);
@@ -511,20 +428,22 @@ ${body}`;
                         } else {
                             this.quill.formatText(index, 1, 'width', '100%');
                         }
-                        
+
                         try {
-                            await octokit.rest.repos.createOrUpdateFileContents({
-                                owner,
-                                repo,
-                                path,
-                                message: `Upload Image: ${fileName} for ${this.articleTitle}`,
-                                content,
-                                branch: branchName
+                            const res = await fetch(`${this.workerUrl}/api/image`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ slug, filename: fileName, base64Data: base64 })
                             });
-                            console.log("Image synced to GitHub and meta attribute updated in editor");
+
+                            if (!res.ok) {
+                                const data = await res.json().catch(() => ({}));
+                                throw new Error(data.error || "Image upload failed");
+                            }
+                            console.log("Image synced via worker and meta attribute updated in editor");
                         } catch (uploadErr) {
                             console.error("Upload failed", uploadErr);
-                            alert("Warning: Post saved locally in editor, but could not sync to GitHub.");
+                            alert("Warning: Post saved locally in editor, but could not sync to Cloudflare Worker.");
                         }
                     };
                     reader.readAsDataURL(file);

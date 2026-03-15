@@ -6,15 +6,6 @@ title: Write a New Story
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<script type="module">
-  try {
-    const { Octokit } = await import("https://esm.run/octokit");
-    window.Octokit = Octokit;
-    console.log("CMS Editor: Octokit loaded successfully via esm.run");
-  } catch (err) {
-    console.error("CMS Editor: Failed to load Octokit module", err);
-  }
-</script>
 
 <div class="admin-editor" x-data="cmsEditor()">
   <div class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); margin-bottom: 20px;">
@@ -57,10 +48,6 @@ title: Write a New Story
     </div>
     
     <div style="display: flex; gap: 10px;">
-        <!-- Auth Token Trigger -->
-        <button @click="showAuth = true" class="btn btn-secondary" style="font-size: 0.9em;">
-            GitHub Settings
-        </button>
         <!-- Danger Zone -->
         <button @click="deleteDraft" class="btn btn-secondary" style="background-color: #fee2e2; color: #991b1b; font-size: 0.9em;" :disabled="loading">
             Delete Branch
@@ -99,18 +86,6 @@ title: Write a New Story
     </div>
   </div>
 
-  <!-- Github Token Modal -->
-  <div x-show="showAuth" x-cloak class="modal-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
-    <div class="card" style="max-width: 400px; width: 90%; background: white;">
-      <h3>GitHub Authentication</h3>
-      <p style="font-size: 0.9em; color: var(--color-text-muted); margin-bottom: 15px;">To save drafts and submit PRs, please enter a GitHub Personal Access Token (classic) with 'repo' scope.</p>
-      <input type="password" x-model="token" placeholder="ghp_..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
-      <div style="display: flex; justify-content: flex-end; gap: 10px;">
-        <button @click="showAuth = false" class="btn btn-secondary">Cancel</button>
-        <button @click="saveToken" class="btn btn-primary">Save Token</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <style>
