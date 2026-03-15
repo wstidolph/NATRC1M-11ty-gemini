@@ -287,23 +287,36 @@ window.cmsEditor = function () {
         },
 
         prepareContent() {
-            const html = this.quill.root.innerHTML;
-            let body = html
+            // Use a temporary DOM element to parse HTML more reliably than regex
+            const temp = document.createElement("div");
+            temp.innerHTML = this.quill.root.innerHTML;
+
+            // 1. Process images FIRST and explicitly
+            const images = temp.querySelectorAll("img");
+            images.forEach(img => {
+                const src = img.getAttribute("src") || "";
+                const alt = img.getAttribute("alt") || "";
+                
+                // Strip the pathPrefix if it was added for the editor preview
+                const cleanSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
+                
+                // Create a text node to replace the image
+                const markdown = document.createTextNode(`![${alt}](${cleanSrc})`);
+                img.parentNode.replaceChild(markdown, img);
+            });
+
+            // 2. Now handle basic block formatting with regex on the partially cleaned HTML
+            let body = temp.innerHTML
                 .replace(/<h1>(.*?)<\/h1>/g, "# $1\n")
                 .replace(/<h2>(.*?)<\/h2>/g, "## $1\n")
                 .replace(/<h3>(.*?)<\/h3>/g, "### $1\n")
                 .replace(/<p>(.*?)<\/p>/g, "$1\n\n")
                 .replace(/<strong>(.*?)<\/strong>/g, "**$1**")
                 .replace(/<em>(.*?)<\/em>/g, "_$1_")
-                .replace(/<img.*?src="(.*?)".*?>/g, (match, src) => {
-                    // Strip the pathPrefix if it was added for the editor preview
-                    const cleanSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
-                    return `![Image](${cleanSrc})`;
-                })
-                .replace(/<br>/g, "\n");
+                .replace(/<br\s*\/?>/g, "\n");
 
-            // Strip all remaining HTML tags
-            body = body.replace(/<[^>]*>?/gm, "");
+            // 3. Final strip of all remaining HTML tags
+            body = body.replace(/<[^>]*>?/gm, "").trim();
 
             return `---
 title: "${this.articleTitle}"
@@ -328,7 +341,7 @@ ${body}`;
         imageHandler() {
             console.log("CMS Editor: Image handler triggered");
             if (!this.articleTitle) {
-                alert("Please enter an Article Title before adding images. We use the title to organize your draft folder.");
+                alert("Please enter an Article Title before adding images.");
                 return;
             }
 
@@ -337,7 +350,6 @@ ${body}`;
             input.setAttribute("accept", "image/*");
             input.style.display = "none";
             document.body.appendChild(input);
-            
             input.click();
 
             input.onchange = async () => {
@@ -346,13 +358,16 @@ ${body}`;
                 if (!file) return;
 
                 this.loading = true;
+                const range = this.quill.getSelection();
+                const index = range ? range.index : 0;
+
                 try {
                     const octokit = await this.getOctokit();
                     const [owner, repo] = this.repo.split("/");
                     const slug = this.slugify(this.articleTitle);
                     const branchName = `draft/${slug}`;
 
-                    // Ensure branch exists (try to create from main if it doesn't)
+                    // Ensure branch exists
                     try {
                         const { data: mainBranch } = await octokit.rest.repos.getBranch({ owner, repo, branch: "main" });
                         await octokit.rest.git.createRef({
@@ -361,9 +376,7 @@ ${body}`;
                             ref: `refs/heads/${branchName}`,
                             sha: mainBranch.commit.sha
                         });
-                    } catch (e) {
-                        // Branch likely already exists or we can't create it yet
-                    }
+                    } catch (e) {}
 
                     const reader = new FileReader();
                     reader.onload = async (e) => {
@@ -372,10 +385,8 @@ ${body}`;
                         const fileName = `${Date.now()}-${this.slugify(file.name.split(".")[0])}.${file.name.split(".").pop()}`;
                         const path = `src/assets/images/user-uploads/${fileName}`;
 
-                        // Show preview immediately
-                        const range = this.quill.getSelection();
-                        const placeholderIndex = range ? range.index : 0;
-                        this.quill.insertEmbed(placeholderIndex, "image", base64);
+                        // Insert local preview immediately
+                        this.quill.insertEmbed(index, "image", base64);
                         
                         try {
                             await octokit.rest.repos.createOrUpdateFileContents({
@@ -387,15 +398,18 @@ ${body}`;
                                 branch: branchName
                             });
 
-                            // Replace base64 with permanent URL to keep markdown small
-                            const url = `/NATRC1M-11ty-gemini/assets/images/user-uploads/${fileName}`;
-                            // This is a bit tricky in Quill without a reference, 
-                            // but for now, the user sees it, and on save, 
-                            // prepareContent will find the base64 and we should handle that too.
-                            alert("Image successfully synced to GitHub!");
+                            // Find the image we just inserted and swap base64 for real URL
+                            const images = this.quill.root.querySelectorAll("img");
+                            for (let img of images) {
+                                if (img.src === base64) {
+                                    img.src = `/NATRC1M-11ty-gemini/assets/images/user-uploads/${fileName}`;
+                                    break;
+                                }
+                            }
+                            console.log("Image synced to GitHub and URL updated in editor");
                         } catch (uploadErr) {
                             console.error("Upload failed", uploadErr);
-                            alert("Warning: Post saved locally in editor, but could not sync to GitHub. Check your connection.");
+                            alert("Warning: Post saved locally in editor, but could not sync to GitHub.");
                         }
                     };
                     reader.readAsDataURL(file);
