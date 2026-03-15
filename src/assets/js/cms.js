@@ -13,6 +13,10 @@ window.cmsEditor = function () {
         quill: null,
 
         async init() {
+            if (this.quill) {
+                console.log("CMS Editor: already initialized");
+                return;
+            }
             console.log("CMS Editor: init starting");
 
             // Explicitly reset variables to empty strings to avoid browser [object] conflicts
@@ -21,6 +25,7 @@ window.cmsEditor = function () {
 
             try {
                 if (typeof Quill !== "undefined") {
+                    // Initialize once
                     this.quill = new Quill("#editor", {
                         theme: "snow",
                         modules: {
@@ -32,7 +37,7 @@ window.cmsEditor = function () {
                                     [{ list: "ordered" }, { list: "bullet" }]
                                 ],
                                 handlers: {
-                                    image: () => this.imageHandler()
+                                    image: this.imageHandler.bind(this)
                                 }
                             }
                         }
@@ -305,6 +310,71 @@ ${body}`;
                 this.showAuth = false;
                 this.fetchDrafts();
             }
+        },
+
+        async imageHandler() {
+            if (!this.articleTitle) {
+                alert("Please enter an Article Title before adding images. We use the title to organize your draft folder.");
+                return;
+            }
+
+            const input = document.createElement("input");
+            input.setAttribute("type", "file");
+            input.setAttribute("accept", "image/*");
+            input.click();
+
+            input.onchange = async () => {
+                const file = input.files[0];
+                if (!file) return;
+
+                this.loading = true;
+                try {
+                    const octokit = await this.getOctokit();
+                    const [owner, repo] = this.repo.split("/");
+                    const slug = this.slugify(this.articleTitle);
+                    const branchName = `draft/${slug}`;
+
+                    // Ensure branch exists (try to create from main if it doesn't)
+                    try {
+                        const { data: mainBranch } = await octokit.rest.repos.getBranch({ owner, repo, branch: "main" });
+                        await octokit.rest.git.createRef({
+                            owner,
+                            repo,
+                            ref: `refs/heads/${branchName}`,
+                            sha: mainBranch.commit.sha
+                        });
+                    } catch (e) {
+                        // Branch likely already exists or we can't create it yet
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = async (e) => {
+                        const content = e.target.result.split(",")[1];
+                        const fileName = `${Date.now()}-${this.slugify(file.name.split(".")[0])}.${file.name.split(".").pop()}`;
+                        const path = `src/assets/images/user-uploads/${fileName}`;
+
+                        await octokit.rest.repos.createOrUpdateFileContents({
+                            owner,
+                            repo,
+                            path,
+                            message: `Upload Image: ${fileName} for ${this.articleTitle}`,
+                            content,
+                            branch: branchName
+                        });
+
+                        const range = this.quill.getSelection();
+                        const url = `/assets/images/user-uploads/${fileName}`;
+                        this.quill.insertEmbed(range ? range.index : 0, "image", url);
+                        alert("Image uploaded and inserted!");
+                    };
+                    reader.readAsDataURL(file);
+                } catch (err) {
+                    console.error("Image Upload Error:", err);
+                    alert("Image Upload Failed: " + err.message);
+                } finally {
+                    this.loading = false;
+                }
+            };
         },
 
         slugify(text) {
