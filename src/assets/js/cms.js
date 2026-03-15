@@ -431,6 +431,7 @@ window.cmsEditor = function () {
 
             return `---
 title: "${this.articleTitle}"
+layout: base.njk
 summary: "${this.articleSummary}"
 author: "${this.authorName}"
 email: "${this.authorEmail}"
