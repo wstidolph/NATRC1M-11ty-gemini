@@ -180,7 +180,9 @@ window.cmsEditor = function () {
             }
 
             const body = lines.slice(bodyStartIndex).join("\n").trim();
-            // Convert markdown images back to HTML for Quill
+            const imageStash = [];
+            
+            // Convert markdown images back to HTML for Quill and stash them
             // We handle the 11ty 'url' filter syntax and add the pathPrefix back for editor preview
             let htmlBody = body.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
                 let cleanSrc = src;
@@ -195,10 +197,12 @@ window.cmsEditor = function () {
                 } else {
                     fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 }
-                return `<img src="${fullSrc}" alt="${alt}">`;
+                const imgHtml = `<img src="${fullSrc}" alt="${alt}">`;
+                imageStash.push(imgHtml);
+                return `[[[IMGSTASH${imageStash.length - 1}]]]`;
             });
             
-            // Also convert any preserved HTML tags (which have custom widths) back for Quill
+            // Also convert any preserved HTML tags (which have custom widths) back for Quill and stash them
             htmlBody = htmlBody.replace(/<img[^>]*src=(["'])(.*?)\1[^>]*alt=(["'])(.*?)\3[^>]*style=(["'])[^"']*width:\s*(\d+)%[^"']*\5[^>]*>/g, (match, q1, src, q2, alt, q3, width) => {
                 let cleanSrc = src;
                 // De-nunjucks: {{ '/path' | url }} -> /path
@@ -213,7 +217,9 @@ window.cmsEditor = function () {
                     fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
                 }
                 
-                return `<img src="${fullSrc}" alt="${alt}" style="width: ${width}%;">`;
+                const imgHtml = `<img src="${fullSrc}" alt="${alt}" style="width: ${width}%;">`;
+                imageStash.push(imgHtml);
+                return `[[[IMGSTASH${imageStash.length - 1}]]]`;
             });
             
             // Also convert basic markdown formatting back to HTML
@@ -223,6 +229,11 @@ window.cmsEditor = function () {
                 .replace(/^# (.*)$/gim, "<h1>$1</h1>")
                 .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
                 .replace(/_(.*?)_/g, "<em>$1</em>");
+            
+            // Restore images from stash
+            imageStash.forEach((markdown, index) => {
+                htmlBody = htmlBody.replace(`[[[IMGSTASH${index}]]]`, markdown);
+            });
             
             // Generate clean HTML. Wrap standalone elements in paragraphs for Quill's expected block format
             let htmlContent = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
