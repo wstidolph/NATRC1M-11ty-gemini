@@ -114,7 +114,7 @@ window.cmsEditor = function () {
                 });
 
                 const content = decodeURIComponent(escape(atob(file.content)));
-                this.parseMarkdown(content);
+                this.parseMarkdown(content, branchName);
                 this.hasSavedDraft = true;
                 alert(`Successfully loaded draft: ${slug}`);
             } catch (err) {
@@ -125,7 +125,7 @@ window.cmsEditor = function () {
             }
         },
 
-        parseMarkdown(markdown) {
+        parseMarkdown(markdown, branchName = null) {
             const lines = markdown.split("\n");
             let inFrontmatter = false;
             let bodyStartIndex = 0;
@@ -164,8 +164,15 @@ window.cmsEditor = function () {
                 if (src.includes("{{") && src.includes("| url")) {
                     cleanSrc = src.replace(/\{\{\s*['"](.*?)['"]\s*\|\s*url\s*\}\}/, "$1");
                 }
-                const fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
-                return `<img src="${fullSrc}" alt="${alt}">`;
+                
+                let fullSrc;
+                if (branchName && cleanSrc.startsWith("/")) {
+                    fullSrc = `https://raw.githubusercontent.com/${this.repo}/${branchName}/src${cleanSrc}`;
+                } else {
+                    fullSrc = cleanSrc.startsWith("/") ? `/NATRC1M-11ty-gemini${cleanSrc}` : cleanSrc;
+                }
+                
+                return `<img src="${fullSrc}" data-original-src="${cleanSrc}" alt="${alt}">`;
             });
             
             this.quill.root.innerHTML = htmlBody.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
@@ -302,14 +309,20 @@ window.cmsEditor = function () {
                 let src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
                 const dataFilename = img.getAttribute("data-filename");
+                const dataOriginalSrc = img.getAttribute("data-original-src");
+                
+                let rootRelativeSrc;
                 
                 // If this was a newly inserted image with a base64 source, construct the true path
                 if (dataFilename) {
-                    src = `/assets/images/user-uploads/${dataFilename}`;
+                    rootRelativeSrc = `/assets/images/user-uploads/${dataFilename}`;
+                } else if (dataOriginalSrc) {
+                    // If we loaded this from a draft branch, use the original normalized path
+                    rootRelativeSrc = dataOriginalSrc;
+                } else {
+                    // Fallback to stripping any existing prefix if present to normalize to a root-relative path
+                    rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
                 }
-                
-                // Strip any existing prefix if present to normalize to a root-relative path
-                const rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
                 
                 // Use the 11ty 'url' filter so 11ty adds the correct prefix during build
                 const markdown = document.createTextNode(`![${alt}]({{ '${rootRelativeSrc}' | url }})`);
