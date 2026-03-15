@@ -18,6 +18,11 @@
     <header class="site-header">
       <div class="container header-container">
         <h1 class="logo"><a href="{{ '/' | url }}">NATRC Region 1</a></h1>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav class="main-nav">
           <ul>
             {%- for item in navigation %}
@@ -44,5 +49,17 @@
         <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
       </div>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.main-nav');
+        if(toggleBtn && nav) {
+          toggleBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+          });
+        }
+      });
+    </script>
   </body>
 </html>
