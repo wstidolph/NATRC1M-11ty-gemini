@@ -8,7 +8,7 @@ title: "Sunny Opens Up at Mt Diablo!"
     		<h2 style="padding-top:30px">Sunny Opens Up at Mt Diablo!</h2>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_a.jpg" width="350" height="263" alt="Sunny and Me" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_a.jpg' | url }}" width="350" height="263" alt="Sunny and Me" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Sunny and Me</figcaption>
 </figure>
 
@@ -19,7 +19,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>Our first setback was that Tango and Laura, our usual riding partners, were doing Competitive Pleasure.  Tango hadn't gotten out as much as he needed to this Spring, so we were on our own, or as much as you can be on a NATRC ride.  Dang!  But we pulled up our socks and went anyway.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_b.jpg" width="300" height="225" alt="Lara and Tango" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_b.jpg' | url }}" width="300" height="225" alt="Lara and Tango" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Laura and Tango</figcaption>
 </figure>
 
@@ -50,21 +50,21 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>Open riders start out first at these rides; their pace is faster so they start out in front so they don't have to be passing the rest of the riders.  The Boicellis went first: they both ride gorgeous Arab-Connemara crosses and go like the wind.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_c.jpg" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_c.jpg' | url }}" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Vicki Boicelli and Her Guy. Handsome, eh?</figcaption>
 </figure>
 
 <p>After that, there were only 4 Open riders left:  Angie, Karlie, Eric and me.  The other three had planned to ride together.  Angie has ridden Open for many years and has won about 10 National-level championships, I think.  Eric is a friend of hers, and Karlie is a student of hers (Angie teaches equitation in Willets, up by Jackson Forest, and I was Karlie's sponsor on the Jackson Forest ride last year, since we were both Novices then).  Anyhow, I asked if I could tag along. They said okay, and we stuck with them like glue for the entire ride.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_d.jpg" width="300" height="225" alt="Karlie and Caeli" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_d.jpg' | url }}" width="300" height="225" alt="Karlie and Caeli" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Karlie and Caeli - We Followed Them Slavishly</figcaption>
 </figure>
 
 <p>I hope you've gotten your money's worth of reading by this time because the rest of the ride is a blur. We had to do 27 miles, I think, at at average of 3.7 mph.  It sounds easy, but in NATRC, you are discouraged from trotting uphill and you just plain can't trot downhill, and we were riding on Mt Diablo, where the longest stretch of flat ground in the first 22 miles was about 200 yards (we trotted it, of course).  In addition, it's NATRC manners to wait for everyone at all the obstacles, P&amp;Rs, etc and since there were four of us, the first person had to wait for the other three- so the first person through essentially has to take the last person's time, so Angie was losing a couple of minutes at every stop, and you only have a 30 minute window to finish.  As a result, there was no time for taking photos or talking or breathing or much of anything.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_e.jpg" width="300" height="225" alt="Angie and Beau" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_e.jpg' | url }}" width="300" height="225" alt="Angie and Beau" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Angie and Beau, Our Models and Nemeses for the Rest of our CTR Career</figcaption>
 </figure>
 
@@ -73,21 +73,21 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>At this point, I'll circle back to the "orphaned" juniors whose sponsor had to leave.  In NATRC rides, any rider under 16 (maybe?) has to be accompanied by an adult rider, so someone had to step up to ride with those juniors.  Kay Liebernicht, who had brought a few juniors of her own, took on the job.  And if you think the group I rode with had problems making time, think of what it would be like with 9 riders, many of whom are doing their first ride, and don't know what the process is.  I think Kay worked up some good kharma on this ride.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_f.jpg" width="300" height="225" alt="The Juniors" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_f.jpg' | url }}" width="300" height="225" alt="The Juniors" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">The Juniors</figcaption>
 </figure>
 
 <p>Our first real break was at lunch, which is in a pasture at a beautiful ranch.  Ride management had brought hay out, but there was plenty of grass for grazing, too. We had a 45 minute break, so we could pull tack and sit down for a few minutes.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_g.jpg" width="300" height="225" alt="Lunch" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_g.jpg' | url }}" width="300" height="225" alt="Lunch" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Lunch</figcaption>
 </figure>
 
 <p>And after that, it's a blank again, until the last about four miles.  At that point, the trail sort of flattened out and we went for it.  We were either cantering or doing an extended trot for the entire thing, except where we had to cross two streams, and for the last quarter mile into camp.  I have to say it was exhilarating and Sunny seemed to like it, too.  She got a little excited when we were cantering and somehow got into the lead, but she responded to my shut-down and we let the rest of the group pass and took up our Regular Station at the back, where she settled down.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_h.jpg" width="300" height="225" alt="The Mule" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_h.jpg' | url }}" width="300" height="225" alt="The Mule" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">The Mule</figcaption>
 </figure>
 
@@ -98,7 +98,7 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>After we got in, we had an hour-plus to clean up our horses, feed and water, etc before we had to report for our vetting out.  When we through Sunny's metabolics and manners were excellent, but she got gigged for being "uneven on the left hind" on the trot out!  I think it was true, but, dang, *I'm* uneven when I'm missing a shoe.  Sheesh. And remember the unfastened water bucket I made such a big deal about?  I got penalized for it.  I talked to the judge about it and he said that avoiding getting tangled was certainly the primary reason to fasten the buckets, but he pointed out that, even if Sunny didn't get entangled, if she managed to tip it over, it could surprise her, cause her to pull back, affect horses in her area, . . .   Good point.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_i.jpg" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/MtDiablo2012_i.jpg' | url }}" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">How to Trot Out Your Horse: the Faster the Better!</figcaption>
 </figure>
 

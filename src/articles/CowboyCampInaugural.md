@@ -8,7 +8,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
     		<h2 style="padding-top:30px">Sunny Cowgirls Up at Cowboy Camp</h2>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_a.jpg" width="340" height="227" alt="View from the Top of the World" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_a.jpg' | url }}" width="340" height="227" alt="View from the Top of the World" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center">Sunny &amp; Me on the Trail.  Yes, my bib does hang down &amp; I am always trying to read my map!</figcaption>
 </figure>
 
@@ -57,7 +57,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The trail out was a skinny path through star thistle, which Sunny tip-toed through, followed by really tall grass - like tall enough so that I couldn't see anywhere but straight ahead.  I was surprised that it didn't seem to bother any of the horses at all.  After about a half mile, we came to a creek that we had to cross. All our horses stopped for a drink - smart ponies - and after we crossed we hit the trail system that we'd be on for the rest of the ride. The ride was on jeep trails, for the most part, so you could ride comfortably side by side, but you didn't feel like you were riding your horse on a freeway, and the surface was very nice.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_b.jpg" width="340" height="453" alt="Starting the Ride, with Tango Leading the Way" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_b.jpg' | url }}" width="340" height="453" alt="Starting the Ride, with Tango Leading the Way" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" starting="" the="" ride,="" with="" tango="" leading="" way<="" figcaption="">
 </figcaption></figure>
 
@@ -66,7 +66,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The trail wound up and up and up, with several "local maximums," that provided great views, and the vistas widened every time we reached a higher point.  It was getting warmer and the trail was a pretty steady climb, with some seriously steep pitches in it, so we stopped to take in all the views and let the horses have a few minutes to huff and puff, which they were all doing.  And Sunny was sweating like a pig, much more than the other horses, so I was a little worried - although she had much more of a winter coat than they did, too.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_c.jpg" width="340" height="255" alt="One of our Huff 'n Puff Stops" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_c.jpg' | url }}" width="340" height="255" alt="One of our Huff 'n Puff Stops" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" one="" of="" our="" huff="" 'n="" puff="" stops<="" figcaption="">
 </figcaption></figure>
 
@@ -74,7 +74,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>At about the six mile point, coming up a steep pitch of the hill, we saw Carol, the horsemanship judge, perched by the left side of the trail, and the photographer to the right side.  Sunny was leading at that point, so she got nervous, but she couldn't decide which person to spook from, so she just marched straight up the hill. Whew!  Since the horsemanship judge and the vet and the P &amp; R (pulse and respiration ) crews all travel together, we weren't surprised when there was a P &amp; R/vet check at the top of the hill, about 100 yards from the photographer.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_d.jpg" width="340" height="227" alt="The View Entering the P &amp; R" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_d.jpg' | url }}" width="340" height="227" alt="The View Entering the P &amp; R" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" the="" view="" entering="" p="" &="" r<="" figcaption="">
 </figcaption></figure>
 
@@ -91,19 +91,19 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>After that, it was just three miles or so to lunch, where there was hay and water for the horses and whatever we'd sent out for ourselves. I'd filled my cooler with carrots and sweet feed, so Sunny had her choice of food.  We got 45 minutes for lunch, so we pulled their saddles and ate our lunches with the horses.  The only excitement was when Tango realized that Laura still had a horse cookie in her saddle bag, along with her water bottles and he decided to go after the cookie.  The 45 minutes went by really quickly, but we managed, as a group, to leave on time.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_e.jpg" width="340" height="453" alt="Tango Looking for Cookies" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_e.jpg' | url }}" width="340" height="453" alt="Tango Looking for Cookies" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" tango="" looking="" for="" cookies<="" figcaption="">
 </figcaption></figure>
 
 <p>Directly out of lunch, we had to do this long climb up through a canyon - it was the hottest it had been all day, and it was a couple mile climb.  We finally made it to the top and started descending.  Pretty soon we could see horses hanging out ahead of us, then we could see that they were gathered around a pond.  Well, Tango *flew* to the pond and marched in.  Then he marched in deeper. Then he dropped and started to roll - all this with Laura on his back!  Laura convinced him not to go all the way over, but, in the meantime, he'd been an example to all the other horses and they were *all* cavorting in the pond - wandering around in it and splashing away.  We spend probably 15 minutes at the pond getting good and cooled off, but then we had to take off.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_f.jpg" width="340" height="255" alt="Tango Leading the Way - Into the Pond" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_f.jpg' | url }}" width="340" height="255" alt="Tango Leading the Way - Into the Pond" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" tango="" leading="" the="" way="" -="" into="" pond<="" figcaption="">
 </figcaption></figure>
 
 <figure>
-  <p class="centeredImage"><img src="../images/CC_g.jpg" width="340" height="255" alt="Everyone Gets into the Act">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_g.jpg' | url }}" width="340" height="255" alt="Everyone Gets into the Act">
   </p><figcaption style="text-align:center" everyone="" gets="" into="" the="" act<="" figcaption="">
 </figcaption></figure>
 
@@ -111,12 +111,12 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The next P &amp; R was at about 14 or 15 miles, I think, and we had to trot the last maybe quarter mile into it, but Sunny pulsed down really quickly again.  After we passed the P &amp; R check, we had to walk our horses, in hand, to the vet for him to check them out. When he completed his exam, he said, "You have 15 seconds to get on this horse and get out of here.  Go!"  It was pretty unexpected: NATRC things are usually very deliberate, but I trotted over to a log, Sunny stepped up to it, and I hopped on. We must have made it okay because it didn't show up as a deduction on our vet card.   We then proceeded to the Carol, the horsemanship judge.  She had us walk through a little obstacle course made of downed logs - over this one, around that one, over another one between two ribbons, stop here . . . - then we were free to take off on the last leg of the ride.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_h.jpg" width="340" height="255" alt="Jody and Hotshot Negotiate the Obstacle" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_h.jpg' | url }}" width="340" height="255" alt="Jody and Hotshot Negotiate the Obstacle" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" jody="" and="" hotshot="" negotiate="" the="" obstacle<="" figcaption="">
 </figcaption></figure>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_i.jpg" width="340" height="255" alt="Carli Gets Instructions from the Horsemanship Judge" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_i.jpg' | url }}" width="340" height="255" alt="Carli Gets Instructions from the Horsemanship Judge" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" carli="" gets="" instructions="" from="" the="" horsemanship="" judge<="" figcaption="">
 </figcaption></figure>
 
@@ -129,7 +129,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The Two Mile Point was at the bottom of a hill, and we had to cross a dry creek bed to continue. (I haven't mentioned it, but we must have crossed 15 dry stream beds - this would have been a wet ride if it had been in the Spring!)  The creek bed was full of just-slightly-larger-than-base-rock rocks and a couple of horses immediately picked up stones in their hooves, including Tango. You're supposed to carry a hoof pick on these rides, Laura was, and she was able to remove the stone immediately. The other horse had a *huge* rock wedged between his shoe and his frog and his rider couldn't get it out, and she was really prying, enough to be moving the shoe.  Finally, Kay Leibernecht, who is a NATRC mainstay (she's written a few articles for the Region 1 website, including a great one on how to introduce juniors to NATRC) and a farrier, got off her horse and gave it a try.  She said that she's learned that, in some cases, the right approach is to apply a lot of force really quickly, instead of the slow pry.  Kay positioned the hoof pick and really jumped on it and out popped the rock. Another lesson learned.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_j.jpg" width="320" height="240" alt="The Last Mile" style="max-width: 100%; height: auto;">
+  <p class="centeredImage"><img src="{{ '/assets/images/CC_j.jpg' | url }}" width="320" height="240" alt="The Last Mile" style="max-width: 100%; height: auto;">
   </p><figcaption style="text-align:center" the="" last="" mile<="" figcaption="">
 </figcaption></figure>
 

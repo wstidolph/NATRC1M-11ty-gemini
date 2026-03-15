@@ -9,7 +9,7 @@ title: "Judging Q and A"
 		
 		<p><em><b>Question: I'm confused about the correct way to ride up hills. I see a lot of different postures - what's the best way to help your horse up the hill? </b></em></p>
 		
-<p class="centeredImage"><img src="/assets/images/Light_Seat.jpg" alt="Jan Jeffers shows the correct position for riding uphill" title="Jan Jeffers shows the correct position for riding uphill" height="226" width="340" style="max-width: 100%; height: auto;"><br>
+<p class="centeredImage"><img src="{{ '/assets/images/Light_Seat.jpg' | url }}" alt="Jan Jeffers shows the correct position for riding uphill" title="Jan Jeffers shows the correct position for riding uphill" height="226" width="340" style="max-width: 100%; height: auto;"><br>
 Photo by Mike Solomon.</p>
 <p>From Jamie Dieterich, Horsemanship Judge, Region 1:</p>  
 <p>The ascents and descents present a multitude of ways for the horse and rider to excel.  Regardless of whether it is a mountain or a creek bank, the judges will be looking for the same things.</p>

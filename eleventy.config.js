@@ -1,7 +1,15 @@
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.setServerOptions({
-        showAllHosts: true
+        showAllHosts: true,
+        onRequest: {
+            "/": function({ request, response }) {
+                if (request.url === "/") {
+                    response.writeHead(301, { "Location": "/NATRC1M-11ty-gemini/" });
+                    response.end();
+                }
+            }
+        }
     });
 
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
