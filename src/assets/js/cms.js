@@ -299,8 +299,14 @@ window.cmsEditor = function () {
             // 1. Process images FIRST and explicitly
             const images = temp.querySelectorAll("img");
             images.forEach(img => {
-                const src = img.getAttribute("src") || "";
+                let src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
+                const dataFilename = img.getAttribute("data-filename");
+                
+                // If this was a newly inserted image with a base64 source, construct the true path
+                if (dataFilename) {
+                    src = `/assets/images/user-uploads/${dataFilename}`;
+                }
                 
                 // Strip any existing prefix if present to normalize to a root-relative path
                 const rootRelativeSrc = src.replace("/NATRC1M-11ty-gemini/", "/");
@@ -403,15 +409,16 @@ ${body}`;
                                 branch: branchName
                             });
 
-                            // Find the image we just inserted and swap base64 for real URL
+                            // Set the filename as a data attribute instead of swapping the src
+                            // This keeps the base64 image visible as a preview in the editor
                             const images = this.quill.root.querySelectorAll("img");
                             for (let img of images) {
                                 if (img.src === base64) {
-                                    img.src = `/NATRC1M-11ty-gemini/assets/images/user-uploads/${fileName}`;
+                                    img.setAttribute("data-filename", fileName);
                                     break;
                                 }
                             }
-                            console.log("Image synced to GitHub and URL updated in editor");
+                            console.log("Image synced to GitHub and meta attribute updated in editor");
                         } catch (uploadErr) {
                             console.error("Upload failed", uploadErr);
                             alert("Warning: Post saved locally in editor, but could not sync to GitHub.");
