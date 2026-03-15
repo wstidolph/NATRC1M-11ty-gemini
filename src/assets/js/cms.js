@@ -312,7 +312,8 @@ ${body}`;
             }
         },
 
-        async imageHandler() {
+        imageHandler() {
+            console.log("CMS Editor: Image handler triggered");
             if (!this.articleTitle) {
                 alert("Please enter an Article Title before adding images. We use the title to organize your draft folder.");
                 return;
@@ -321,9 +322,13 @@ ${body}`;
             const input = document.createElement("input");
             input.setAttribute("type", "file");
             input.setAttribute("accept", "image/*");
+            input.style.display = "none";
+            document.body.appendChild(input);
+            
             input.click();
 
             input.onchange = async () => {
+                document.body.removeChild(input);
                 const file = input.files[0];
                 if (!file) return;
 
