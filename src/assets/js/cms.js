@@ -368,9 +368,10 @@ ${body}`;
                         });
 
                         const range = this.quill.getSelection();
-                        const url = `/assets/images/user-uploads/${fileName}`;
+                        // Use relative path for local preview and absolute-ish for Github Pages
+                        const url = `/NATRC1M-11ty-gemini/assets/images/user-uploads/${fileName}`;
                         this.quill.insertEmbed(range ? range.index : 0, "image", url);
-                        alert("Image uploaded and inserted!");
+                        alert("Image uploaded and inserted! (Note: It may take a minute for the link to 'wake up' on GitHub, but it is saved in your draft)");
                     };
                     reader.readAsDataURL(file);
                 } catch (err) {
