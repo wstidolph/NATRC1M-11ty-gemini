@@ -324,9 +324,12 @@ window.cmsEditor = function () {
             const temp = document.createElement("div");
             temp.innerHTML = this.quill.root.innerHTML;
 
+            // Use an array to stash image nodes so they aren't mangled by regex or innerHTML encoding
+            const imageStash = [];
+
             // 1. Process images FIRST and explicitly
             const images = temp.querySelectorAll("img");
-            images.forEach(img => {
+            images.forEach((img, index) => {
                 let src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
                 const dataFilename = img.getAttribute("data-filename");
@@ -352,15 +355,17 @@ window.cmsEditor = function () {
                 const styleWidth = img.style.width;
                 
                 // If it has a custom width, preserve it as an HTML tag in the Markdown
-                let markdownNode;
+                let finalMarkdown;
                 if (styleWidth) {
-                    markdownNode = document.createTextNode(`<img src="{{ '${rootRelativeSrc}' | url }}" alt="${alt}" style="width: ${styleWidth};">`);
+                    finalMarkdown = `<img src="{{ '${rootRelativeSrc}' | url }}" alt="${alt}" style="width: ${styleWidth};">`;
                 } else {
                     // Otherwise use standard Markdown
-                    markdownNode = document.createTextNode(`![${alt}]({{ '${rootRelativeSrc}' | url }})`);
+                    finalMarkdown = `![${alt}]({{ '${rootRelativeSrc}' | url }})`;
                 }
                 
-                img.parentNode.replaceChild(markdownNode, img);
+                imageStash.push(finalMarkdown);
+                const placeholder = document.createTextNode(`[[[IMG_STASH_${index}]]]`);
+                img.parentNode.replaceChild(placeholder, img);
             });
 
             // 2. Now handle basic block formatting with regex on the partially cleaned HTML
@@ -375,6 +380,11 @@ window.cmsEditor = function () {
 
             // 3. Final strip of all remaining HTML tags
             body = body.replace(/<[^>]*>?/gm, "").trim();
+
+            // 4. Restore the stashed images
+            imageStash.forEach((markdown, index) => {
+                body = body.replace(`[[[IMG_STASH_${index}]]]`, markdown);
+            });
 
             return `---
 title: "${this.articleTitle}"
