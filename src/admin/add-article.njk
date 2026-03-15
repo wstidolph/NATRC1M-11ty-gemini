@@ -31,7 +31,12 @@ title: Write a New Story
       </button>
 
       <!-- Publish Request Button -->
-      <button @click="requestPublish" class="btn btn-primary" :disabled="loading">
+      <button 
+        @click="requestPublish" 
+        class="btn btn-primary" 
+        :disabled="loading || !hasSavedDraft"
+        :title="!hasSavedDraft ? 'You must save a draft at least once before requesting publication.' : ''"
+      >
         Request Publish
       </button>
       
@@ -46,6 +51,9 @@ title: Write a New Story
         </select>
         <button @click="fetchDrafts" class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.8em;" :disabled="loading">↻ Refresh</button>
       </div>
+      <span x-show="!hasSavedDraft" style="font-size: 0.8em; color: var(--color-text-muted); margin-left: 10px;">
+        (Save draft first to enable publishing)
+      </span>
     </div>
     
     <div style="display: flex; gap: 10px;">

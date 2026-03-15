@@ -5,6 +5,7 @@ window.cmsEditor = function () {
         authorName: localStorage.getItem("author_name") || "",
         authorEmail: localStorage.getItem("author_email") || "",
         availableDrafts: [],
+        hasSavedDraft: false,
         token: localStorage.getItem("gh_token") || "",
         showAuth: !localStorage.getItem("gh_token"),
         loading: false,
@@ -109,6 +110,7 @@ window.cmsEditor = function () {
 
                 const content = decodeURIComponent(escape(atob(file.content)));
                 this.parseMarkdown(content);
+                this.hasSavedDraft = true;
                 alert(`Successfully loaded draft: ${slug}`);
             } catch (err) {
                 console.error(err);
@@ -206,6 +208,7 @@ window.cmsEditor = function () {
                     sha
                 });
 
+                this.hasSavedDraft = true;
                 await this.fetchDrafts();
                 alert(`Success! Draft saved to branch: ${branchName}`);
             } catch (err) {
