@@ -3,7 +3,7 @@ title: "Photo Four"
 summary: "The AI is clever"
 author: "wayne"
 email: "wayne@stidolph.com"
-date: 2026-03-15
+date: 2026-03-15T11:15:00.000Z
 tags: ["articles", "contributions"]
 ---
 

@@ -328,7 +328,7 @@ title: "${this.articleTitle}"
 summary: "${this.articleSummary}"
 author: "${this.authorName}"
 email: "${this.authorEmail}"
-date: ${new Date().toISOString().split("T")[0]}
+date: ${new Date().toISOString()}
 tags: ["articles", "contributions"]
 ---
 

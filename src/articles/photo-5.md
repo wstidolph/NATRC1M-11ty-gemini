@@ -3,7 +3,7 @@ title: "Photo 5"
 summary: "using DOM extraction for img tags"
 author: "wayne"
 email: "wayne@stidolph.com"
-date: 2026-03-15
+date: 2026-03-15T11:05:00.000Z
 tags: ["articles", "contributions"]
 ---
 

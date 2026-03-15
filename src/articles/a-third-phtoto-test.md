@@ -3,7 +3,7 @@ title: "a third phtoto test"
 summary: "Wayne gets stubborn"
 author: "wayne"
 email: "wayne@stidolph.com"
-date: 2026-03-15
+date: 2026-03-15T11:10:00.000Z
 tags: ["articles", "contributions"]
 ---
 
