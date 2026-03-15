@@ -60,14 +60,16 @@ window.cmsEditor = function () {
             try {
                 // Check if already loaded on window (via the module script in the HTML)
                 if (window.Octokit) {
+                    console.log("CMS Editor: Using Octokit from window");
                     return new window.Octokit({ auth: this.token });
                 }
-                // Fallback to dynamic import
-                const { Octokit } = await import("https://esm.sh/octokit");
+                
+                console.log("CMS Editor: Fallback to dynamic import via esm.run");
+                const { Octokit } = await import("https://esm.run/octokit");
                 return new Octokit({ auth: this.token });
             } catch (err) {
                 console.error("CMS Editor: Failed to load Octokit library", err);
-                throw new Error("Initialization Failed: Could not load GitHub connection library. details: " + err.message);
+                throw new Error(`Initialization Failed: Could not load GitHub library. Error: ${err.message}. Please check your internet connection or browser security settings.`);
             }
         },
 
