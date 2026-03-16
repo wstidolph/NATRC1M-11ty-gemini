@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: The Leadline Archives
+---
+
+<div class="hero">
+  <h2>The Leadline Archives</h2>
+  <p>Historical newsletters and breaking news for Region 1.</p>
+</div>
+
+<div class="card">
+  <input type="text" id="searchInput" placeholder="Search archives by name or date..." style="padding: 12px; width: 100%; max-width: 400px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem;">
+  <div class="table-responsive">
+  <table id="leadlineTable" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="border-bottom: 2px solid var(--color-primary); background-color: var(--color-background-alt);">
+        <th style="padding: 12px; text-align: left;">Issue / Title</th>
+        <th style="padding: 12px; text-align: right;">Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for issue in leadlines %}
+      <tr data-filename="{{ issue.filename }}">
+        <td style="padding: 12px; border-bottom: 1px solid #ddd;">
+          <a href="{{ '/assets/leadlines/' + issue.filename | url }}" target="_blank" style="font-weight: 600;">{{ issue.title }}</a>
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">
+          <span style="background: var(--color-primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">PDF</span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script>
+let searchIndex = [];
+fetch("{{ '/assets/js/leadlines_search_index.json' | url }}")
+  .then(res => res.json())
+  .then(data => {
+    searchIndex = data;
+    console.log("Loaded deep search index for Leadlines.");
+  })
+  .catch(err => console.error("Could not load deep search index", err));
+
+document.getElementById("searchInput").addEventListener("keyup", function() {
+  const filter = this.value.toUpperCase();
+  const table = document.getElementById("leadlineTable");
+  const trs = table.getElementsByTagName("tr");
+  
+  for (let i = 1; i < trs.length; i++) {
+    const tr = trs[i];
+    const filename = tr.getAttribute('data-filename');
+    const td = tr.getElementsByTagName("td")[0];
+    
+    if (td) {
+      let match = false;
+      const titleText = (td.textContent || td.innerText).toUpperCase();
+      
+      // Check title first
+      if (titleText.indexOf(filter) > -1) {
+        match = true;
+      } else if (searchIndex.length > 0) {
+        // Fallback to deep index
+        const indexEntry = searchIndex.find(idx => idx.filename === filename);
+        if (indexEntry && indexEntry.content && indexEntry.content.toUpperCase().indexOf(filter) > -1) {
+          match = true;
+        }
+      }
+      
+      tr.style.display = match ? "" : "none";
+    }
+  }
+});
+</script>
