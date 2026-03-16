@@ -2,7 +2,40 @@
 
 This guide provides the necessary instructions and templates for the routine maintenance of the NATRC Region 1 website.
 
-## 1. Managing Articles & Stories
+## 1. Getting Started: Working with Git & GitHub
+
+The website's files are stored on GitHub, a platform for managing code. To make changes, you work on a copy of these files on your local computer, and then "push" those changes back up to GitHub.
+
+### Prerequisites: Installing Git
+To communicate with GitHub, you need a tool called **Git** installed on your computer.
+- **Download Git**: [Download for Windows/Mac/Linux](https://git-scm.com/downloads)
+- **Tutorial**: [Getting Started with Git (First time setup)](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+### The Administrator's "Recipe"
+Every time you want to make a change, follow these three steps in your terminal or command prompt:
+
+#### Step A: Get the Latest Version
+Before starting, ensure you have the most recent updates made by others.
+```bash
+git pull origin main
+```
+
+#### Step B: Recording Your Changes
+After you have finished adding a file or editing a page, you need to tell Git to record those changes.
+```bash
+git add .
+git commit -m "Brief description of what you changed"
+```
+
+#### Step C: Send Changes to the Website
+Finally, send your local records back to GitHub. This will automatically trigger the website to rebuild.
+```bash
+git push origin main
+```
+
+---
+
+## 2. Managing Articles & Stories
 
 Most articles are submitted via the online "Write a Story" tool, but sometimes the administrator needs to add or remove articles manually.
 
@@ -45,7 +78,7 @@ Simply delete the corresponding `.md` file from the `src/articles/` directory an
 
 ---
 
-## 2. Managing Leadline Archives
+## 3. Managing Leadline Archives
 
 Leadline PDF updates are partially automated to ensure they are correctly indexed for search.
 
@@ -55,7 +88,7 @@ Leadline PDF updates are partially automated to ensure they are correctly indexe
 
 ---
 
-## 3. Managing Other PDF Archives (Trail News, Hoof Beats, etc.)
+## 4. Managing Other PDF Archives (Trail News, Hoof Beats, etc.)
 
 Currently, updates to non-Leadline archives require a manual two-step process.
 
@@ -78,7 +111,7 @@ You must manually link the new file in `src/stories-articles/index.md`.
 
 ---
 
-## 4. Managing Information Links & Sponsors
+## 5. Managing Information Links & Sponsors
 
 The "Information Links" page contains lists of websites, regional resources, and official NATRC sponsors.
 
@@ -94,7 +127,7 @@ The "Information Links" page contains lists of websites, regional resources, and
 
 ---
 
-## 5. Deploying Changes
+## 6. Deploying Changes
 
 The website automatically redeploys whenever you push changes or merge a Pull Request into the `main` branch.
 
