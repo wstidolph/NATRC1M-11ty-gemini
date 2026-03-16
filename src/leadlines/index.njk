@@ -22,7 +22,7 @@ title: The Leadline Archives
       {% for issue in leadlines %}
       <tr data-filename="{{ issue.filename }}">
         <td style="padding: 12px; border-bottom: 1px solid #ddd;">
-          <a href="{{ '/assets/leadlines/' + issue.filename | url }}" target="_blank" style="font-weight: 600;">{{ issue.title }}</a>
+          <a href="{{ ('/assets/leadlines/' + issue.filename) | url }}" target="_blank" style="font-weight: 600;">{{ issue.title }}</a>
         </td>
         <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: right;">
           <span style="background: var(--color-primary); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">PDF</span>
