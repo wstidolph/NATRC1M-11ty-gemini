@@ -34,6 +34,9 @@ The build process is enhanced by custom Node.js scripts located in the `scripts/
 
 ## 3. Directory Structure
 
+> [!NOTE]
+> Understanding the technical difference between content files (Markdown) and static assets (PDFs) is crucial for correct site updates. See the [Content vs. Assets Guide](content_vs_assets.md) for a detailed comparison.
+
 ```text
 NATRC1M-11ty-gemini/
 ├── docs/                    # Centralized technical and administrative documentation
