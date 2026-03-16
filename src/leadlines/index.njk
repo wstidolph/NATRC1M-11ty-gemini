@@ -62,8 +62,9 @@ document.getElementById("searchInput").addEventListener("keyup", function() {
       if (titleText.indexOf(filter) > -1) {
         match = true;
       } else if (searchIndex.length > 0) {
-        // Fallback to deep index
-        const indexEntry = searchIndex.find(idx => idx.filename === filename);
+        // Fallback to deep index using decoded filename
+        const decodedFilename = decodeURIComponent(filename);
+        const indexEntry = searchIndex.find(idx => idx.filename === decodedFilename);
         if (indexEntry && indexEntry.content && indexEntry.content.toUpperCase().indexOf(filter) > -1) {
           match = true;
         }
