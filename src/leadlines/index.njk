@@ -55,19 +55,30 @@ document.getElementById("searchInput").addEventListener("keyup", function() {
     const td = tr.getElementsByTagName("td")[0];
     
     if (td) {
-      let match = false;
+      let match = true;
       const titleText = (td.textContent || td.innerText).toUpperCase();
+      let pdfContent = "";
       
-      // Check title first
-      if (titleText.indexOf(filter) > -1) {
-        match = true;
-      } else if (searchIndex.length > 0) {
-        // Fallback to deep index using decoded filename
+      if (searchIndex.length > 0) {
         const decodedFilename = decodeURIComponent(filename);
         const indexEntry = searchIndex.find(idx => idx.filename === decodedFilename);
-        if (indexEntry && indexEntry.content && indexEntry.content.toUpperCase().indexOf(filter) > -1) {
-          match = true;
+        if (indexEntry && indexEntry.content) {
+          pdfContent = indexEntry.content.toUpperCase();
         }
+      }
+      
+      const searchTerms = filter.split(/\s+/).filter(word => word.length > 0);
+      
+      for (const term of searchTerms) {
+        if (titleText.indexOf(term) === -1 && pdfContent.indexOf(term) === -1) {
+          match = false;
+          break;
+        }
+      }
+      
+      // If no search terms, show all
+      if (searchTerms.length === 0) {
+        match = true;
       }
       
       tr.style.display = match ? "" : "none";
