@@ -9,7 +9,12 @@ title: The Leadline Archives
 </div>
 
 <div class="card">
-  <input type="text" id="searchInput" placeholder="Search archives by name or date..." style="padding: 12px; width: 100%; max-width: 400px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem;">
+  <div style="margin-bottom: 20px;">
+    <input type="text" id="searchInput" placeholder="Search archives by name, date, or keywords..." style="padding: 12px; width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem;">
+    <p style="font-size: 0.85rem; color: #666; margin-top: 8px; margin-bottom: 0; line-height: 1.4;">
+      <strong>Deep Search:</strong> Entering multiple words will find issues containing <em>all</em> of those terms anywhere inside the PDF (e.g., "Donna Stidolph").
+    </p>
+  </div>
   <div class="table-responsive">
   <table id="leadlineTable" style="width: 100%; border-collapse: collapse;">
     <thead>
