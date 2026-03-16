@@ -1,6 +1,8 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "Sunny Cowgirls Up at Cowboy Camp"
+author: "Donna Stidolph"
 ---
 
 <div class="card" style="margin-top: 20px;">

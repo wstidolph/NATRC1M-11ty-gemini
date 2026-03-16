@@ -1,6 +1,8 @@
 ---
+tags: ["articles"]
 title: "Remembrances"
 layout: base.njk
+author: "Anonymous"
 ---
 
 <style>

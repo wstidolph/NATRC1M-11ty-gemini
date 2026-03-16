@@ -1,6 +1,9 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "A Day in the Life of a NATRC Ride"
+author: "Laura Harvey"
+date: 2012-01-01
 ---
 
 <div class="card" style="margin-top: 20px;">

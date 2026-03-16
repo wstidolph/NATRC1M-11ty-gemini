@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "npm run lint",
-        "start": "node scripts/build_search_index.js && eleventy --serve",
-        "build": "node scripts/build_search_index.js && eleventy",
+        "start": "node scripts/build_search_index.js && node scripts/build_contributions_index.js && eleventy --serve",
+        "build": "node scripts/build_search_index.js && node scripts/build_contributions_index.js && eleventy",
         "migrate": "node scripts/migrate-articles.js",
         "lint": "eslint .",
         "format": "prettier --write .",
@@ -26,6 +26,7 @@
         "prettier": "^3.8.1"
     },
     "dependencies": {
+        "gray-matter": "^4.0.3",
         "pdf-parse": "^1.1.1"
     }
 }
