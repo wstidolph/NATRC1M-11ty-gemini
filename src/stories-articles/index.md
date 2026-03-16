@@ -43,6 +43,13 @@ title: Stories & Articles
   </div>
 
   <div class="card">
+    <h3>Leadline Archives</h3>
+    <p>A complete historical archive of the NATRC Region 1 Leadline newsletters dating back to 2006.</p>
+    <a href="{{ '/leadlines/' | url }}" class="btn btn-secondary" style="margin-top: 10px;">Browse Leadlines</a>
+  </div>
+
+
+  <div class="card">
     <h3>Trail News Archives</h3>
     <ul>
       <li><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_Summer_2020.pdf" target="_blank">Summer 2020</a></li>

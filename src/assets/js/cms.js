@@ -7,6 +7,7 @@ window.cmsEditor = function () {
         availableDrafts: [],
         hasSavedDraft: false,
         loading: false,
+        draftId: "",
         repo: "wstidolph/NATRC1M-11ty-gemini",
         // UPDATE THIS URL ONCE YOUR CLOUDFLARE WORKER IS DEPLOYED
         workerUrl: "https://natrc-cms-worker.natrc1.workers.dev",
@@ -145,6 +146,7 @@ window.cmsEditor = function () {
                     if (key === "summary") this.articleSummary = val;
                     if (key === "author") this.authorName = val;
                     if (key === "email") this.authorEmail = val;
+                    if (key === "draft_id") this.draftId = val;
                 }
             }
 
@@ -221,7 +223,7 @@ window.cmsEditor = function () {
             }
             this.loading = true;
             try {
-                const slug = this.slugify(this.articleTitle);
+                const slug = this.getSlug();
                 const branchName = `draft/${slug}`;
                 const markdown = this.prepareContent();
 
@@ -254,7 +256,7 @@ window.cmsEditor = function () {
             }
             this.loading = true;
             try {
-                const slug = this.slugify(this.articleTitle);
+                const slug = this.getSlug();
                 
                 const res = await fetch(`${this.workerUrl}/api/publish`, {
                     method: 'POST',
@@ -280,7 +282,7 @@ window.cmsEditor = function () {
             if (!confirm("Are you sure you want to delete this draft branch?")) return;
             this.loading = true;
             try {
-                const slug = this.slugify(this.articleTitle);
+                const slug = this.getSlug();
 
                 const res = await fetch(`${this.workerUrl}/api/draft`, {
                     method: 'DELETE',
@@ -376,6 +378,7 @@ layout: base.njk
 summary: "${this.articleSummary}"
 author: "${this.authorName}"
 email: "${this.authorEmail}"
+draft_id: "${this.draftId}"
 date: ${new Date().toISOString()}
 tags: ["articles", "contributions"]
 ---
@@ -407,7 +410,7 @@ ${body}`;
                 const index = range ? range.index : 0;
 
                 try {
-                    const slug = this.slugify(this.articleTitle);
+                    const slug = this.getSlug();
 
                     const reader = new FileReader();
                     reader.onload = async (e) => {
@@ -464,6 +467,25 @@ ${body}`;
                 .replace(/\s+/g, "-")
                 .replace(/[^\w-]+/g, "")
                 .replace(/--+/g, "-");
+        },
+
+        getSlug() {
+            let suffix = "";
+            if (this.authorEmail) {
+                // Strategy: Use a shortened, sanitized version of the email.
+                // Example: wayne@example.com -> (wayn...at...exam...)
+                const user = this.authorEmail.split("@")[0].slice(0, 4);
+                const domain = (this.authorEmail.split("@")[1] || "").split(".")[0].slice(0, 4);
+                suffix = `(${user}...at...${domain}...)`;
+            } else {
+                // If no email, use a persistent draftId (generated once per session/draft).
+                if (!this.draftId) {
+                    this.draftId = new Date().getTime().toString(36).slice(-6);
+                }
+                suffix = `(${this.draftId})`;
+            }
+            // Combining title and suffix ensures uniqueness even with identical titles.
+            return this.slugify(`${this.articleTitle} ${suffix}`);
         }
     };
 };
