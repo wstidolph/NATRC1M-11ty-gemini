@@ -62,14 +62,9 @@ NATRC1M-11ty-gemini/
 
 ---
 
-## 4. Deployment & Maintenance
+## 4. Maintenance & Operations
 
-### Deployment Guide
-The site is configured for **GitHub Actions**. Every time a change is merged into the `main` branch:
-1.  The `.github/workflows/deploy.yml` initiates the build.
-2.  All search indices are regenerated.
-3.  Eleventy compiles the site into `_site/`.
-4.  The content is pushed to the `gh-pages` branch for hosting.
+For detailed information on how the site is deployed, hosted, and how to migrate ownership, please refer to the [Deployment & Infrastructure Guide](deployment.md).
 
 ### Ongoing Maintenance
 *   **Adding Articles**: New stories are added via the `/admin/add-article/` page or by placing a Markdown file in `src/articles/` with the `contributions` tag.
@@ -79,3 +74,4 @@ For more details on specific components, please refer to the following:
 *   [CMS Architecture](CMS_ARCHITECTURE.md)
 *   [Leadline Update Guide](leadlines_guide.md)
 *   [Member Contributions Search Guide](member_contributions_search_walkthrough.md)
+*   [Deployment & Infrastructure](deployment.md)

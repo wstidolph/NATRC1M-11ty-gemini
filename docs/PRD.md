@@ -48,7 +48,7 @@ The following existing sections will be mapped and migrated from HTML to Markdow
 - **Templating Language:** Nunjucks or Liquid.
 - **Styling:** A lightweight, custom responsive CSS framework (or clean utility classes like Tailwind CSS, if preferred) to avoid bloated page loads.
 - **Content Format:** Markdown (`.md`) for all pages and posts.
-- **Deployment & Hosting:** The output will be static HTML/CSS/JS that can be hosted on GitHub Pages, Netlify, Vercel, or the current host using standard FTP/SFTP upload of the `_site` output folder.
+- **Deployment & Hosting:** The site is hosted on GitHub Pages and automatically deployed via GitHub Actions. See the [Deployment & Infrastructure Guide](deployment.md) for technical details and migration instructions.
 
 ## 5. Proposed Sitemap & Information Architecture
 

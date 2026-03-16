@@ -1,6 +1,6 @@
 # Anonymous CMS Submission Architecture
 
-This document outlines the technical workflow for the anonymous content management system (CMS). It illustrates how an anonymous user on the frontend can securely upload images, save drafts, and request publication without exposing any GitHub authentication tokens to the browser.
+This document outlines the technical workflow for the anonymous content management system (CMS). For details on the underlying infrastructure, hosting, and deployment, see the [Deployment & Infrastructure Guide](deployment.md).
 
 ## Sequence Diagram
 
@@ -60,3 +60,6 @@ The Cloudflare Worker uses an explicit automation "Bot Account" to interface wit
 
 ### 4. Continuous Deployment
 Once the Site Admin reviews the PR and hits "Merge", the pre-existing GitHub Actions pipeline automatically triggers, running Eleventy (`11ty`) to compile the site and push the new files to the live GitHub Pages environment.
+
+---
+*For administrative instructions on updating the Cloudflare Worker or migrating the bot account, see the [Deployment & Infrastructure Guide](deployment.md).*
