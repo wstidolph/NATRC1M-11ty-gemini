@@ -207,22 +207,77 @@ export default {
          return jsonResponse({ success: true, prUrl: pr.html_url });
       }
 
-      // Route: DELETE /api/draft
-      // Deletes a draft branch
-      if (request.method === "DELETE" && path === "/api/draft") {
-         const payload = await request.json();
-         const { slug } = payload;
-         const branchName = `draft/${slug}`;
+      // Route: POST /api/leadline
+      // Specialized handler to upload PDF and update leadlines.json
+      if (request.method === "POST" && path === "/api/leadline") {
+        const payload = await request.json();
+        const { title, filename, base64Data } = payload;
 
-         try {
-           await octokit.rest.git.deleteRef({
-             owner, repo,
-             ref: `heads/${branchName}`
-           });
-           return jsonResponse({ success: true });
-         } catch (e) {
-           return errorResponse(e.message, 500);
-         }
+        if (!title || !filename || !base64Data) {
+          return errorResponse("Missing fields", 400);
+        }
+
+        const slug = filename.replace(/\.[^/.]+$/, "").toLowerCase().replace(/[^a-z0-9]/g, "-");
+        const branchName = `leadline/${slug}`;
+
+        // 1. Create branch off main
+        try {
+          const { data: mainBranch } = await octokit.rest.repos.getBranch({
+            owner, repo, branch: "main"
+          });
+          await octokit.rest.git.createRef({
+            owner, repo, ref: `refs/heads/${branchName}`, sha: mainBranch.commit.sha
+          });
+        } catch (e) {
+          // If branch exists, we can continue or error. Let's error for safety.
+          if (e.status !== 422) throw e; 
+        }
+
+        // 2. Upload PDF
+        const pdfContent = base64Data.replace(/^data:application\/pdf;base64,/, "");
+        await octokit.rest.repos.createOrUpdateFileContents({
+          owner, repo,
+          path: `src/assets/leadlines/${filename}`,
+          message: `Add Leadline PDF: ${title}`,
+          content: pdfContent,
+          branch: branchName
+        });
+
+        // 3. Update src/_data/leadlines.json
+        const jsonPath = "src/_data/leadlines.json";
+        let leadlines = [];
+        let jsonSha;
+        try {
+          const { data: existingJson } = await octokit.rest.repos.getContent({
+            owner, repo, path: jsonPath, ref: branchName
+          });
+          jsonSha = existingJson.sha;
+          leadlines = JSON.parse(atob(existingJson.content));
+        } catch (e) {}
+
+        // Prepend new leadline
+        leadlines.unshift({ filename, title });
+        
+        const updatedJsonContent = btoa(JSON.stringify(leadlines, null, 2));
+        await octokit.rest.repos.createOrUpdateFileContents({
+          owner, repo,
+          path: jsonPath,
+          message: `Update leadlines.json for ${title}`,
+          content: updatedJsonContent,
+          branch: branchName,
+          sha: jsonSha
+        });
+
+        // 4. Create PR
+        const { data: pr } = await octokit.rest.pulls.create({
+          owner, repo,
+          title: `New Leadline: ${title}`,
+          head: branchName,
+          base: "main",
+          body: `This leadline was uploaded via the admin script.\n\nFile: ${filename}\nTitle: ${title}`
+        });
+
+        return jsonResponse({ success: true, prUrl: pr.html_url });
       }
 
       return errorResponse("Not found", 404);
