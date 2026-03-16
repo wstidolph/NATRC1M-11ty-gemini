@@ -70,16 +70,11 @@ NATRC1M-11ty-gemini/
 
 ## 4. Maintenance & Operations
 
+For complete instructions on adding articles, updating PDF archives, and managing site content, please refer to the [Site Administrator: Maintenance & Operations Guide](admin_guide.md).
+
 For detailed information on how the site is deployed, hosted, and how to migrate ownership, please refer to the [Deployment & Infrastructure Guide](deployment.md).
 
-### Ongoing Maintenance
-*   **Adding Articles**: New stories are added via the `/admin/add-article/` page or by placing a Markdown file in `src/articles/` with the `contributions` tag.
-*   **PDF Archives**: 
-    *   **Leadlines**: New issues go in `src/assets/leadlines/`. Run `npm run build` to re-index.
-    *   **Trail News**: New issues go in `src/assets/articles/Trail_News/`.
-    *   **Hoof Beats North**: New issues go in `src/assets/articles/`.
-
-For more details on specific components, please refer to the following:
+### Related Technical Documentation
 *   [CMS Architecture](CMS_ARCHITECTURE.md)
 *   [Leadline Update Guide](leadlines_guide.md)
 *   [Member Contributions Search Guide](member_contributions_search_walkthrough.md)

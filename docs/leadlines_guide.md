@@ -1,6 +1,6 @@
 # Administrator Guide: Adding a New Leadline
 
-This guide explains how to add a newly published Leadline PDF to the website archives.
+This guide explains how to add a newly published Leadline PDF to the website archives. For broader site maintenance instructions, please see the [Maintenance & Operations Guide](admin_guide.md).
 
 ## Prerequisites
 
