@@ -49,8 +49,8 @@ title: Stories & Articles
     <div id="searchResults" class="contributions-list" style="display: none; margin-bottom: 30px;"></div>
     
     <div id="defaultStories">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-        <div>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+        <div style="flex: 1; min-width: 300px;">
           <h4 style="margin-bottom: 15px; color: var(--color-primary-dark); font-size: 1.1rem; border-bottom: 2px solid var(--color-secondary); padding-bottom: 5px;">Recent Stories</h4>
           <ul class="contributions-list">
             {% for article in collections.contributions | reverse %}
@@ -67,7 +67,7 @@ title: Stories & Articles
           </div>
         </div>
 
-        <div>
+        <div style="flex: 1; min-width: 300px;">
           <h4 style="margin-bottom: 15px; color: var(--color-primary-dark); font-size: 1.1rem; border-bottom: 2px solid var(--color-secondary); padding-bottom: 5px;">Classic Blogs & Links</h4>
           <ul class="contributions-list">
             <li class="contribution-item" style="padding: 10px 0;">
