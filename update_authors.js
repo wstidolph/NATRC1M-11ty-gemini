@@ -4,7 +4,7 @@ const path = require('path');
 const articlesDir = 'src/articles';
 const authorsMap = {
   'ADayInTheLife.md': 'Laura Harvey',
-  'CMDTRA_story.md': 'Anonymous',
+  'CMDTRA_story.md': 'Brian Pepper',
   'CowboyCampInaugural.md': 'Donna Stidolph',
   'Differently-abledRider.md': 'Catherine de la Cruz',
   'FAQ.md': 'Anonymous',
