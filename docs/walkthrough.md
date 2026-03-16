@@ -2,13 +2,14 @@
 
 ## 1. Executive Summary
 
-We have successfully rebuilt and modernized the NATRC Region 1 website, migrating it from its legacy static hosting at `https://natrcregion1.org/default.htm` to a modern, fast, and easily maintainable architecture. 
+We have successfully rebuilt and modernized the NATRC Region 1 website, migrating it from its legacy static hosting to a modern, fast, and easily maintainable architecture. 
 
 **Key Accomplishments:**
 *   **Complete Content Migration:** All legacy textual content, links, and schedules have been successfully moved over to the new system.
-*   **Modern Design:** The site now features a premium, responsive, mobile-first design leveraging a vibrant color palette, beautiful typography, and clean cards that automatically adapt to any screen size (desktop, tablet, or phone).
-*   **New "Remembrances" Page:** We introduced an interactive, beautifully formatted memorial page dedicated to the legendary figures of Region 1 history.
-*   **User-Contributed Stories (CMS):** We built a brand-new, in-browser writing experience! Users can now navigate to the "Write a Story" page, use a rich-text editor to write articles, upload photos (which can be customized by percentage width), and seamlessly save their drafts or request publication without ever needing to touch code or complex Markdown formatting.
+*   **Modern Design:** The site features a responsive, mobile-first design leveraging a vibrant color palette, beautiful typography, and clean cards that automatically adapt to any screen size.
+*   **Unified Search Engine**: Implemented deep-search functionality for both the **Leadline Archives** (searching decades of PDFs) and **Member Contributions**, allowing users to find content by topic, author, or keyword.
+*   **Anonymous Community CMS**: A custom, in-browser writing experience using a secure Cloudflare Worker proxy. Members can submit stories and upload photos without needing GitHub accounts or technical knowledge.
+*   **Centralized Documentation**: All technical specs, guides, and architectural maps are now organized within a dedicated `docs/` directory for long-term maintainability.
 
 ---
 
@@ -16,74 +17,65 @@ We have successfully rebuilt and modernized the NATRC Region 1 website, migratin
 
 ### The Role of Eleventy (11ty)
 The heart of the new site is [Eleventy (11ty)](https://www.11ty.dev/), a blazing-fast Static Site Generator (SSG). 
-*   **Why Eleventy?** Traditional CMS websites use complex active databases (like WordPress) which are slow, expensive to host, and vulnerable to security exploits. Eleventy takes simple, highly readable text files (Markdown) and automatically compiles them into lightning-fast, secure, raw HTML pages during the build process.
-*   **How it works:** When a volunteer writes a new story or updates a schedule in Markdown, Eleventy pairs that content with our Nunjucks (`.njk`) layouts to cleanly stamp out the final web page. 
+*   **Static Rendering**: Unlike WordPress, Eleventy generates raw HTML files during the build process. This makes the site incredibly fast, highly secure, and cheap to host.
+*   **Templating**: We use **Nunjucks (`.njk`)** for layouts and **Markdown (`.md`)** for content. This separates the design from the data, making it easy to update text without touching code.
+
+### Scripts & Automation
+The build process is enhanced by custom Node.js scripts located in the `scripts/` directory:
+*   **`build_search_index.js`**: Scans the Leadline PDF archives and generates a massive full-text JSON index.
+*   **`build_contributions_index.js`**: Extracts content from all ride stories and articles to provide real-time search on the "Stories & Articles" page.
 
 ### Core Technologies
-*   **Templating:** Nunjucks (`.njk`) is used for the site wrapper, navigation, and reusable layouts.
-*   **Styling:** Pure, modern CSS (`style.css`) utilizing modern CSS variables. No heavy frameworks (like Bootstrap or Tailwind) were required, ensuring maximum speed and customizability.
-*   **Content Editor (Anonymous CMS):** A comprehensive browser-based integration using Quill.js. It interfaces with an external Cloudflare Worker proxy (`cloudflare-worker/src/index.js`), completely circumventing the need for users to authenticate with GitHub.
+*   **Styling**: Pure, modern CSS (`src/assets/css/style.css`) using CSS variables.
+*   **CMS Engine**: A browser-based editor using `Quill.js`. It communicates with a **Cloudflare Worker** proxy to handle GitHub commits anonymously.
+*   **Search Frontend**: A custom vanilla JavaScript engine that performs real-time filtering and term highlighting against pre-generated JSON indices.
 
-### Directory Structure
+---
+
+## 3. Directory Structure
 
 ```text
 NATRC1M-11ty-gemini/
-├── eleventy.config.js       # Core configuration for 11ty (plugins, filters)
-├── package.json             # Project dependencies and build scripts
-├── .github/workflows/       # Automated deployment scripts for GitHub Actions CI/CD
-├── src/
-│   ├── _data/               # Dynamic site data (e.g., navigation menu json)
-│   ├── _includes/           # Nunjucks layout wrappers (base.njk)
-│   ├── admin/               
-│   │   └── add-article.njk  # The custom CMS editor application
-│   ├── articles/            # Markdown files for stories and the Remembrances page
+├── docs/                    # Centralized technical and administrative documentation
+│   ├── CMS_ARCHITECTURE.md  # Detailed data-flow map for the story editor
+│   ├── PRD.md               # Product Requirements and Project Scope
+│   ├── walkthrough.md       # This document
+│   ├── leadlines_guide.md   # Admin guide for updating PDF archives
+│   └── member_contributions_search_walkthrough.md
+├── scripts/                 # Automation tools for search indexing and data processing
+├── cloudflare-worker/       # Serverless proxy for anonymous GitHub submissions
+├── eleventy.config.js       # Core 11ty configuration and path prefixing
+├── src/                     # The content and design source
+│   ├── _data/               # Dynamic data like site-wide navigation
+│   ├── _includes/           # Layout templates (base.njk)
+│   ├── admin/               # CMS editor interface: /admin/add-article/
+│   ├── articles/            # Member stories, informational articles, and memorial content
 │   ├── assets/              
-│   │   ├── css/style.css    # Unified global site styling
-│   │   ├── images/          # Uploaded site images and user photos
-│   │   └── js/cms.js        # The javascript engine behind the custom story editor
-│   ├── news/                # Individual Markdown files for announcements
-│   ├── index.njk            # The dynamic Homepage
-│   └── [sections]/          # Folders for /contact, /gallery, /ride-schedule, etc.
-├── cloudflare-worker/       # The serverless proxy application
-│   ├── src/index.js         # API gateway handling GitHub authentication internally
-│   └── wrangler.toml        # Cloudflare configuration file
-└── _site/                   # The final compiled HTML (ignored by Git, published to the server)
+│   │   ├── css/style.css    # Unified site styling
+│   │   ├── images/          # Site graphics and user-uploaded photos
+│   │   └── js/              # Search engine scripts and generated JSON indices
+│   ├── leadlines/           # Static hosting for the Leadline newsletter PDF collection
+│   ├── stories-articles/    # The index and search page for community content
+│   └── [sections]/          # /contact, /ride-schedule, /judges-corner, etc.
+└── _site/                   # The compiled website (generated during build)
 ```
 
 ---
 
-## 3. Deployment Guide
+## 4. Deployment & Maintenance
 
-Because this is a compiled static site consisting entirely of raw HTML, CSS, and JS, it can be hosted globally for free.
+### Deployment Guide
+The site is configured for **GitHub Actions**. Every time a change is merged into the `main` branch:
+1.  The `.github/workflows/deploy.yml` initiates the build.
+2.  All search indices are regenerated.
+3.  Eleventy compiles the site into `_site/`.
+4.  The content is pushed to the `gh-pages` branch for hosting.
 
-### Deploying to a New GitHub Account (GitHub Pages)
-1.  Fork or clone this repository to the new GitHub account.
-2.  In the new repository on GitHub, go to **Settings > Pages**.
-3.  Under "Build and deployment", change the "Source" to **GitHub Actions**.
-4.  The pre-existing `.github/workflows/deploy.yml` file will automatically detect future changes to the `main` branch, build the site using Eleventy, and publish it to the new `username.github.io/repo-name` URL. 
-   *(Note: Remember to update the `pathPrefix` in `eleventy.config.js` if the repository name changes).*
+### Ongoing Maintenance
+*   **Adding Articles**: New stories are added via the `/admin/add-article/` page or by placing a Markdown file in `src/articles/` with the `contributions` tag.
+*   **PDF Archives**: New Leadlines should be placed in `src/leadlines/`. After uploading, run `npm run build` to re-index the PDF content for search.
 
-### Deploying to Vercel or Netlify (Alternative Modern Hosting)
-Platforms like Vercel or Netlify offer exceptional speed globally and automatic free SSL certificates for custom domains.
-1.  Create an account on Vercel or Netlify and click "Add New Project".
-2.  Connect your GitHub repository to the platform.
-3.  The platform will automatically detect that you are using Eleventy. Verify the default settings:
-    *   **Build Command:** `npm run build`
-    *   **Output Directory:** `_site`
-4.  Click Deploy. Every push or merge to the `main` branch will automatically instantly update the live site.
-   *(Note: If deploying to the root of a custom domain, remove the `pathPrefix` string in `eleventy.config.js` so links route cleanly to `/` instead of `/repo-name/`).*
-
----
-
-## 4. Anonymous Submissions Integration
-
-We successfully decoupled GitHub authentication from the frontend, drastically lowering the barrier to entry for community members submitting content. The "Write a Story" engine now functions entirely anonymously without requiring the visitor to login or hold a GitHub Personal Access Token.
-
-**How it was implemented:**
-1.  We deployed a lightweight serverless proxy to **Cloudflare Workers**. 
-2.  The Cloudflare Worker securely holds a master GitHub Token within a locked, encrypted environment variable.
-3.  When a user clicks "Submit Draft" or "Request Publish" on the web editor, `cms.js` bypasses GitHub entirely and transmits the article text and base64 images to our cloud proxy.
-4.  The Worker acts as a secure middleman. It injects its hidden token, safely interfaces with the GitHub API, and creates pull requests and commits on the user's behalf using an automated "Bot Account".
-5.  **Result:** Site administrators receive instantaneous email alerts when new user submissions arrive, and users experience a seamless, login-free writing experience.
-
-*For a comprehensive technical breakdown and data-flow map, please refer to the [CMS Architecture Documentation](CMS_ARCHITECTURE.md).*
+For more details on specific components, please refer to the following:
+*   [CMS Architecture](CMS_ARCHITECTURE.md)
+*   [Leadline Update Guide](leadlines_guide.md)
+*   [Member Contributions Search Guide](member_contributions_search_walkthrough.md)

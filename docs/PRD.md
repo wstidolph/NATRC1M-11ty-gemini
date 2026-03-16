@@ -70,5 +70,9 @@ The following existing sections will be mapped and migrated from HTML to Markdow
 
 ## 7. Future Considerations (Out of Scope for Phase 1)
 
-- **CMS Integration:** Integrating a Git-based Headless CMS (like Decap CMS or TinaCMS) to allow non-technical board members to edit content via a friendly GUI in their browser.
-- **Online Memberships/Payments:** Current membership forms are linked to the National site. Future iterations could bring custom form integrations if needed.
+- **Online Memberships/Payments**: Current membership forms are linked to the National site. Future iterations could bring custom form integrations if needed.
+- **Enhanced Gallery**: Moving beyond static images to include video or community-contributed albums.
+
+---
+
+**Note**: The **"Anonymous CMS Integration"** originally listed as Out of Scope has been successfully implemented as a core feature using a custom Cloudflare Worker proxy and Quill.js editor.
