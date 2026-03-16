@@ -20,7 +20,9 @@ title: Stories & Articles
       <li><a href="{{ '/articles/NATRC_101/' | url }}">NATRC 101</a></li>
       <li><a href="{{ '/articles/FAQ/' | url }}">Frequently Asked Questions</a></li>
       <li><a href="{{ '/assets/articles/R1_Bylaws_080316.pdf' | url }}" target="_blank">Region 1 Bylaws (PDF)</a></li>
-      <li><a href="https://www.natrcregion1.org/Articles/RIDE%20CHECKLIST.pdf" target="_blank">Things to bring to a NATRC ride (PDF) <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></li>
+      <li><a href="{{ '/assets/articles/Rule_Book_2023.pdf' | url }}" target="_blank">2023 NATRC Rule Book (PDF)</a></li>
+      <li><a href="{{ '/assets/articles/RIDE_CHECKLIST.pdf' | url }}" target="_blank">Things to bring to a NATRC ride (PDF)</a></li>
+      <li>Hoof Print, the national NATRC newsletter, is available on the National website <a href="https://www.natrc.org/hoof-print-archives" target="_blank">here <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></li>
     </ul>
   </div>
 
