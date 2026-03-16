@@ -19,6 +19,7 @@ title: Stories & Articles
       <li><a href="{{ '/articles/taking_juniors_to_natrc_rides/' | url }}">Taking Juniors to NATRC Rides</a></li>
       <li><a href="{{ '/articles/NATRC_101/' | url }}">NATRC 101</a></li>
       <li><a href="{{ '/articles/FAQ/' | url }}">Frequently Asked Questions</a></li>
+      <li><a href="{{ '/assets/articles/R1_Bylaws_080316.pdf' | url }}" target="_blank">Region 1 Bylaws (PDF)</a></li>
       <li><a href="https://www.natrcregion1.org/Articles/RIDE%20CHECKLIST.pdf" target="_blank">Things to bring to a NATRC ride (PDF) <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></li>
     </ul>
   </div>
@@ -105,13 +106,34 @@ title: Stories & Articles
 
   <div class="card">
     <h3>Trail News Archives</h3>
-    <ul style="list-style: none;">
-      <li style="margin-bottom: 8px;"><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_Summer_2020.pdf" target="_blank">Summer 2020 (PDF)</a></li>
-      <li style="margin-bottom: 8px;"><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_Winter_2020.pdf" target="_blank">Winter 2020 (PDF)</a></li>
-      <li style="margin-bottom: 8px;"><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_April_2016.pdf" target="_blank">April 2016 (PDF)</a></li>
-      <li style="margin-bottom: 15px;"><a href="https://www.natrcregion1.org/Articles/Trail_News/Trail_News_Nov_2015.pdf" target="_blank">November 2015 (PDF)</a></li>
+    <p>Trail News is the Region 1 trail report. Recent issues are available here as PDF files.</p>
+    <ul style="list-style: none; margin-bottom: 15px;">
+      <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_Summer_2020.pdf' | url }}" target="_blank" style="font-weight: 600;">Summer 2020 (PDF)</a></li>
     </ul>
-    <p><a href="https://www.natrcregion1.org/Articles/R1_Bylaws_080316.pdf" target="_blank" style="font-size: 0.9rem; font-weight: 600;">Region 1 Bylaws (PDF)</a></p>
+    
+    <details style="cursor: pointer; margin-top: 10px;">
+      <summary style="font-weight: 600; color: var(--color-primary); margin-bottom: 10px;">Older Issues Archives</summary>
+      <ul style="list-style: none; padding-left: 15px; margin-top: 10px;">
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_Winter_2020.pdf' | url }}" target="_blank">Winter 2020 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_April_2016.pdf' | url }}" target="_blank">April 2016 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_Nov_2015.pdf' | url }}" target="_blank">November 2015 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_Sept_2015.pdf' | url }}" target="_blank">September 2015 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_August_2015_v3.pdf' | url }}" target="_blank">August 2015 - Revised (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_July_2015.pdf' | url }}" target="_blank">July 2015 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_June_2015.pdf' | url }}" target="_blank">June 2015 (PDF)</a></li>
+        <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/Trail_News/Trail_News_May_2015.pdf' | url }}" target="_blank">May 2015 (PDF)</a></li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>Hoof Beats North Archives</h3>
+    <p>A competitive trail newsletter aimed at the Alaskan community.</p>
+    <ul style="list-style: none;">
+      <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/HBN_Winter_Spring_15.pdf' | url }}" target="_blank">Winter/Spring 2015 (PDF)</a></li>
+      <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/HBN_Fall_Winter_14.pdf' | url }}" target="_blank">Fall/Winter 2014 (PDF)</a></li>
+      <li style="margin-bottom: 8px;"><a href="{{ '/assets/articles/HBN_Fall_Winter_13.pdf' | url }}" target="_blank">Fall/Winter 2013 (PDF)</a></li>
+    </ul>
   </div>
 </div>
 

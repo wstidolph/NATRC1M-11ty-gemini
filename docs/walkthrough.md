@@ -68,7 +68,10 @@ For detailed information on how the site is deployed, hosted, and how to migrate
 
 ### Ongoing Maintenance
 *   **Adding Articles**: New stories are added via the `/admin/add-article/` page or by placing a Markdown file in `src/articles/` with the `contributions` tag.
-*   **PDF Archives**: New Leadlines should be placed in `src/leadlines/`. After uploading, run `npm run build` to re-index the PDF content for search.
+*   **PDF Archives**: 
+    *   **Leadlines**: New issues go in `src/assets/leadlines/`. Run `npm run build` to re-index.
+    *   **Trail News**: New issues go in `src/assets/articles/Trail_News/`.
+    *   **Hoof Beats North**: New issues go in `src/assets/articles/`.
 
 For more details on specific components, please refer to the following:
 *   [CMS Architecture](CMS_ARCHITECTURE.md)
