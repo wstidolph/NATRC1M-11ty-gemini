@@ -54,10 +54,13 @@ NATRC1M-11ty-gemini/
 │   ├── admin/               # CMS editor interface: /admin/add-article/
 │   ├── articles/            # Member stories, informational articles, and memorial content
 │   ├── assets/              
+│   │   ├── articles/        # Local hosting for archived PDF publications
+│   │   │   └── Trail_News/  # Subfolder for Trail News issues
 │   │   ├── css/style.css    # Unified site styling
 │   │   ├── images/          # Site graphics and user-uploaded photos
-│   │   └── js/              # Search engine scripts and generated JSON indices
-│   ├── leadlines/           # Static hosting for the Leadline newsletter PDF collection
+│   │   ├── js/              # Search engine scripts and generated JSON indices
+│   │   └── leadlines/       # PDF archive collection for the newsletter
+│   ├── leadlines/           # Nunjucks template for the Leadline newsletter index
 │   ├── stories-articles/    # The index and search page for community content
 │   └── [sections]/          # /contact, /ride-schedule, /judges-corner, etc.
 └── _site/                   # The compiled website (generated during build)
