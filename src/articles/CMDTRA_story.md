@@ -2,7 +2,7 @@
 tags: ["articles", "contributions"]
 title: "The First Concord Mt. Diablo Trail Riding Association (CMDTRA) Competitive Trail Ride - 1941"
 layout: base.njk
-author: "Anonymous"
+author: "Brian Pepper"
 ---
 
 <div class="card" style="margin-bottom: 20px;">
