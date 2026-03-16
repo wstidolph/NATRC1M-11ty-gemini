@@ -22,7 +22,7 @@ The heart of the new site is [Eleventy (11ty)](https://www.11ty.dev/), a blazing
 ### Core Technologies
 *   **Templating:** Nunjucks (`.njk`) is used for the site wrapper, navigation, and reusable layouts.
 *   **Styling:** Pure, modern CSS (`style.css`) utilizing modern CSS variables. No heavy frameworks (like Bootstrap or Tailwind) were required, ensuring maximum speed and customizability.
-*   **Content Editor:** A custom integration utilizing Quill.js and the GitHub API (Octokit) allows browser-based story drafting that commits changes directly into working branches in the repository.
+*   **Content Editor (Anonymous CMS):** A comprehensive browser-based integration using Quill.js. It interfaces with an external Cloudflare Worker proxy (`cloudflare-worker/src/index.js`), completely circumventing the need for users to authenticate with GitHub.
 
 ### Directory Structure
 
@@ -44,6 +44,9 @@ NATRC1M-11ty-gemini/
 │   ├── news/                # Individual Markdown files for announcements
 │   ├── index.njk            # The dynamic Homepage
 │   └── [sections]/          # Folders for /contact, /gallery, /ride-schedule, etc.
+├── cloudflare-worker/       # The serverless proxy application
+│   ├── src/index.js         # API gateway handling GitHub authentication internally
+│   └── wrangler.toml        # Cloudflare configuration file
 └── _site/                   # The final compiled HTML (ignored by Git, published to the server)
 ```
 
@@ -72,16 +75,15 @@ Platforms like Vercel or Netlify offer exceptional speed globally and automatic 
 
 ---
 
-## 4. Next Steps & Future Enhancements
+## 4. Anonymous Submissions Integration
 
-### Cloudflare Worker for Anonymous Submissions
-Currently, the "Write a Story" CMS requires the user to input a GitHub Personal Access Token. This is extremely secure for the administrators, but presents a high barrier to entry for standard community members who just want to share a trail story.
+We successfully decoupled GitHub authentication from the frontend, drastically lowering the barrier to entry for community members submitting content. The "Write a Story" engine now functions entirely anonymously without requiring the visitor to login or hold a GitHub Personal Access Token.
 
-**The Plan:**
-To eliminate this friction, the next major feature objective should be decoupling the GitHub authentication from the frontend using a lightweight **Cloudflare Worker**.
+**How it was implemented:**
+1.  We deployed a lightweight serverless proxy to **Cloudflare Workers**. 
+2.  The Cloudflare Worker securely holds a master GitHub Token within a locked, encrypted environment variable.
+3.  When a user clicks "Submit Draft" or "Request Publish" on the web editor, `cms.js` bypasses GitHub entirely and transmits the article text and base64 images to our cloud proxy.
+4.  The Worker acts as a secure middleman. It injects its hidden token, safely interfaces with the GitHub API, and creates pull requests and commits on the user's behalf using an automated "Bot Account".
+5.  **Result:** Site administrators receive instantaneous email alerts when new user submissions arrive, and users experience a seamless, login-free writing experience.
 
-1.  We will deploy a small serverless javascript function to Cloudflare Workers (a free service).
-2.  The Worker will securely hold a master GitHub Personal Access Token as an encrypted server-side environment variable.
-3.  When a user clicks "Submit Draft" on the web editor, `cms.js` will send the article text and images securely to the Cloudflare Worker URL, instead of directly pinging GitHub.
-4.  The Worker will act as a secure middleman, using its hidden token to authenticate with GitHub, securely create the draft branch, and commit the files and photos on the user's behalf.
-5.  **Result:** Anyone can visit the site and easily submit a story draft for moderator review, without ever needing a GitHub account or technical knowledge!
+*For a comprehensive technical breakdown and data-flow map, please refer to the [CMS Architecture Documentation](CMS_ARCHITECTURE.md).*
