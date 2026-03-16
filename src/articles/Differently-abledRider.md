@@ -1,6 +1,8 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "The Differently-abled Rider"
+author: "Catherine de la Cruz"
 ---
 
 <div class="card" style="margin-top: 20px;">

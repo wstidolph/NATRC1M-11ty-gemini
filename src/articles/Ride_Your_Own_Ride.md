@@ -1,6 +1,8 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "Ride Your Own Ride"
+author: "Jamie K. Dieterich"
 ---
 
 <div class="card" style="margin-top: 20px;">

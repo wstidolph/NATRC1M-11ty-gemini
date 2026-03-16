@@ -3,10 +3,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setServerOptions({
         showAllHosts: true,
         onRequest: {
-            "/": function({ request, response }) {
+            "/": function(request, response, next) {
                 if (request.url === "/") {
                     response.writeHead(301, { "Location": "/NATRC1M-11ty-gemini/" });
                     response.end();
+                } else if (typeof next === "function") {
+                    next();
                 }
             }
         }

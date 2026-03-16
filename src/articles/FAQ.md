@@ -1,6 +1,8 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "Frequently Asked Questions"
+author: "Anonymous"
 ---
 
 <div class="card" style="margin-top: 20px;">

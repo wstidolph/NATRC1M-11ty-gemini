@@ -1,6 +1,8 @@
 ---
+tags: ["articles", "contributions"]
 layout: base.njk
 title: "Judging Q and A"
+author: "Jamie Dieterich and Priscilla Lindsey"
 ---
 
 <div class="card" style="margin-top: 20px;">
