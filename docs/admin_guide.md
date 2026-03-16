@@ -78,7 +78,23 @@ You must manually link the new file in `src/stories-articles/index.md`.
 
 ---
 
-## 4. Deploying Changes
+## 4. Managing Information Links & Sponsors
+
+The "Information Links" page contains lists of websites, regional resources, and official NATRC sponsors.
+
+### Updating the Links Page
+1. Open the file `src/links/index.md`.
+2. To add or remove a link from any card (Websites, Sponsors, etc.), find the appropriate `<ul>` list.
+3. **To Add a Sponsor/Link**: Add a new `<li>` line:
+    ```html
+    <li><a href="https://example.com" target="_blank">Name of Site</a></li>
+    ```
+4. **To Remove a Sponsor/Link**: Delete the corresponding `<li>` line.
+5. Save the file and push to GitHub.
+
+---
+
+## 5. Deploying Changes
 
 The website automatically redeploys whenever you push changes or merge a Pull Request into the `main` branch.
 
