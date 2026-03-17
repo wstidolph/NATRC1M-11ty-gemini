@@ -77,4 +77,4 @@ To update or add a new theme:
 
 ## 5. Reviewer Resources
 
-- **[Reviewer Printout (Comparison View)](/NATRC1M-11ty-gemini/assets/reviewer-printout/index.html)**: A side-by-side comparison of all themes across mobile, tablet, and desktop viewports, formatted for printing on letter-sized paper.
+- **[Reviewer Printout (Comparison View)](/NATRC1M-11ty-gemini/assets/reviewer-printout/index.html?v=2)**: A side-by-side comparison of all themes across mobile, tablet, and desktop viewports, formatted for printing on letter-sized paper.
