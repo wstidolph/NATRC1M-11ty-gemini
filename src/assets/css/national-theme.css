@@ -23,9 +23,15 @@
     font-weight: 600;
 }
 
-/* National Theme Overrides (National colors + Utility bar) */
+/* Alternative Themes Shared Header Fix */
+[data-theme="national"] .site-header, 
+[data-theme="social"] .site-header {
+    background-color: white;
+    padding: 10px 0; /* Restored padding to prevent nav highlights from clipping with the bottom border */
+}
+
+/* National Theme Overrides */
 :root[data-theme="national"] {
-    /* ... (previous national tokens) */
     --color-primary: #f26b21;
     --color-primary-dark: #2b2b64;
     --color-secondary: #f7f7f7;
@@ -46,13 +52,14 @@
     opacity: 0.9;
 }
 
-/* Social/Experimental Theme (Adds vibrant interaction and sticky headers) */
+/* Social/Experimental Theme */
 :root[data-theme="social"] {
-    --color-primary: #3b5998; /* Facebook Blue for testing */
+    --color-primary: #3b5998; 
     --color-primary-dark: #2d4373;
-    --color-accent: #d62976; /* Instagram-esque accent */
+    --color-secondary: #e7efff; /* Light blue highlight instead of green */
+    --color-accent: #d62976; 
     --color-bg: #f0f2f5;
-    --border-radius: 20px; /* Highly rounded elements */
+    --border-radius: 20px; 
 }
 
 [data-theme="social"] .header-utility-bar {
@@ -80,7 +87,6 @@
 [data-theme="national"] .site-header, 
 [data-theme="social"] .site-header {
     background-color: white;
-    padding: 0;
 }
 
 
