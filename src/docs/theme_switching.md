@@ -63,17 +63,18 @@ A micro-script in the `<head>` checks for the `theme` parameter or an existing `
 
 ---
 
+
 ---
-6: 
-67: ## 4. Maintenance
-68: 
-69: To update or add a new theme:
-70: 1.  **Define Tokens**: Add a new `:root[data-theme="your-name"]` block in `src/assets/css/national-theme.css`.
-71: 2.  **Structural Changes**: Targeted elements (like `.header-utility-bar`) can be shown or hidden based on the theme attribute.
-72: 3.  **Global Logic**: The core switching logic lives in the script tag within `src/_includes/base.njk`.
-73: 
-74: ---
-75: 
-76: ## 5. Reviewer Resources
-77: 
-78: - **[Reviewer Printout (Comparison View)](../reviewer-printout/index.html)**: A side-by-side comparison of all themes across mobile, tablet, and desktop viewports, formatted for printing on letter-sized paper.
+
+## 4. Maintenance
+
+To update or add a new theme:
+1.  **Define Tokens**: Add a new `:root[data-theme="your-name"]` block in `src/assets/css/national-theme.css`.
+2.  **Structural Changes**: Targeted elements (like `.header-utility-bar`) can be shown or hidden based on the theme attribute.
+3.  **Global Logic**: The core switching logic lives in the script tag within `src/_includes/base.njk`.
+
+---
+
+## 5. Reviewer Resources
+
+- **[Reviewer Printout (Comparison View)](/NATRC1M-11ty-gemini/assets/reviewer-printout/index.html)**: A side-by-side comparison of all themes across mobile, tablet, and desktop viewports, formatted for printing on letter-sized paper.
