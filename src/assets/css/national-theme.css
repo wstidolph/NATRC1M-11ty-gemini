@@ -1,6 +1,9 @@
 /* Motto styling - Hidden in other themes */
-.hero-motto {
+.legacy-only, .hero-motto {
     display: none;
+}
+
+.hero-motto {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8rem;
     font-weight: 800;
@@ -161,6 +164,15 @@
     box-shadow: none;
 }
 
+[data-theme="legacy"] .legacy-only {
+    display: block;
+}
+
+[data-theme="legacy"] .hero h2,
+[data-theme="legacy"] .hero p {
+    display: none;
+}
+
 [data-theme="legacy"] .hero {
     background: url('../images/national_masthead.gif'); 
     background-size: cover;
@@ -168,27 +180,11 @@
     border: 2px dotted #725972;
     border-radius: 0;
     margin: 0 0 30px 0;
-    min-height: 140px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #2554C7;
-}
-
-[data-theme="legacy"] .hero h2 {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px 20px;
-    border: 1px solid #725972;
-    font-size: 1.8rem;
-}
-
-[data-theme="legacy"] .hero p {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 5px 15px;
-    color: #333;
-    font-weight: 700;
-    margin-top: 5px;
 }
 
 [data-theme="legacy"] .card {
