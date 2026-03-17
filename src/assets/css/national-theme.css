@@ -147,32 +147,48 @@
 
 /* Hero Section */
 [data-theme="national"] .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('/assets/images/national_masthead.gif');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('/assets/images/national_hero_ca.png'),
+                var(--color-primary-dark);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     border-radius: 0;
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-top: -20px;
-    min-height: 350px;
-    padding: 60px 20px;
+    margin: -40px -20px 40px -20px; /* Offset site-main padding and add bottom margin */
+    min-height: 400px;
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    text-align: center;
 }
 
 [data-theme="national"] .hero h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-top: 0;
+    margin: 0;
+    max-width: 800px;
 }
 
 [data-theme="national"] .hero p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin-top: 10px;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    [data-theme="national"] .hero {
+        min-height: 300px;
+        padding: 40px 20px;
+        margin-bottom: 30px;
+    }
+    [data-theme="national"] .hero-motto {
+        font-size: 1.8rem;
+    }
 }
 
 /* Buttons */
