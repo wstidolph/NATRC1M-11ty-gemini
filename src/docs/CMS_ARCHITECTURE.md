@@ -7,48 +7,14 @@ This document outlines the technical workflow for the anonymous content manageme
 
 ## Sequence Diagram
 
-The following Mermaid sequence diagram visualizes the flow of data between the anonymous user, the frontend application (`cms.js`), the securely hosted Cloudflare Worker, the GitHub Repository, and the Site Administrator.
+The following sequence diagram visualizes the flow of data between the anonymous user, the frontend application (`cms.js`), the securely hosted Cloudflare Worker, the GitHub Repository, and the Site Administrator.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as Anonymous User
-    participant Browser as Frontend App (cms.js)
-    participant Worker as Cloudflare Worker
-    participant GitHub as GitHub API (Bot Account)
-    actor Admin as Site Admin
-
-    Note over User, Browser: Drafting Phase
-    User->>Browser: Writes story & uploads image
-    Browser->>Worker: POST /api/image (base64 payload)
-    Note over Worker: Worker injects securely<br/>stored GITHUB_TOKEN
-    Worker->>GitHub: Commit image file to draft branch
-    GitHub-->>Worker: HTTP 201 Created
-    Worker-->>Browser: Returns relative image URL
-
-    User->>Browser: Clicks "Save Draft"
-    Browser->>Worker: POST /api/draft (markdown payload)
-    Worker->>GitHub: Commit .md to draft branch
-    GitHub-->>Worker: HTTP 200/201 Success
-    Worker-->>Browser: Standard Success JSON
-
-    Note over User, Admin: Publishing & Review Phase
-    User->>Browser: Clicks "Request Publish"
-    Browser->>Worker: POST /api/publish (slug, title)
-    Worker->>GitHub: Create Pull Request (base: main)
-    GitHub-->>Worker: PR Created
-    Worker-->>Browser: Return PR status directly
-    
-    Note over GitHub, Admin: GitHub automatically triggers notification<br/>because the PR was created by a different account (Bot)
-    GitHub->>Admin: Email Notification: "New Pull Request"
-    
-    Admin->>GitHub: Reviews PR & Clicks "Merge"
-    
-    Note over GitHub: Continuous Deployment
-    GitHub->>GitHub: GitHub Actions Triggered (npm run build)
-    GitHub-->>GitHub: 11ty Compiles Markdown to HTML
-    GitHub->>GitHub: Deploys updated static site to GitHub Pages
-```
+<figure>
+  <p class="centeredImage">
+    <img src="{{ '/assets/images/cms_architecture_diagram.png' | url }}" alt="CMS Architecture Sequence Diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+  </p>
+  <figcaption style="text-align:center">CMS Data Flow: From Draft to Deployment</figcaption>
+</figure>
 
 ## Component Breakdown
 
