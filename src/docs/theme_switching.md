@@ -23,6 +23,7 @@ We use a **Query-Parameter Mechanism** that allows a reviewer or administrator t
 - **Default**: Append `?theme=default` (The green, community-focused site).
 - **National**: Append `?theme=national` (The authoritative, orange-and-blue institutional site).
 - **Social/Experimental**: Append `?theme=social` (A variant testing structural additions like a utility bar and social links).
+- **Legacy**: Append `?theme=legacy` (The classic look and feel of the original `natrcregion1.org` site).
 
 ### Persistence:
 Once a theme is set via the URL, it is saved in the browser's `localStorage`. This means the chosen look will persist as the user navigates through different pages of the site until they explicitly change it back.
@@ -55,6 +56,7 @@ This file controls both visual tokens and structural visibility using the `[data
 
 - **Theme "national"**: Shows the blue utility bar, uses orange primary colors, and sets sharp corners.
 - **Theme "social"**: Shows a vibrant pink utility bar, uses rounded corners, and highlights social links with distinct backgrounds.
+- **Theme "legacy"**: Reintroduces the sky-blue/cloud background, Trebuchet MS typography, and iconic gold/purple accents from the original site's history.
 
 ### C. Client-Side Toggle Logic
 A micro-script in the `<head>` checks for the `theme` parameter or an existing `localStorage` value. If any value other than 'default' is found, it applies `data-theme="[name]"` to the root element, allowing for per-theme CSS behavior.

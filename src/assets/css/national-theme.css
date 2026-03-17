@@ -97,8 +97,123 @@
 
 /* Shared structural overrides */
 [data-theme="national"] .site-header, 
-[data-theme="social"] .site-header {
+[data-theme="social"] .site-header,
+[data-theme="legacy"] .site-header {
     background-color: white;
+}
+
+/* Legacy Theme Overrides (Mimics natrcregion1.org) */
+:root[data-theme="legacy"] {
+    --color-primary: #2554C7; /* Royal Blue */
+    --color-primary-dark: #000080; /* Navy */
+    --color-secondary: #D6D1CB; /* Light gray/taupe */
+    --color-accent: #EBD380; /* Gold */
+    --color-bg: #619AEB; /* Sky blue base */
+    --color-surface: #FFFFFF;
+    --color-text: #333333;
+    --font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    --border-radius: 0px; /* Sharp corners */
+}
+
+[data-theme="legacy"] body {
+    background-image: url('../images/legacy_bg_clouds.gif');
+    background-repeat: repeat;
+}
+
+[data-theme="legacy"] .site-header {
+    background-color: #D6D1CB;
+    border-bottom: 2px solid #725972;
+    padding: 10px 0;
+}
+
+[data-theme="legacy"] .header-utility-bar {
+    background-color: #725972;
+    color: white;
+    border-bottom: none;
+}
+
+[data-theme="legacy"] .utility-right a {
+    color: white;
+}
+
+[data-theme="legacy"] .logo a {
+    color: #2554C7;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+[data-theme="legacy"] .main-nav a {
+    color: #000080;
+    font-weight: 700;
+}
+
+[data-theme="legacy"] .main-nav a:hover,
+[data-theme="legacy"] .main-nav a[aria-current="page"] {
+    background-color: #FFFFFF;
+    color: #2554C7;
+    border: 1px solid #725972;
+}
+
+[data-theme="legacy"] .site-main {
+    background-color: white;
+    border-left: 2px solid #725972;
+    border-right: 2px solid #725972;
+    box-shadow: none;
+}
+
+[data-theme="legacy"] .hero {
+    background: url('../images/national_masthead.gif'); 
+    background-size: cover;
+    background-position: center;
+    border: 2px dotted #725972;
+    border-radius: 0;
+    margin: 0 0 30px 0;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2554C7;
+}
+
+[data-theme="legacy"] .hero h2 {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border: 1px solid #725972;
+    font-size: 1.8rem;
+}
+
+[data-theme="legacy"] .hero p {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 15px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+[data-theme="legacy"] .card {
+    border: 1px solid #725972;
+    background-color: #ffffff;
+    border-radius: 0;
+}
+
+[data-theme="legacy"] .card h3 {
+    color: #2554C7;
+    border-bottom: 2px solid #EBD380; /* Gold underline */
+    padding-bottom: 5px;
+}
+
+[data-theme="legacy"] .btn-primary {
+    background-color: #2554C7;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+[data-theme="legacy"] .site-footer {
+    background-color: #D6D1CB;
+    border-top: 2px solid #725972;
+    color: #472F17;
 }
 
 
