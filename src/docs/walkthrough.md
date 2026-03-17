@@ -47,7 +47,8 @@ NATRC1M-11ty-gemini/
 │   ├── PRD.md               # Product Requirements and Project Scope
 │   ├── walkthrough.md       # This document
 │   ├── leadlines_guide.md   # Admin guide for updating PDF archives
-│   └── member_contributions_search_walkthrough.md
+│   ├── member_contributions_search_walkthrough.md
+│   └── theme_switching.md   # Non-destructive theme toggling logic
 ├── scripts/                 # Automation tools for search indexing and data processing
 ├── cloudflare-worker/       # Serverless proxy for anonymous GitHub submissions
 ├── eleventy.config.js       # Core 11ty configuration and path prefixing
@@ -81,4 +82,5 @@ For detailed information on how the site is deployed, hosted, and how to migrate
 *   [CMS Architecture](../CMS_ARCHITECTURE/)
 *   [Leadline Update Guide](../leadlines_guide/)
 *   [Member Contributions Search Guide](../member_contributions_search_walkthrough/)
+*   [Theme Switching & National Branding](../theme_switching/)
 *   [Deployment & Infrastructure](../deployment/)

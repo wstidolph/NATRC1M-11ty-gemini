@@ -76,6 +76,10 @@ title: Information Links
         <span style="color: var(--color-text-muted); font-size: 0.85rem;">Developer overview of indexing scripts and search engine logic.</span>
       </li>
       <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/theme_switching/' | url }}" style="font-weight: 600;">Theme Switching & National Branding</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Explanation of the switching mechanism and alternative design tokens.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
         <a href="{{ '/docs/PRD/' | url }}" style="font-weight: 600;">Project PRD</a><br>
         <span style="color: var(--color-text-muted); font-size: 0.85rem;">Original requirements defining goals, scope, and phases.</span>
       </li>
