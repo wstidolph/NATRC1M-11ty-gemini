@@ -17,8 +17,8 @@
 
         .page {
             background: white;
-            width: 8.5in;
-            min-height: 11in;
+            width: 11in;
+            min-height: 8.5in;
             padding: 0.5in;
             margin: 0 auto 20px auto;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -84,8 +84,9 @@
         }
 
         @media print {
+            @page { size: landscape; margin: 0; }
             body { background: white; padding: 0; }
-            .page { margin: 0; box-shadow: none; }
+            .page { margin: 0; box-shadow: none; width: 100%; height: 100vh; }
         }
     </style>
 </head>
@@ -93,7 +94,7 @@
 
     <!-- Page 1: Original Site -->
     <div class="page">
-        <h1>Label: natrcregion1 original</h1>
+        <h1>natrcregion1 original</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
@@ -113,7 +114,7 @@
 
     <!-- Page 2: NATRC National -->
     <div class="page">
-        <h1>Label: NATRC (National)</h1>
+        <h1>NATRC (National)</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
@@ -133,7 +134,7 @@
 
     <!-- Page 3: NATRC1M-legacy -->
     <div class="page">
-        <h1>Label: NATRC1M-legacy</h1>
+        <h1>NATRC1M-legacy</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
@@ -153,7 +154,7 @@
 
     <!-- Page 4: NATRC1M-default -->
     <div class="page">
-        <h1>Label: NATRC1M-default</h1>
+        <h1>NATRC1M-default</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
@@ -173,7 +174,7 @@
 
     <!-- Page 5: NATRC1M-national -->
     <div class="page">
-        <h1>Label: NATRC1M-national</h1>
+        <h1>NATRC1M-national</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
@@ -193,7 +194,7 @@
 
     <!-- Page 6: NATRC1M-social -->
     <div class="page">
-        <h1>Label: NATRC1M-social</h1>
+        <h1>NATRC1M-social</h1>
         <div class="comparison-grid">
             <div class="device">
                 <div class="device-label">Mobile (375px)</div>
