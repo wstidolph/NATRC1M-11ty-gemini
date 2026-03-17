@@ -32,6 +32,7 @@
   </head>
   <body>
     <header class="site-header">
+      {% if page.url == "/" or page.url == "/index.html" %}
       <div class="header-utility-bar">
         <div class="container utility-container">
           <div class="utility-left">
@@ -43,6 +44,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       <div class="container header-container">
         <h1 class="logo"><a href="{{ '/' | url }}">NATRC Region 1</a></h1>
         <button class="menu-toggle" aria-label="Toggle navigation">
