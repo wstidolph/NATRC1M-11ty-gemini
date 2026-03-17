@@ -1,8 +1,9 @@
 ---
 tags: ["articles", "contributions"]
 layout: base.njk
-title: "Judging Q and A"
-author: "Jamie Dieterich and Priscilla Lindsey"
+title: "Judges' Q & A"
+author: "Anonymous"
+date: 2010-01-04
 ---
 
 <div class="card" style="margin-top: 20px;">

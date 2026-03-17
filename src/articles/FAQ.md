@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "Frequently Asked Questions"
 author: "Anonymous"
+date: 2010-01-02
 ---
 
 <div class="card" style="margin-top: 20px;">

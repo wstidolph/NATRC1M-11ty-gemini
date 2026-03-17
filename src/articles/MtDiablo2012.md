@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "Sunny Opens Up at Mt Diablo!"
 author: "Donna Stidolph"
+date: 2012-05-07
 ---
 
 <div class="card" style="margin-top: 20px;">

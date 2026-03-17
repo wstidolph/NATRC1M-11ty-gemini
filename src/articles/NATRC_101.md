@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "NATRC 101 at Point Reyes, April 16-17, 2011"
 author: "Laura Harvey"
+date: 2011-04-16
 ---
 
 <div class="card" style="margin-top: 20px;">

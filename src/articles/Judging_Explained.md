@@ -2,7 +2,8 @@
 tags: ["articles", "contributions"]
 layout: base.njk
 title: "Horsemanship Judging Explained"
-author: "Jamie K. Dieterich"
+author: "NATRC"
+date: 2010-01-03
 ---
 
 <div class="card" style="margin-top: 20px;">

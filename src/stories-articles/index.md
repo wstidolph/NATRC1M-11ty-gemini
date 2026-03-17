@@ -74,19 +74,19 @@ title: Stories & Articles
           <h4 style="margin-bottom: 15px; color: var(--color-primary-dark); font-size: 1.1rem; border-bottom: 2px solid var(--color-secondary); padding-bottom: 5px;">Classic Blogs & Links</h4>
           <ul class="contributions-list">
             <li class="contribution-item" style="padding: 10px 0;">
-              <a href="http://wp.me/p2kYH8-3c" target="_blank">2012 Round Valley blog entry (Ellis) <i class="fas fa-external-link-alt" style="font-size: 0.8em; opacity: 0.5;"></i></a>
-            </li>
-            <li class="contribution-item" style="padding: 10px 0;">
               <a href="http://fullheartsfarm.wordpress.com/2012/06/08/cowboy-campers/" target="_blank">Cowboy Camp, 2012 (Ellis) <i class="fas fa-external-link-alt" style="font-size: 0.8em; opacity: 0.5;"></i></a>
             </li>
             <li class="contribution-item" style="padding: 10px 0;">
               <a href="http://fullheartsfarm.wordpress.com/2012/06/06/slow-horse-in-the-winners-circle/" target="_blank">Mt Diablo Spring Ride (Mary-Ellis Arnold) <i class="fas fa-external-link-alt" style="font-size: 0.8em; opacity: 0.5;"></i></a>
             </li>
             <li class="contribution-item" style="padding: 10px 0;">
-              <a href="{{ '/articles/CMDTRA_story/' | url }}">The First Diablo Springs Ride (1941)</a>
+              <a href="http://wp.me/p2kYH8-3c" target="_blank">2012 Round Valley blog entry (Ellis) <i class="fas fa-external-link-alt" style="font-size: 0.8em; opacity: 0.5;"></i></a>
             </li>
              <li class="contribution-item" style="padding: 10px 0;">
               <a href="{{ '/articles/CowboyCampInaugural/' | url }}">Inaugural Cowboy Camp 2011</a>
+            </li>
+            <li class="contribution-item" style="padding: 10px 0;">
+              <a href="{{ '/articles/CMDTRA_story/' | url }}">The First Diablo Springs Ride (1941)</a>
             </li>
           </ul>
         </div>

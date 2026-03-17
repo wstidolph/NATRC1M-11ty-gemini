@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "Ride Your Own Ride"
 author: "Jamie K. Dieterich"
+date: 2014-01-01
 ---
 
 <div class="card" style="margin-top: 20px;">

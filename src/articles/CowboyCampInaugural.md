@@ -1,8 +1,9 @@
 ---
 tags: ["articles", "contributions"]
 layout: base.njk
-title: "Sunny Cowgirls Up at Cowboy Camp"
+title: "Inaugural Cowboy Camp 2011"
 author: "Donna Stidolph"
+date: 2011-06-15
 ---
 
 <div class="card" style="margin-top: 20px;">

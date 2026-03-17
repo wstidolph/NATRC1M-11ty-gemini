@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "The Differently-abled Rider"
 author: "Catherine de la Cruz"
+date: 2013-10-15
 ---
 
 <div class="card" style="margin-top: 20px;">

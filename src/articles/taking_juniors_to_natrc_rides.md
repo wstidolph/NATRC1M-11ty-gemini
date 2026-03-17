@@ -3,6 +3,7 @@ tags: ["articles", "contributions"]
 layout: base.njk
 title: "Taking Juniors to NATRC Rides"
 author: "Kay Lieberknecht and Angie Meroshnekoff"
+date: 2014-06-01
 ---
 
 <div class="card" style="margin-top: 20px;">
