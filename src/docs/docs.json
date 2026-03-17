@@ -1,0 +1,7 @@
+{
+  "layout": "base.njk",
+  "tags": ["docs"],
+  "eleventyComputed": {
+    "title": "{{ title }}"
+  }
+}

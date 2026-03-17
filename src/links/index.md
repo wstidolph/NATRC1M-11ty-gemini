@@ -42,4 +42,43 @@ title: Information Links
       <li><a href="http://sportssaddle.com/" target="_blank">Sports Saddle</a></li>
     </ul>
   </div>
+
+  <div class="card" id="admin-docs-card">
+    <h3>Internal Documentation</h3>
+    <p>Site architecture, administration guides, and technical specifications.</p>
+    <ul style="list-style: none; padding-left: 0; font-size: 0.95rem;">
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/walkthrough/' | url }}" style="font-weight: 600;">Project Walkthrough</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">High-level overview of the site architecture and technical components.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/admin_guide/' | url }}" style="font-weight: 600;">Maintenance & Operations Guide</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Instructions for adding articles, managing PDFs, and updating sponsors.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/CMS_ARCHITECTURE/' | url }}" style="font-weight: 600;">CMS Architecture</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Technical data-flow and security details for the browser-based editor.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/deployment/' | url }}" style="font-weight: 600;">Deployment & Infrastructure Guide</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Guide for CI/CD, hosting, and repository ownership migration.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/leadlines_guide/' | url }}" style="font-weight: 600;">Leadline Upload Guide</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Simple steps for administrators to add new newsletter PDFs.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/content_vs_assets/' | url }}" style="font-weight: 600;">Content vs. Assets</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Technical difference between web pages (Markdown) and documents (PDF).</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/member_contributions_search_walkthrough/' | url }}" style="font-weight: 600;">Search Implementation Guide</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Developer overview of indexing scripts and search engine logic.</span>
+      </li>
+      <li style="margin-bottom: 12px;">
+        <a href="{{ '/docs/PRD/' | url }}" style="font-weight: 600;">Project PRD</a><br>
+        <span style="color: var(--color-text-muted); font-size: 0.85rem;">Original requirements defining goals, scope, and phases.</span>
+      </li>
+    </ul>
+  </div>
 </div>
