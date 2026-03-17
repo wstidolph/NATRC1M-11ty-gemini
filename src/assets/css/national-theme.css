@@ -275,9 +275,9 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0;
-    margin: -40px -20px 40px -20px; /* Offset site-main padding and add bottom margin */
+    margin: -40px 0 40px 0; /* Only keep the top offset to tuck under nav */
     min-height: 400px;
-    padding: 80px 20px;
+    padding: 80px 40px; /* Increase horizontal padding slightly for internal balance */
     display: flex;
     flex-direction: column;
     justify-content: center;
