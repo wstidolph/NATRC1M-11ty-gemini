@@ -12,11 +12,11 @@
     letter-spacing: 1px;
 }
 
-/* Header utility bar defaults */
+/* Header utility bar - Visible on all themes */
 .header-utility-bar {
-    display: none;
+    display: block;
     background-color: #f7f7f7;
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Down from 0.8rem for the long text */
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
@@ -55,7 +55,6 @@
 }
 
 [data-theme="national"] .header-utility-bar {
-    display: block;
     background-color: var(--color-primary-dark);
     color: white;
     border-bottom: none;
@@ -77,7 +76,6 @@
 }
 
 [data-theme="social"] .header-utility-bar {
-    display: block;
     background-color: var(--color-accent);
     color: white;
 }
@@ -188,6 +186,9 @@
     }
     [data-theme="national"] .hero-motto {
         font-size: 1.8rem;
+    }
+    .header-utility-bar {
+        font-size: 0.65rem; /* Smaller Font for mobile to fit the long region list */
     }
 }
 
