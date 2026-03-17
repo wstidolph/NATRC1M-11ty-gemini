@@ -1,3 +1,17 @@
+/* Motto styling - Hidden in other themes */
+.hero-motto {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    margin: 0 0 1rem 0;
+    color: white;
+    letter-spacing: 1px;
+}
+
 /* Header utility bar defaults */
 .header-utility-bar {
     display: none;
@@ -127,21 +141,38 @@
     padding-bottom: 0;
 }
 
+[data-theme="national"] .hero-motto {
+    display: block;
+}
+
 /* Hero Section */
 [data-theme="national"] .hero {
-    background: linear-gradient(rgba(43, 43, 100, 0.7), rgba(43, 43, 100, 0.8)), 
-                url('/assets/images/natrc_backdrop.jpg'); /* We can use a generic backdrop */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('/assets/images/national_masthead.gif');
     background-size: cover;
     background-position: center;
     border-radius: 0;
     margin-left: -20px;
     margin-right: -20px;
     margin-top: -20px;
+    min-height: 350px;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 [data-theme="national"] .hero h2 {
-    font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-top: 0;
+}
+
+[data-theme="national"] .hero p {
+    font-size: 1.1rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 /* Buttons */
