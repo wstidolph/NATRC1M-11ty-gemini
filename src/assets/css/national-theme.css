@@ -1,32 +1,90 @@
-/* src/assets/css/national-theme.css */
-
-:root[data-theme="national"] {
-    /* National NATRC Branding Palette */
-    --color-primary: #f26b21;       /* NATRC Orange */
-    --color-primary-dark: #2b2b64;  /* Midnight Blue */
-    --color-secondary: #f7f7f7;     /* Neutral Background */
-    --color-secondary-dark: #323064; /* Accent Deep Blue/Purple */
-    --color-accent: #f26b21;
-
-    --color-bg: #ffffff;
-    --color-surface: #ffffff;
-    --color-text: #333333;
-    --color-text-muted: #555555;
-
-    --font-family: 'Montserrat', sans-serif;
-    --border-radius: 4px; /* Sharper corners like national */
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+/* Header utility bar defaults */
+.header-utility-bar {
+    display: none;
+    background-color: #f7f7f7;
+    font-size: 0.8rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
 }
 
-/* Header & Nav Specific Overrides */
-[data-theme="national"] .site-header {
-    background-color: white;
-    padding: 0;
-    box-shadow: none;
+.utility-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.utility-right {
+    display: flex;
+    gap: 15px;
+}
+
+.utility-right a {
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+/* National Theme Overrides (National colors + Utility bar) */
+:root[data-theme="national"] {
+    /* ... (previous national tokens) */
+    --color-primary: #f26b21;
+    --color-primary-dark: #2b2b64;
+    --color-secondary: #f7f7f7;
+    --color-text: #333333;
+    --font-family: 'Montserrat', sans-serif;
+    --border-radius: 4px;
+}
+
+[data-theme="national"] .header-utility-bar {
+    display: block;
+    background-color: var(--color-primary-dark);
+    color: white;
+    border-bottom: none;
+}
+
+[data-theme="national"] .utility-right a {
+    color: white;
+    opacity: 0.9;
+}
+
+/* Social/Experimental Theme (Adds vibrant interaction and sticky headers) */
+:root[data-theme="social"] {
+    --color-primary: #3b5998; /* Facebook Blue for testing */
+    --color-primary-dark: #2d4373;
+    --color-accent: #d62976; /* Instagram-esque accent */
+    --color-bg: #f0f2f5;
+    --border-radius: 20px; /* Highly rounded elements */
+}
+
+[data-theme="social"] .header-utility-bar {
+    display: block;
+    background-color: var(--color-accent);
+    color: white;
+}
+
+[data-theme="social"] .utility-right a {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+[data-theme="social"] .site-header {
     border-bottom: 3px solid var(--color-primary);
 }
 
+[data-theme="social"] .card {
+    border-top: 5px solid var(--color-primary);
+}
+
+/* Shared structural overrides */
+[data-theme="national"] .site-header, 
+[data-theme="social"] .site-header {
+    background-color: white;
+    padding: 0;
+}
+
+
+/* (Existing National structure overrides continue below) */
 [data-theme="national"] h1.logo a {
     color: var(--color-primary-dark);
     font-weight: 800;

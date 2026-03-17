@@ -22,8 +22,8 @@
           localStorage.setItem('theme', themeParam);
         }
         const theme = localStorage.getItem('theme');
-        if (theme === 'national') {
-          document.documentElement.setAttribute('data-theme', 'national');
+        if (theme && theme !== 'default') {
+          document.documentElement.setAttribute('data-theme', theme);
         } else {
           document.documentElement.removeAttribute('data-theme');
         }
@@ -32,6 +32,17 @@
   </head>
   <body>
     <header class="site-header">
+      <div class="header-utility-bar">
+        <div class="container utility-container">
+          <div class="utility-left">
+            <span>NATRC Region 1: Northern California & Nevada</span>
+          </div>
+          <div class="utility-right">
+            <a href="https://www.facebook.com/groups/natrcregion1/" target="_blank" title="Follow us on Facebook">Facebook</a>
+            <a href="/contact/" title="Contact Us">Contact</a>
+          </div>
+        </div>
+      </div>
       <div class="container header-container">
         <h1 class="logo"><a href="{{ '/' | url }}">NATRC Region 1</a></h1>
         <button class="menu-toggle" aria-label="Toggle navigation">

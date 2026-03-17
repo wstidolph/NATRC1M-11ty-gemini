@@ -17,11 +17,12 @@ The Region 1 website is designed with a modern, organic, and "app-like" aestheti
 
 ## 2. The Switching Mechanism
 
-We use a **Query-Parameter Mechanism** that allows a reviewer or administrator to switch designs instantly without rebuilding the code.
+We use a **Query-Parameter Mechanism** that allows a reviewer or administrator to switch designs instantly without rebuilding the code. This mechanism is infinitely extensible—you can define as many themes as your review process requires.
 
 ### How to Toggle Themes:
-- **Switch to National Design**: Append `?theme=national` to any URL.
-- **Switch to Default Region 1 Design**: Append `?theme=default` to any URL.
+- **Default**: Append `?theme=default` (The green, community-focused site).
+- **National**: Append `?theme=national` (The authoritative, orange-and-blue institutional site).
+- **Social/Experimental**: Append `?theme=social` (A variant testing structural additions like a utility bar and social links).
 
 ### Persistence:
 Once a theme is set via the URL, it is saved in the browser's `localStorage`. This means the chosen look will persist as the user navigates through different pages of the site until they explicitly change it back.
@@ -32,22 +33,37 @@ Once a theme is set via the URL, it is saved in the browser's `localStorage`. Th
 
 The system is designed to be "non-destructive," meaning it does not duplicate code or templates. It uses **CSS Variables** and a **Data Attribute** on the `<html>` tag.
 
-### A. Client-Side Script (`src/_includes/base.njk`)
-A micro-script in the `<head>` checks for the `theme` parameter or an existing `localStorage` value. If found, it applies `data-theme="national"` to the root element.
+### A. Extended HTML Structure (`src/_includes/base.njk`)
+For structural elements like social media links or a top "utility bar," we add them to the main layout but keep them **hidden by default**.
 
-### B. CSS Layering (`src/assets/css/national-theme.css`)
-This file contains the "National Skin." It only activates when the `[data-theme="national"]` selector is present. It overrides the following design tokens:
-- **Primary Colors**: Replaces Forest Green with **NATRC Orange** (`#F26B21`).
-- **Secondary Colors**: Replaces Sage with **Midnight Blue** (`#2B2B64`).
-- **Typography**: Swaps the UI font to **Montserrat** (via Google Fonts) for a more structured, authoritative feel.
-- **Corners**: Reduces the border-radius from `12px` to `4px` for sharper, more official-looking UI components.
-- **Hero Image**: Utilizes a high-action trail photography backdrop (`natrc_backdrop.jpg`) instead of the default gradient.
+```html
+<header class="site-header">
+  <div class="header-utility-bar">
+    <!-- This bar is display:none by default -->
+    <div class="container utility-container">
+       <div class="utility-right">
+         <a href="...">Facebook</a>
+       </div>
+    </div>
+  </div>
+  <!-- Main Header Content -->
+</header>
+```
+
+### B. Multi-Theme CSS Layering (`src/assets/css/national-theme.css`)
+This file controls both visual tokens and structural visibility using the `[data-theme]` selector.
+
+- **Theme "national"**: Shows the blue utility bar, uses orange primary colors, and sets sharp corners.
+- **Theme "social"**: Shows a vibrant pink utility bar, uses rounded corners, and highlights social links with distinct backgrounds.
+
+### C. Client-Side Toggle Logic
+A micro-script in the `<head>` checks for the `theme` parameter or an existing `localStorage` value. If any value other than 'default' is found, it applies `data-theme="[name]"` to the root element, allowing for per-theme CSS behavior.
 
 ---
 
 ## 4. Maintenance
 
-To update the National design language:
-1.  **Colors/Fonts**: Edit the variables in `src/assets/css/national-theme.css`.
-2.  **Hero Backdrop**: Replace the image file at `src/assets/images/natrc_backdrop.jpg`.
+To update or add a new theme:
+1.  **Define Tokens**: Add a new `:root[data-theme="your-name"]` block in `src/assets/css/national-theme.css`.
+2.  **Structural Changes**: Targeted elements (like `.header-utility-bar`) can be shown or hidden based on the theme attribute.
 3.  **Global Logic**: The core switching logic lives in the script tag within `src/_includes/base.njk`.
