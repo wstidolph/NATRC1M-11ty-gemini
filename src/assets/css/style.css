@@ -331,3 +331,115 @@ a:hover {
     font-size: 1rem;
     margin-top: 15px;
 }
+
+/* Theme Switcher in Footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f1f3f5;
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.theme-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-text-muted);
+    margin-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-options {
+    display: flex;
+    gap: 2px;
+}
+
+.theme-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-option span {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+}
+
+.theme-option input:checked + span {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-option:hover span {
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 40px 0;
+    }
+    
+    .footer-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .theme-switcher {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 10px;
+        background: none;
+        padding: 0;
+        border: none;
+    }
+    
+    .theme-label {
+        margin-left: 0;
+    }
+    
+    .theme-options {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .theme-option span {
+        display: block;
+        padding: 12px;
+        background-color: #f1f3f5;
+        border: 1.5px solid transparent;
+        border-radius: 12px;
+    }
+    
+    .theme-option input:checked + span {
+        border-color: var(--color-primary);
+        background-color: var(--color-surface);
+        color: var(--color-primary);
+    }
+}

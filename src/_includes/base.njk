@@ -21,11 +21,20 @@
         if (themeParam) {
           localStorage.setItem('theme', themeParam);
         }
-        const theme = localStorage.getItem('theme');
-        if (theme && theme !== 'default') {
+        const theme = localStorage.getItem('theme') || 'default';
+        if (theme !== 'default') {
           document.documentElement.setAttribute('data-theme', theme);
         } else {
           document.documentElement.removeAttribute('data-theme');
+        }
+
+        // Update the browser title bar to show the selected theme at the beginning
+        // This makes it easier to compare themes in multiple tabs, e.g., "social NATRC1M"
+        const themePrefix = theme + ' NATRC1M';
+        if (document.title.includes('NATRC Region 1')) {
+          document.title = document.title.replace(/NATRC Region 1/g, themePrefix);
+        } else if (!document.title.includes(themePrefix)) {
+          document.title = themePrefix + ' - ' + document.title;
         }
       })();
     </script>
@@ -74,8 +83,33 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
+      <div class="container footer-container">
+        <div class="footer-left">
+          <p>&copy; {% year %} NATRC Region 1. All rights reserved.</p>
+        </div>
+        <div class="footer-right theme-selection">
+          <form class="theme-switcher">
+            <span class="theme-label">Theme:</span>
+            <div class="theme-options">
+              <label class="theme-option">
+                <input type="radio" name="theme-select" value="default">
+                <span>Default</span>
+              </label>
+              <label class="theme-option">
+                <input type="radio" name="theme-select" value="legacy">
+                <span>Legacy</span>
+              </label>
+              <label class="theme-option">
+                <input type="radio" name="theme-select" value="national">
+                <span>National</span>
+              </label>
+              <label class="theme-option">
+                <input type="radio" name="theme-select" value="social">
+                <span>Social</span>
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     </footer>
     <script>
@@ -88,6 +122,23 @@
             nav.classList.toggle('active');
           });
         }
+
+        // Theme Switcher Logic
+        const themeInputs = document.querySelectorAll('.theme-switcher input[name="theme-select"]');
+        const currentTheme = localStorage.getItem('theme') || 'default';
+
+        themeInputs.forEach(input => {
+          if (input.value === currentTheme) {
+            input.checked = true;
+          }
+          input.addEventListener('change', function() {
+            const newTheme = this.value;
+            localStorage.setItem('theme', newTheme);
+            const url = new URL(window.location.href);
+            url.searchParams.set('theme', newTheme);
+            window.location.href = url.toString();
+          });
+        });
       });
     </script>
   </body>
