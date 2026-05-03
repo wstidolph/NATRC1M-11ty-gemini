@@ -2,6 +2,8 @@
 layout: base.njk
 title: Judge's Corner
 ---
+
+
 <div class="hero">
   <h2>The Judge's Corner</h2>
   <p>Advice, guidelines, and perspective from our experienced NATRC judges.</p>

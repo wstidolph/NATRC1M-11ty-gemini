@@ -3,11 +3,11 @@ layout: base.njk
 title: "Horsemanship Judging Explained"
 ---
 
-<div class="card" style="margin-top: 20px;">
+<div class="card card-article">
 
 
 			
-			<h2 align="center">Horsemanship Judging Explained</h2>
+			
 			<h3 align="center">by Jamie K. Dieterich, 2012</h3>
 			
 <p>Horsemanship is important for helping the horse do his best job. Practicing  horsemanship skills for competitive trail riding is not something that can be done at the last minute.  Just as the horse requires a long program of training and conditioning, so does the rider. Equitation for efficient long-distance riding may be quite different from that used in other events.  Many aspects of horsemanship are based on safety and good sound horse sense.  Most of the following comments have been condensed from the N.A.T.R.C. Rider's Manual, Judge's Manual, Rule Book, and Horsemanship Score Card.</p>

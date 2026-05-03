@@ -3,11 +3,11 @@ layout: base.njk
 title: "Taking Juniors to NATRC Rides"
 ---
 
-<div class="card" style="margin-top: 20px;">
+<div class="card card-article">
 
 
 			
-			<h2>Taking Juniors to NATRC Rides</h2>
+			
 			<h3>by Kay Lieberknecht and Angie Meroshnekoff, both from Region 1</h3>
 			
 <p>So you're interested in introducing juniors to NATRC rides!  Here are some suggestions.</p>

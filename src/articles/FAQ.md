@@ -3,11 +3,12 @@ layout: base.njk
 title: "Frequently Asked Questions"
 ---
 
-<div class="card" style="margin-top: 20px;">
+
+<div class="card card-article">
 
 
 			
-			<h2>Frequently Asked Questions</h2>
+			
 
 			<h3>What is NATRC?</h3>
 			<p>NATRC is NOT a race. It's a timed, judged trail ride - a Competitive Trail Ride or CTR. There are four divisions: Novice, Competitive Pleasure (CP), Open, and Leisure. You can enter a ride at any level you choose, but Novice is where many teams start: Novice is for younger horses, or less experienced riders or horses, or for experienced teams new to the sport. Novice rides are usually in the 15-24 miles per day at 3.5-5 mph.  You can stay in Novice as long as you want to, until you accumulate a certain number of miles or points or awards. CP is designed for the more experienced rider who doesn't want to do the additional distance or speed of Open. In general, CP is timed the same and follows the same trail as Novice, but the judges (see below!) have heightened expectations. Open division is for the more experienced and fit teams - an Open ride will be 50-60 miles in two days at average speeds of 4 - 6 mph.  In addition to completing the distances in good shape, you'll be judged on how you and your horse handle various trail obstacles - downed trees, creek crossing, etc.</p>
@@ -24,7 +25,7 @@ title: "Frequently Asked Questions"
 			<h3>How is Competitive Trail Riding (NATRC) Different from Trail Trials?</h3>
 			<p>First, CTRs are much longer than trail trials, running anywhere from about 20 miles a day for Novice up to 35 miles a day for Open division competitions. Second, in Trail Trials, the important thing is for you and your horse to be able to negotiate obstacles, so all the emphasis is placed on creating challenging situations for you and your horse to address, and you're judged on your performance on those obstacles. In CTR, the ENTIRE TRAIL is the obstacle, so the judges stage themselves at various (unannounced) points along the trail, and you are judged on how you and your horse go down the trail. The points are usually selected using the insight of the ride manager who planned the route, so that the judges are usually found at creek crossings, steep hills, places with trees across the trail, etc.  </p>
 			<h3>Can Kids Participate?</h3>
-			<p>You bet. There is a junior class in all divisions. The article <a href="../Articles/taking_juniors_to_natrc_rides.htm">"Taking Juniors to NATRC Rides"</a> was written by two very experienced NATRC riders who have introduced many juniors to the sport. 
+			<p>You bet. There is a junior class in all divisions. The article <a href="/articles/taking_juniors_to_natrc_rides/">"Taking Juniors to NATRC Rides"</a> was written by two very experienced NATRC riders who have introduced many juniors to the sport. 
 			</p><h3>How Long is a CTR?</h3>
 			<p>Do you mean "long" as in days or distance?  Because for Novice, CP, and Open rides, you're typically required to spend the night before the ride at the venue, so your stabling can be judged - which means you have to get to ride camp the day before the actual ride.  In terms of "long," as in how far you ride, for a one day ride, Novice and CP go 15 - 24 miles at about 3.5 mph. Open division typically goes 25 -35 miles at about 5 mph.  Multiday rides essentially keep the same average speed and average distance per day - but the distances can be divided differently; that is, a 40 mile, two day ride can be set up as 25 miles on Saturday and 15 miles on Sunday, so riders can pack up and head for home (a) before it's dark and (b) while they still might stay awake for the entire drive!</p><p>
 	

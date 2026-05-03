@@ -3,8 +3,9 @@ title: "The First Concord Mt. Diablo Trail Riding Association (CMDTRA) Competiti
 layout: base.njk
 ---
 
-<div class="card" style="margin-bottom: 20px;">
-  <h2 style="color: var(--color-primary-dark); margin-bottom: 15px;">The First CMDTRA Ride - 1941</h2>
+
+<div class="card margin-bottom-20">
+  <h2 class="card-heading">The First CMDTRA Ride - 1941</h2>
   
   <p>In 1941, Ray Walsh and George Smith took part in a competitive trail ride which was held in the Sierra Nevada. It was their first experience with trail riding as a competitive sport, and they were enthusiastic about it. When they learned that no other competitions were planned, they were very disappointed.</p>
   
@@ -31,8 +32,8 @@ layout: base.njk
   <p>In 1942, the Trail Ride was held in late September using the same route, but the entries had increased to thirty riders, from the eighteen of the year before.</p>
 </div>
 
-<div class="card" style="background-color: var(--color-secondary);">
-  <h2 style="color: var(--color-primary-dark); margin-bottom: 10px;">The Story of this Story</h2>
+<div class="card card-secondary">
+  <h2 class="card-heading">The Story of this Story</h2>
   <p>CMDTRA (Concord Mt Diablo Trail Riding Association) sponsors a beautiful ride on the east side of Mt. Diablo every year. Last year was CMDTRA's 50th anniversary and, in honor of the anniversary, the president of the club, Brian Pepper, published a series articles about the club's history in their newsletter. The story on this page is the first installment from that series - and maybe the first installment in Bay Area competitive trail riding! Thanks to Ellen Pouffer for providing this to us.</p>
   <p>And I may have this wrong, but I think Barbecue Terrace is where we had our dinner and awards for this year's (2011) CMDTRA NATRC ride!</p>
 </div>

@@ -2,6 +2,8 @@
 layout: base.njk
 title: Ride Schedule
 ---
+
+
 <div class="hero hero-schedule">
   <h2>Region 1 2025 Ride Schedule</h2>
   <p>Upcoming NATRC rides in Region 1.</p>
@@ -21,7 +23,7 @@ title: Ride Schedule
   </div>
 </div>
 
-<h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--color-primary-dark);">Planned Rides</h3>
+<h3 style="margin-top: 40px;  color: var(--color-primary-dark);" class="margin-bottom-20">Planned Rides</h3>
 
 <div class="content-grid">
   <!-- Convention -->

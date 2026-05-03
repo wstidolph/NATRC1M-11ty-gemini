@@ -3,16 +3,17 @@ layout: base.njk
 title: "Sunny Cowgirls Up at Cowboy Camp"
 ---
 
-<div class="card" style="margin-top: 20px;">
+
+<div class="card card-article">
 
 
 			
-			<h2 style="padding-top:30px">Sunny Cowgirls Up at Cowboy Camp</h2>
+			
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_a.jpg" width="340" height="227" alt="View from the Top of the World" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Sunny &amp; Me on the Trail.  Yes, my bib does hang down &amp; I am always trying to read my map!</figcaption>
+  <p class="centeredImage"><img src="/assets/images/CC_a.jpg" width="340" height="227" alt="View from the Top of the World" class="article-img">
+  </p><figcaption class="figcaption-center">Sunny &amp; Me on the Trail.  Yes, my bib does hang down &amp; I am always trying to read my map!</figcaption>
 </figure>
 
 
@@ -32,7 +33,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <li>Calero Park, visit #2 - 78 degrees</li>
 <li>Mt Madonna, in the hills above Gilroy, visit #1 - 72 degrees</li>
 <li>Mt Madonna, visit #2 - 78 degrees</li>
-<li>Mt Madonna, visit #3 - 76 degrees</li>
+<li>t Madonna, visit #3 - 76 degrees</li>
 <li>Bonny Doon. I'm whinging to my friend Judy about not being able to find heat to train in. She says, "Come on up to our place - it's 93 degrees today!"  I throw Sunny in the trailer the next morning and drive to Bonny Doon.  It's 65 degrees. We rode for 13 miles and never took our sweaters off.</li>
 </ul>
 
@@ -45,7 +46,7 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 
 <p>It's a pretty long haul to Cowboy Camp and it was going to be hot, so I split the trip into two days.  We left on Thursday afternoon and spent the night in Marybeth's back yard, then continued on to Cowboy Camp on Friday AM.  We got there about 1:30 PM.  My friend Laura, whom some of you know, had been up the previous weekend, marking the trails.  She told me to park with my trailer tack room (the side I like to tie Sunny on) facing the road, which would make it shady in the afternoon. This was great advice,  since people with truck thermometers were reporting temps between 105 degrees and 110 degrees!  The temp on the next day, when we were to ride, was supposed to fall by 10 degrees, so it would only be . . . 100 degrees.  Ah, only 100 degrees. Now I feel better.</p>
 
-<p style="text-style:italic">Note to self:  I parked on the perimeter of ride camp, and Sunny was tied on the side of my trailer that did NOT face the rest of the camp.  I had parked at a slight angle, so Sunny couldn't see Laura's horse, Tango, and she couldn't see any other horses who were in the interior of the camp.  She survived, but she was definitely more on edge than she had to be. I think it would have been easier on her if I'd made sure she could see, as well as hear, other horses. </p>
+<p class="text-italic">Note to self:  I parked on the perimeter of ride camp, and Sunny was tied on the side of my trailer that did NOT face the rest of the camp.  I had parked at a slight angle, so Sunny couldn't see Laura's horse, Tango, and she couldn't see any other horses who were in the interior of the camp.  She survived, but she was definitely more on edge than she had to be. I think it would have been easier on her if I'd made sure she could see, as well as hear, other horses. </p>
 
 <p>Laura and Tango and Sunny and I roused ourselves to walk out to the river next to camp, about a half mile. Sunny enjoyed the drink, but Tango loved just being *in* the water: he got belly deep and madly thrashed with his front legs - water went everywhere. We were all refreshed by Tango's efforts, so we returned to camp, where we wilted again.</p>
 
@@ -62,8 +63,8 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The trail out was a skinny path through star thistle, which Sunny tip-toed through, followed by really tall grass - like tall enough so that I couldn't see anywhere but straight ahead.  I was surprised that it didn't seem to bother any of the horses at all.  After about a half mile, we came to a creek that we had to cross. All our horses stopped for a drink - smart ponies - and after we crossed we hit the trail system that we'd be on for the rest of the ride. The ride was on jeep trails, for the most part, so you could ride comfortably side by side, but you didn't feel like you were riding your horse on a freeway, and the surface was very nice.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_b.jpg" width="340" height="453" alt="Starting the Ride, with Tango Leading the Way" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" starting="" the="" ride,="" with="" tango="" leading="" way<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_b.jpg" width="340" height="453" alt="Starting the Ride, with Tango Leading the Way" class="article-img">
+  </p><figcaption starting="" the="" ride,="" with="" tango="" leading="" way<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <p>Almost immediately, we headed up hill.  I think that climb went on for almost six miles, with just a couple of significant descents.  When we started uphill, it was still cool, and there was even a breeze at some points.  As usual this season, Tango was on a mission, so he led up the hill.  I made Sunny stick with Tango, and we tried to get some distance on Carli and Jody, so they could have their own ride, but, again, Hot Shot and Cayley weren't buying it, so after a few failed efforts, we just settled in together. Fortunately, Jody and Carli are beautifully mannered adolescents, and didn't seem to mind riding with us.</p>
@@ -71,16 +72,16 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>The trail wound up and up and up, with several "local maximums," that provided great views, and the vistas widened every time we reached a higher point.  It was getting warmer and the trail was a pretty steady climb, with some seriously steep pitches in it, so we stopped to take in all the views and let the horses have a few minutes to huff and puff, which they were all doing.  And Sunny was sweating like a pig, much more than the other horses, so I was a little worried - although she had much more of a winter coat than they did, too.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_c.jpg" width="340" height="255" alt="One of our Huff 'n Puff Stops" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" one="" of="" our="" huff="" 'n="" puff="" stops<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_c.jpg" width="340" height="255" alt="One of our Huff 'n Puff Stops" class="article-img">
+  </p><figcaption one="" of="" our="" huff="" 'n="" puff="" stops<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <h3>The First P &amp; R</h3>
 <p>At about the six mile point, coming up a steep pitch of the hill, we saw Carol, the horsemanship judge, perched by the left side of the trail, and the photographer to the right side.  Sunny was leading at that point, so she got nervous, but she couldn't decide which person to spook from, so she just marched straight up the hill. Whew!  Since the horsemanship judge and the vet and the P &amp; R (pulse and respiration ) crews all travel together, we weren't surprised when there was a P &amp; R/vet check at the top of the hill, about 100 yards from the photographer.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_d.jpg" width="340" height="227" alt="The View Entering the P &amp; R" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" the="" view="" entering="" p="" &="" r<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_d.jpg" width="340" height="227" alt="The View Entering the P &amp; R" class="article-img">
+  </p><figcaption the="" view="" entering="" p="" &="" r<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <p>At the P &amp; Rs, you're given a time as you enter, then you wait 10 minutes, and then a volunteer checks your horse's pulse and respiration rates - measuring the horse's recovery rate under stress (the hill).  The pulse and breath rate are both measured for 15 seconds - so you have to multiply by 4 to get the heartbeats per minute or the breaths per minute.  Anyhow, the typical NATRC rule is "16's a go, 17's a hold" - so if either pulse rate or breath rate is over 64 per minute, they won't let your horse go on, at least immediately.  (There's a process for continuing, but it doesn't figure in this story, so I'm going to ignore it.)</p>
@@ -96,48 +97,48 @@ title: "Sunny Cowgirls Up at Cowboy Camp"
 <p>After that, it was just three miles or so to lunch, where there was hay and water for the horses and whatever we'd sent out for ourselves. I'd filled my cooler with carrots and sweet feed, so Sunny had her choice of food.  We got 45 minutes for lunch, so we pulled their saddles and ate our lunches with the horses.  The only excitement was when Tango realized that Laura still had a horse cookie in her saddle bag, along with her water bottles and he decided to go after the cookie.  The 45 minutes went by really quickly, but we managed, as a group, to leave on time.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_e.jpg" width="340" height="453" alt="Tango Looking for Cookies" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" tango="" looking="" for="" cookies<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_e.jpg" width="340" height="453" alt="Tango Looking for Cookies" class="article-img">
+  </p><figcaption tango="" looking="" for="" cookies<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <p>Directly out of lunch, we had to do this long climb up through a canyon - it was the hottest it had been all day, and it was a couple mile climb.  We finally made it to the top and started descending.  Pretty soon we could see horses hanging out ahead of us, then we could see that they were gathered around a pond.  Well, Tango *flew* to the pond and marched in.  Then he marched in deeper. Then he dropped and started to roll - all this with Laura on his back!  Laura convinced him not to go all the way over, but, in the meantime, he'd been an example to all the other horses and they were *all* cavorting in the pond - wandering around in it and splashing away.  We spend probably 15 minutes at the pond getting good and cooled off, but then we had to take off.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_f.jpg" width="340" height="255" alt="Tango Leading the Way - Into the Pond" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" tango="" leading="" the="" way="" -="" into="" pond<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_f.jpg" width="340" height="255" alt="Tango Leading the Way - Into the Pond" class="article-img">
+  </p><figcaption tango="" leading="" the="" way="" -="" into="" pond<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <figure>
-  <p class="centeredImage"><img src="../images/CC_g.jpg" width="340" height="255" alt="Everyone Gets into the Act">
-  </p><figcaption style="text-align:center" everyone="" gets="" into="" the="" act<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_g.jpg" width="340" height="255" alt="Everyone Gets into the Act" class="article-img">
+  </p><figcaption everyone="" gets="" into="" the="" act<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <h3>The End of the Line</h3>
 <p>The next P &amp; R was at about 14 or 15 miles, I think, and we had to trot the last maybe quarter mile into it, but Sunny pulsed down really quickly again.  After we passed the P &amp; R check, we had to walk our horses, in hand, to the vet for him to check them out. When he completed his exam, he said, "You have 15 seconds to get on this horse and get out of here.  Go!"  It was pretty unexpected: NATRC things are usually very deliberate, but I trotted over to a log, Sunny stepped up to it, and I hopped on. We must have made it okay because it didn't show up as a deduction on our vet card.   We then proceeded to the Carol, the horsemanship judge.  She had us walk through a little obstacle course made of downed logs - over this one, around that one, over another one between two ribbons, stop here . . . - then we were free to take off on the last leg of the ride.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_h.jpg" width="340" height="255" alt="Jody and Hotshot Negotiate the Obstacle" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" jody="" and="" hotshot="" negotiate="" the="" obstacle<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_h.jpg" width="340" height="255" alt="Jody and Hotshot Negotiate the Obstacle" class="article-img">
+  </p><figcaption jody="" and="" hotshot="" negotiate="" the="" obstacle<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_i.jpg" width="340" height="255" alt="Carli Gets Instructions from the Horsemanship Judge" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" carli="" gets="" instructions="" from="" the="" horsemanship="" judge<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_i.jpg" width="340" height="255" alt="Carli Gets Instructions from the Horsemanship Judge" class="article-img">
+  </p><figcaption carli="" gets="" instructions="" from="" the="" horsemanship="" judge<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 
 
 <p>Sunny and I were first through the vet/horsemanship check, so we waited for the others. When we were all gathered, off we went.  It was mostly a descent, so the next two miles went really quickly - and we arrived at the Two Mile Point.  In NATRC rides, you have to have "forward motion" from the Two Mile Point to the end of the ride. The reason for this is that the judges *could* decide to have a P &amp; R check right at the finish.  If some teams got just short of the end, then stopped for ten minutes and let their horses rest, then walked over the finish line, but other teams didn't stop at all, it wouldn't be a fair comparison of the horses' fitness.</p>
 
-<p style="text-style=italic">Note:  It seems like I'm spending a lot of time explaining NATRC rules in this post. Sorry!   On this particular rule, I can almost hear someone saying, "But you shouldn't be penalized for setting your horse up to win; the riders who stopped and rested were just thinking ahead."  I think the issue with that line of thinking is that the metabolic measurements are counted toward the *horse's* score, not the rider's - so it might be true that the rider should get credit for good management, but it wouldn't allow for consistent evaluations of the horses.</p>
+<p class="text-italic">Note:  It seems like I'm spending a lot of time explaining NATRC rules in this post. Sorry!   On this particular rule, I can almost hear someone saying, "But you shouldn't be penalized for setting your horse up to win; the riders who stopped and rested were just thinking ahead."  I think the issue with that line of thinking is that the metabolic measurements are counted toward the *horse's* score, not the rider's - so it might be true that the rider should get credit for good management, but it wouldn't allow for consistent evaluations of the horses.</p>
 
 <p>Anyhow, we had gotten ahead of the minimum time and, in NATRC, you are penalized for every minute you come in *before* the minimum time and for every minute you come in *after the minimum plus 30 minutes* - they are a lot more worried about "Yee Haw!" riders than they are about slowpokes like Sunny and me.  (And I know - yet another rule explained!)  Sooo, we joined a pretty large group killing time, waiting until they'd be able to do a comfortable pace and make it to the finish somewhere between the minimum time and minimum time plus 30 minutes.</p>
 
 <p>The Two Mile Point was at the bottom of a hill, and we had to cross a dry creek bed to continue. (I haven't mentioned it, but we must have crossed 15 dry stream beds - this would have been a wet ride if it had been in the Spring!)  The creek bed was full of just-slightly-larger-than-base-rock rocks and a couple of horses immediately picked up stones in their hooves, including Tango. You're supposed to carry a hoof pick on these rides, Laura was, and she was able to remove the stone immediately. The other horse had a *huge* rock wedged between his shoe and his frog and his rider couldn't get it out, and she was really prying, enough to be moving the shoe.  Finally, Kay Leibernecht, who is a NATRC mainstay (she's written a few articles for the Region 1 website, including a great one on how to introduce juniors to NATRC) and a farrier, got off her horse and gave it a try.  She said that she's learned that, in some cases, the right approach is to apply a lot of force really quickly, instead of the slow pry.  Kay positioned the hoof pick and really jumped on it and out popped the rock. Another lesson learned.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/CC_j.jpg" width="320" height="240" alt="The Last Mile" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center" the="" last="" mile<="" figcaption="">
+  <p class="centeredImage"><img src="/assets/images/CC_j.jpg" width="320" height="240" alt="The Last Mile" class="article-img">
+  </p><figcaption the="" last="" mile<="" figcaption="" class="figcaption-center">
 </figcaption></figure>
 
 <p>Finally, we took off, thinking that we had waited plenty long. What we didn't take into account was that the horses knew where camp was and that we were close - they all took off like they were late for their coffee break.  Jody and Hot Shot ended up saving us:  we put them in front and told Jody to show us how slow a Quarterhorse could go, and she was able to get Hot Shot to maintain a stately 1.7 mph pace.  None of the other horses were happy about staying behind Hot Shot, but we were able to keep their noses aligned with each other's butts and adhere to Hot Shot's superb example.  We finally got to the creek we had to cross on the way out and the horses stopped for a looooonnnnng drink of water and some splashing around and we were able to just walk in the rest of the way.</p>

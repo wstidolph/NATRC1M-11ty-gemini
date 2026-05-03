@@ -3,16 +3,16 @@ layout: base.njk
 title: "Sunny Opens Up at Mt Diablo!"
 ---
 
-<div class="card" style="margin-top: 20px;">
+<div class="card card-article">
 
 
 			
-			<h2 style="padding-top:30px">Sunny Opens Up at Mt Diablo!</h2>
+			
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_a.jpg" width="350" height="263" alt="Sunny and Me" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Sunny and Me</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_a.jpg" width="350" height="263" alt="Sunny and Me" class="article-img">
+  </p><figcaption class="figcaption-center">Sunny and Me</figcaption>
 </figure>
 
 <p>Well, it's been awhile, but the Competitive Trail Riding (CTR) season has officially started here in Nor Cal:  the CMDTRA NATRC ride was run on Saturday, 7 May at Mt Diablo.   This ride's roots are tangled up in the birth of NATRC, back in the 1960's, when a few people got excited and staged a competitive ride from Concord to Mt Diablo, then decided it was so much fun they'd do it again. And again, and again - giving birth to the Concord-Mt Diablo Trail Riding Association:  CMDTRA.  Anyhow, the CMDTRA ride is always the season-opener here, although the route is now all on Mt Diablo.</p>
@@ -22,8 +22,8 @@ title: "Sunny Opens Up at Mt Diablo!"
 <p>Our first setback was that Tango and Laura, our usual riding partners, were doing Competitive Pleasure.  Tango hadn't gotten out as much as he needed to this Spring, so we were on our own, or as much as you can be on a NATRC ride.  Dang!  But we pulled up our socks and went anyway.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_b.jpg" width="300" height="225" alt="Lara and Tango" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Laura and Tango</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_b.jpg" width="300" height="225" alt="Lara and Tango" class="article-img">
+  </p><figcaption class="figcaption-center">Laura and Tango</figcaption>
 </figure>
 
 
@@ -55,24 +55,24 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_c.jpg" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Vicki Boicelli and Her Guy. Handsome, eh?</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_c.jpg" width="350" height="263" alt="Vicki Boicelli and Her Guy. Handsome, eh?" class="article-img">
+  </p><figcaption class="figcaption-center">Vicki Boicelli and Her Guy. Handsome, eh?</figcaption>
 </figure>
 
 <p>After that, there were only 4 Open riders left:  Angie, Karlie, Eric and me.  The other three had planned to ride together.  Angie has ridden Open for many years and has won about 10 National-level championships, I think.  Eric is a friend of hers, and Karlie is a student of hers (Angie teaches equitation in Willets, up by Jackson Forest, and I was Karlie's sponsor on the Jackson Forest ride last year, since we were both Novices then).  Anyhow, I asked if I could tag along. They said okay, and we stuck with them like glue for the entire ride.</p>
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_d.jpg" width="300" height="225" alt="Karlie and Caeli" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Karlie and Caeli - We Followed Them Slavishly</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_d.jpg" width="300" height="225" alt="Karlie and Caeli" class="article-img">
+  </p><figcaption class="figcaption-center">Karlie and Caeli - We Followed Them Slavishly</figcaption>
 </figure>
 
 <p>I hope you've gotten your money's worth of reading by this time because the rest of the ride is a blur. We had to do 27 miles, I think, at at average of 3.7 mph.  It sounds easy, but in NATRC, you are discouraged from trotting uphill and you just plain can't trot downhill, and we were riding on Mt Diablo, where the longest stretch of flat ground in the first 22 miles was about 200 yards (we trotted it, of course).  In addition, it's NATRC manners to wait for everyone at all the obstacles, P&amp;Rs, etc and since there were four of us, the first person had to wait for the other three- so the first person through essentially has to take the last person's time, so Angie was losing a couple of minutes at every stop, and you only have a 30 minute window to finish.  As a result, there was no time for taking photos or talking or breathing or much of anything.</p>
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_e.jpg" width="300" height="225" alt="Angie and Beau" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Angie and Beau, Our Models and Nemeses for the Rest of our CTR Career</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_e.jpg" width="300" height="225" alt="Angie and Beau" class="article-img">
+  </p><figcaption class="figcaption-center">Angie and Beau, Our Models and Nemeses for the Rest of our CTR Career</figcaption>
 </figure>
 
 <p>Although I can't cite specifics, the ride was beautiful - you ride around and up and down the skirts of Mt Diablo, so you get huge vistas of the delta, the sparsely populated areas between Walnut Creek and the Santa Clara Valley, and of Santa Clara Valley itself.  The flowers were out and gorgeous, as well.  At the ride meeting, we were warned, as we were last year, about baby pigs and rattle snakes.  However, as last year, all we ran into were aggressive butterflies at the stream crossings.</p>
@@ -81,22 +81,22 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_f.jpg" width="300" height="225" alt="The Juniors" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">The Juniors</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_f.jpg" width="300" height="225" alt="The Juniors" class="article-img">
+  </p><figcaption class="figcaption-center">The Juniors</figcaption>
 </figure>
 
 <p>Our first real break was at lunch, which is in a pasture at a beautiful ranch.  Ride management had brought hay out, but there was plenty of grass for grazing, too. We had a 45 minute break, so we could pull tack and sit down for a few minutes.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_g.jpg" width="300" height="225" alt="Lunch" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">Lunch</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_g.jpg" width="300" height="225" alt="Lunch" class="article-img">
+  </p><figcaption class="figcaption-center">Lunch</figcaption>
 </figure>
 
 <p>And after that, it's a blank again, until the last about four miles.  At that point, the trail sort of flattened out and we went for it.  We were either cantering or doing an extended trot for the entire thing, except where we had to cross two streams, and for the last quarter mile into camp.  I have to say it was exhilarating and Sunny seemed to like it, too.  She got a little excited when we were cantering and somehow got into the lead, but she responded to my shut-down and we let the rest of the group pass and took up our Regular Station at the back, where she settled down.</p>
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_h.jpg" width="300" height="225" alt="The Mule" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">The Mule</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_h.jpg" width="300" height="225" alt="The Mule" class="article-img">
+  </p><figcaption class="figcaption-center">The Mule</figcaption>
 </figure>
 
 <p>Did I say that there is usually a mule or two competing? This team won Competitive Pleasure.</p>
@@ -107,8 +107,8 @@ title: "Sunny Opens Up at Mt Diablo!"
 
 
 <figure>
-  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_i.jpg" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" style="max-width: 100%; height: auto;">
-  </p><figcaption style="text-align:center">How to Trot Out Your Horse: the Faster the Better!</figcaption>
+  <p class="centeredImage"><img src="/assets/images/MtDiablo2012_i.jpg" width="300" height="225" alt="How to Trot Out Your Horse: the faster the better!" class="article-img">
+  </p><figcaption class="figcaption-center">How to Trot Out Your Horse: the Faster the Better!</figcaption>
 </figure>
 
 <p>We ended up coming in second in Lightweight Open; less impressive if you know that there was a total of two in the class, Angie &amp; Reinbeau and Sunny &amp; me - so you could also say that we came in last.  I suspect that's going to be the story of the rest of our NATRC career, but coming in second to Angie is nothing to be ashamed of.  We're just lucky Karlie is still competing as a junior!</p>
